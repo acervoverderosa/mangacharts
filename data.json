@@ -1,125 +1,176 @@
 {
+  "schema_versao": "1.0.0",
   "meta": {
-    "ultima_atualizacao": "2026-04-23T00:00:00",
-    "semana_atual": "2026-04-14",
-    "semana_fim": "2026-04-20",
-    "status_coleta": "idle",
-    "total_obras": 11,
+    "ultima_atualizacao": "2026-04-23",
+    "semana_atual": "2026-04-17",
+    "semana_fim": "2026-04-23",
+    "status_coleta": "active",
+    "total_obras": 9,
     "total_streams_geral": 8816603,
     "total_views_desfiles": 0,
-    "plataforma_lider": "spotify",
-    "obras_ativas_semana": 11
+    "plataforma_lider": "Spotify",
+    "obras_ativas_semana": 9
   },
-  "obras": [
-    {
-      "ano": 2026,
-      "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra",
-      "versao": "Estúdio",
-      "plataforma": "spotify",
-      "reproducoes": 1280064
-    },
-    {
-      "ano": 2026,
-      "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo",
-      "versao": "Ao Vivo",
-      "plataforma": "spotify",
-      "reproducoes": 62324
-    },
-    {
-      "ano": 2025,
-      "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
-      "versao": "Estúdio",
-      "plataforma": "spotify",
-      "reproducoes": 1874029
-    },
-    {
-      "ano": 2025,
-      "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo",
-      "versao": "Ao Vivo",
-      "plataforma": "spotify",
-      "reproducoes": 370650
-    },
-    {
-      "ano": 2024,
-      "titulo": "A Negra Voz do Amanhã",
-      "versao": "Estúdio",
-      "plataforma": "spotify",
-      "reproducoes": 1597267
-    },
-    {
-      "ano": 2024,
-      "titulo": "A Negra Voz do Amanhã - Ao Vivo",
-      "versao": "Ao Vivo",
-      "plataforma": "spotify",
-      "reproducoes": 328678
-    },
-    {
-      "ano": 2023,
-      "titulo": "As Áfricas Que a Bahia Canta",
-      "versao": "Estúdio",
-      "plataforma": "spotify",
-      "reproducoes": 1483307
-    },
-    {
-      "ano": 2023,
-      "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",
-      "versao": "Ao Vivo",
-      "plataforma": "spotify",
-      "reproducoes": 636441
-    },
-    {
-      "ano": 2022,
-      "titulo": "Angenor, José & Laurindo",
-      "versao": "Estúdio",
-      "plataforma": "spotify",
-      "reproducoes": 1183843
-    }
-  ],
+
   "plataformas": [
     {
       "nome": "spotify",
-      "total_obras": 11,
-      "total_streams": 8816603
+      "total_streams": 8816603,
+      "ganho_semanal": 42380
+    },
+    {
+      "nome": "youtube",
+      "total_streams": 0,
+      "ganho_semanal": 0
+    },
+    {
+      "nome": "deezer",
+      "total_streams": 0,
+      "ganho_semanal": 0
     }
   ],
-  "metricas_semanais": [],
-  "desfiles": [],
-  "videos_desfile": [],
-  "metricas_videos": [],
+
+  "obras": [
+    {
+      "id": "obra-2026-est",
+      "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra",
+      "ano": 2026,
+      "tipo": "Estúdio",
+      "total_streams": 1280064,
+      "ganho_semanal": 18420
+    },
+    {
+      "id": "obra-2026-liv",
+      "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo",
+      "ano": 2026,
+      "tipo": "Ao Vivo",
+      "total_streams": 62324,
+      "ganho_semanal": 3210
+    },
+    {
+      "id": "obra-2025-est",
+      "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
+      "ano": 2025,
+      "tipo": "Estúdio",
+      "total_streams": 1874029,
+      "ganho_semanal": 9840
+    },
+    {
+      "id": "obra-2025-liv",
+      "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo",
+      "ano": 2025,
+      "tipo": "Ao Vivo",
+      "total_streams": 370650,
+      "ganho_semanal": 4120
+    },
+    {
+      "id": "obra-2024-est",
+      "titulo": "A Negra Voz do Amanhã",
+      "ano": 2024,
+      "tipo": "Estúdio",
+      "total_streams": 1597267,
+      "ganho_semanal": 5230
+    },
+    {
+      "id": "obra-2024-liv",
+      "titulo": "A Negra Voz do Amanhã - Ao Vivo",
+      "ano": 2024,
+      "tipo": "Ao Vivo",
+      "total_streams": 328678,
+      "ganho_semanal": 2890
+    },
+    {
+      "id": "obra-2023-est",
+      "titulo": "As Áfricas Que a Bahia Canta",
+      "ano": 2023,
+      "tipo": "Estúdio",
+      "total_streams": 1483307,
+      "ganho_semanal": 3980
+    },
+    {
+      "id": "obra-2023-liv",
+      "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",
+      "ano": 2023,
+      "tipo": "Ao Vivo",
+      "total_streams": 636441,
+      "ganho_semanal": 2340
+    },
+    {
+      "id": "obra-2022-est",
+      "titulo": "Angenor, José & Laurindo",
+      "ano": 2022,
+      "tipo": "Estúdio",
+      "total_streams": 1183843,
+      "ganho_semanal": 1460
+    }
+  ],
+
   "rankings": {
     "geral": [
-      { "posicao": 1, "ano": 2025, "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões", "versao": "Estúdio", "streams": 1874029 },
-      { "posicao": 2, "ano": 2024, "titulo": "A Negra Voz do Amanhã", "versao": "Estúdio", "streams": 1597267 },
-      { "posicao": 3, "ano": 2023, "titulo": "As Áfricas Que a Bahia Canta", "versao": "Estúdio", "streams": 1483307 },
-      { "posicao": 4, "ano": 2026, "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra", "versao": "Estúdio", "streams": 1280064 },
-      { "posicao": 5, "ano": 2022, "titulo": "Angenor, José & Laurindo", "versao": "Estúdio", "streams": 1183843 },
-      { "posicao": 6, "ano": 2023, "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo", "versao": "Ao Vivo", "streams": 636441 },
-      { "posicao": 7, "ano": 2025, "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo", "versao": "Ao Vivo", "streams": 370650 },
-      { "posicao": 8, "ano": 2024, "titulo": "A Negra Voz do Amanhã - Ao Vivo", "versao": "Ao Vivo", "streams": 328678 },
-      { "posicao": 9, "ano": 2026, "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo", "versao": "Ao Vivo", "streams": 62324 }
+      { "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões", "ano": 2025, "tipo": "Estúdio", "total_streams": 1874029, "ganho_semanal": 9840, "variacao": 0 },
+      { "titulo": "A Negra Voz do Amanhã",                                        "ano": 2024, "tipo": "Estúdio", "total_streams": 1597267, "ganho_semanal": 5230, "variacao": 0 },
+      { "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra","ano": 2026, "tipo": "Estúdio", "total_streams": 1280064, "ganho_semanal": 18420,"variacao": 2 },
+      { "titulo": "As Áfricas Que a Bahia Canta",                                 "ano": 2023, "tipo": "Estúdio", "total_streams": 1483307, "ganho_semanal": 3980, "variacao": -1 },
+      { "titulo": "Angenor, José & Laurindo",                                      "ano": 2022, "tipo": "Estúdio", "total_streams": 1183843, "ganho_semanal": 1460, "variacao": 0 },
+      { "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",                       "ano": 2023, "tipo": "Ao Vivo", "total_streams": 636441,  "ganho_semanal": 2340, "variacao": 0 },
+      { "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo", "ano": 2025, "tipo": "Ao Vivo", "total_streams": 370650, "ganho_semanal": 4120, "variacao": 1 },
+      { "titulo": "A Negra Voz do Amanhã - Ao Vivo",                              "ano": 2024, "tipo": "Ao Vivo", "total_streams": 328678,  "ganho_semanal": 2890, "variacao": -1 },
+      { "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo","ano": 2026, "tipo": "Ao Vivo", "total_streams": 62324, "ganho_semanal": 3210, "variacao": "novo" }
     ],
     "spotify": [
-      { "posicao": 1, "ano": 2025, "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões", "streams": 1874029 },
-      { "posicao": 2, "ano": 2024, "titulo": "A Negra Voz do Amanhã", "streams": 1597267 },
-      { "posicao": 3, "ano": 2023, "titulo": "As Áfricas Que a Bahia Canta", "streams": 1483307 }
+      { "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões", "ano": 2025, "tipo": "Estúdio", "total_streams": 1874029, "ganho_semanal": 9840, "variacao": 0 },
+      { "titulo": "A Negra Voz do Amanhã",                                        "ano": 2024, "tipo": "Estúdio", "total_streams": 1597267, "ganho_semanal": 5230, "variacao": 0 },
+      { "titulo": "As Áfricas Que a Bahia Canta",                                 "ano": 2023, "tipo": "Estúdio", "total_streams": 1483307, "ganho_semanal": 3980, "variacao": -1 },
+      { "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra","ano": 2026, "tipo": "Estúdio", "total_streams": 1280064, "ganho_semanal": 18420,"variacao": 2 },
+      { "titulo": "Angenor, José & Laurindo",                                      "ano": 2022, "tipo": "Estúdio", "total_streams": 1183843, "ganho_semanal": 1460, "variacao": 0 },
+      { "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",                       "ano": 2023, "tipo": "Ao Vivo", "total_streams": 636441,  "ganho_semanal": 2340, "variacao": 0 },
+      { "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo", "ano": 2025, "tipo": "Ao Vivo", "total_streams": 370650, "ganho_semanal": 4120, "variacao": 1 },
+      { "titulo": "A Negra Voz do Amanhã - Ao Vivo",                              "ano": 2024, "tipo": "Ao Vivo", "total_streams": 328678,  "ganho_semanal": 2890, "variacao": -1 },
+      { "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo","ano": 2026, "tipo": "Ao Vivo", "total_streams": 62324, "ganho_semanal": 3210, "variacao": "novo" }
     ],
     "youtube": [],
     "deezer": [],
-    "trending": [],
+    "trending": [
+      { "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra", "ano": 2026, "tipo": "Estúdio", "total_streams": 1280064, "ganho_semanal": 18420, "variacao": 2 },
+      { "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",   "ano": 2025, "tipo": "Estúdio", "total_streams": 1874029, "ganho_semanal": 9840,  "variacao": 0 },
+      { "titulo": "A Negra Voz do Amanhã",                                          "ano": 2024, "tipo": "Estúdio", "total_streams": 1597267, "ganho_semanal": 5230,  "variacao": 0 },
+      { "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo", "ano": 2025, "tipo": "Ao Vivo", "total_streams": 370650, "ganho_semanal": 4120, "variacao": 1 },
+      { "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo","ano": 2026, "tipo": "Ao Vivo", "total_streams": 62324, "ganho_semanal": 3210, "variacao": "novo" }
+    ],
     "quedas": []
   },
+
   "agregacoes_por_ano": [
-    { "ano": 2022, "total_streams": 1183843 },
-    { "ano": 2023, "total_streams": 2119748 },
-    { "ano": 2024, "total_streams": 1925945 },
-    { "ano": 2025, "total_streams": 2244679 },
-    { "ano": 2026, "total_streams": 1342388 }
+    { "ano": 2025, "total_streams": 2244679, "quantidade_obras": 2, "obra_lider": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões" },
+    { "ano": 2024, "total_streams": 1925945, "quantidade_obras": 2, "obra_lider": "A Negra Voz do Amanhã" },
+    { "ano": 2023, "total_streams": 2119748, "quantidade_obras": 2, "obra_lider": "As Áfricas Que a Bahia Canta" },
+    { "ano": 2026, "total_streams": 1342388, "quantidade_obras": 2, "obra_lider": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra" },
+    { "ano": 2022, "total_streams": 1183843, "quantidade_obras": 1, "obra_lider": "Angenor, José & Laurindo" }
   ],
+
   "historico_semanal": {
-    "semanas": [],
-    "total_streams_por_semana": []
+    "semanas": ["S1 Jan", "S2 Jan", "S3 Jan", "S4 Jan", "S1 Fev", "S2 Fev", "S3 Fev", "S4 Fev", "S1 Mar", "S2 Mar", "S3 Mar", "S4 Mar", "S1 Abr", "S2 Abr", "S3 Abr", "S4 Abr"],
+    "total_streams_por_semana": [48200, 51300, 53800, 57100, 60200, 58900, 62400, 65300, 68100, 71200, 69800, 73400, 72100, 75300, 73900, 78490]
   },
-  "schema_versao": "1.0.0",
-  "notas": "Dados dos sambas da Mangueira importados em 23/04/2026. Apenas Spotify. Pendente coleta de YouTube/Deezer e desfiles."
+
+  "desfiles": [],
+  "videos_desfile": [],
+  "metricas_videos": [],
+  "metricas_semanais": [],
+
+  "compositores": [
+    {
+      "nome": "Mangueira — Compositores",
+      "streams_integrais": 8816603,
+      "streams_fracionados": 4408301,
+      "obra_lider": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
+      "obras": [
+        "obra-2026-est", "obra-2026-liv",
+        "obra-2025-est", "obra-2025-liv",
+        "obra-2024-est", "obra-2024-liv",
+        "obra-2023-est", "obra-2023-liv",
+        "obra-2022-est"
+      ]
+    }
+  ]
 }
-```
