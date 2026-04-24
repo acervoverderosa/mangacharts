@@ -5,8 +5,8 @@
     "semana_atual": "2026-04-17",
     "semana_fim": "2026-04-23",
     "status_coleta": "active",
-    "total_obras": 23,
-    "total_streams_geral": 19348199,
+    "total_obras": 33,
+    "total_streams_geral": 32705460,
     "total_views_desfiles": 0,
     "plataforma_lider": "Spotify",
     "obras_ativas_semana": 9,
@@ -16,7 +16,7 @@
   "plataformas": [
     {
       "nome": "spotify",
-      "total_streams": 19348199,
+      "total_streams": 32705460,
       "ganho_semanal": 42380
     },
     {
@@ -214,15 +214,111 @@
       "tipo": "Estúdio",
       "total_streams": 2200432,
       "ganho_semanal": 0
+    },
+    {
+      "id": "obra-2016-sp-extra",
+      "titulo": "Maria Bethânia, A Menina Dos Olhos De Oyá",
+      "ano": 2016,
+      "tipo": "Estúdio",
+      "total_streams": 2809780,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "obra-2017-sp-extra",
+      "titulo": "Só Com A Ajuda Do Santo",
+      "ano": 2017,
+      "tipo": "Estúdio",
+      "total_streams": 1972231,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "obra-2012-sp-extra",
+      "titulo": "Vou Festejar! Sou Cacique, Sou Mangueira",
+      "ano": 2012,
+      "tipo": "Estúdio",
+      "total_streams": 842243,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "obra-2018-sp-extra",
+      "titulo": "Com Dinheiro Ou Sem Dinheiro...",
+      "ano": 2018,
+      "tipo": "Estúdio",
+      "total_streams": 806353,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "obra-2011-sp-extra",
+      "titulo": "O Filho Fiel, Sempre Mangueira",
+      "ano": 2011,
+      "tipo": "Estúdio",
+      "total_streams": 321299,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "obra-2013-sp-extra",
+      "titulo": "Cuiabá: Um Paraíso No Centro Da América!",
+      "ano": 2013,
+      "tipo": "Estúdio",
+      "total_streams": 175267,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "obra-2019-sp-extra",
+      "titulo": "História Para Ninar Gente Grande",
+      "ano": 2019,
+      "tipo": "Estúdio",
+      "total_streams": 4739585,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "obra-1984-sp-extra",
+      "titulo": "Yes, Nós Temos Braguinha",
+      "ano": 1984,
+      "tipo": "Estúdio",
+      "total_streams": 13669,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "obra-1985-sp-extra",
+      "titulo": "Abram Alas Que Eu Quero Passar",
+      "ano": 1985,
+      "tipo": "Estúdio",
+      "total_streams": 30925,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "obra-1994-sp-jamelao",
+      "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu (Jamelão)",
+      "ano": 1994,
+      "tipo": "Estúdio",
+      "total_streams": 1645909,
+      "ganho_semanal": 0
     }
   ],
   "rankings": {
     "geral": [
       {
+        "titulo": "História Para Ninar Gente Grande",
+        "ano": 2019,
+        "tipo": "Estúdio",
+        "total_streams": 4739585,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
         "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu",
         "ano": 1994,
         "tipo": "Estúdio",
         "total_streams": 3433397,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
+        "titulo": "Maria Bethânia, A Menina Dos Olhos De Oyá",
+        "ano": 2016,
+        "tipo": "Estúdio",
+        "total_streams": 2809780,
         "ganho_semanal": 0,
         "variacao": 0
       },
@@ -235,11 +331,27 @@
         "variacao": 0
       },
       {
+        "titulo": "Só Com A Ajuda Do Santo",
+        "ano": 2017,
+        "tipo": "Estúdio",
+        "total_streams": 1972231,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
         "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
         "ano": 2025,
         "tipo": "Estúdio",
         "total_streams": 1874029,
         "ganho_semanal": 9840,
+        "variacao": 0
+      },
+      {
+        "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu (Jamelão)",
+        "ano": 1994,
+        "tipo": "Estúdio",
+        "total_streams": 1645909,
+        "ganho_semanal": 0,
         "variacao": 0
       },
       {
@@ -291,6 +403,22 @@
         "variacao": 0
       },
       {
+        "titulo": "Vou Festejar! Sou Cacique, Sou Mangueira",
+        "ano": 2012,
+        "tipo": "Estúdio",
+        "total_streams": 842243,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
+        "titulo": "Com Dinheiro Ou Sem Dinheiro...",
+        "ano": 2018,
+        "tipo": "Estúdio",
+        "total_streams": 806353,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
         "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",
         "ano": 2023,
         "tipo": "Ao Vivo",
@@ -331,6 +459,14 @@
         "variacao": -1
       },
       {
+        "titulo": "O Filho Fiel, Sempre Mangueira",
+        "ano": 2011,
+        "tipo": "Estúdio",
+        "total_streams": 321299,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
         "titulo": "O Reino Das Palavras",
         "ano": 1987,
         "tipo": "Estúdio",
@@ -359,6 +495,14 @@
         "ano": 2003,
         "tipo": "Estúdio",
         "total_streams": 178571,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
+        "titulo": "Cuiabá: Um Paraíso No Centro Da América!",
+        "ano": 2013,
+        "tipo": "Estúdio",
+        "total_streams": 175267,
         "ganho_semanal": 0,
         "variacao": 0
       },
@@ -401,14 +545,46 @@
         "total_streams": 62324,
         "ganho_semanal": 3210,
         "variacao": "novo"
+      },
+      {
+        "titulo": "Abram Alas Que Eu Quero Passar",
+        "ano": 1985,
+        "tipo": "Estúdio",
+        "total_streams": 30925,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
+        "titulo": "Yes, Nós Temos Braguinha",
+        "ano": 1984,
+        "tipo": "Estúdio",
+        "total_streams": 13669,
+        "ganho_semanal": 0,
+        "variacao": 0
       }
     ],
     "spotify": [
       {
+        "titulo": "História Para Ninar Gente Grande",
+        "ano": 2019,
+        "tipo": "Estúdio",
+        "total_streams": 4739585,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
         "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu",
         "ano": 1994,
         "tipo": "Estúdio",
         "total_streams": 3433397,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
+        "titulo": "Maria Bethânia, A Menina Dos Olhos De Oyá",
+        "ano": 2016,
+        "tipo": "Estúdio",
+        "total_streams": 2809780,
         "ganho_semanal": 0,
         "variacao": 0
       },
@@ -421,11 +597,27 @@
         "variacao": 0
       },
       {
+        "titulo": "Só Com A Ajuda Do Santo",
+        "ano": 2017,
+        "tipo": "Estúdio",
+        "total_streams": 1972231,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
         "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
         "ano": 2025,
         "tipo": "Estúdio",
         "total_streams": 1874029,
         "ganho_semanal": 9840,
+        "variacao": 0
+      },
+      {
+        "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu (Jamelão)",
+        "ano": 1994,
+        "tipo": "Estúdio",
+        "total_streams": 1645909,
+        "ganho_semanal": 0,
         "variacao": 0
       },
       {
@@ -477,6 +669,22 @@
         "variacao": 0
       },
       {
+        "titulo": "Vou Festejar! Sou Cacique, Sou Mangueira",
+        "ano": 2012,
+        "tipo": "Estúdio",
+        "total_streams": 842243,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
+        "titulo": "Com Dinheiro Ou Sem Dinheiro...",
+        "ano": 2018,
+        "tipo": "Estúdio",
+        "total_streams": 806353,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
         "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",
         "ano": 2023,
         "tipo": "Ao Vivo",
@@ -517,6 +725,14 @@
         "variacao": -1
       },
       {
+        "titulo": "O Filho Fiel, Sempre Mangueira",
+        "ano": 2011,
+        "tipo": "Estúdio",
+        "total_streams": 321299,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
         "titulo": "O Reino Das Palavras",
         "ano": 1987,
         "tipo": "Estúdio",
@@ -545,6 +761,14 @@
         "ano": 2003,
         "tipo": "Estúdio",
         "total_streams": 178571,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
+        "titulo": "Cuiabá: Um Paraíso No Centro Da América!",
+        "ano": 2013,
+        "tipo": "Estúdio",
+        "total_streams": 175267,
         "ganho_semanal": 0,
         "variacao": 0
       },
@@ -587,6 +811,22 @@
         "total_streams": 62324,
         "ganho_semanal": 3210,
         "variacao": "novo"
+      },
+      {
+        "titulo": "Abram Alas Que Eu Quero Passar",
+        "ano": 1985,
+        "tipo": "Estúdio",
+        "total_streams": 30925,
+        "ganho_semanal": 0,
+        "variacao": 0
+      },
+      {
+        "titulo": "Yes, Nós Temos Braguinha",
+        "ano": 1984,
+        "tipo": "Estúdio",
+        "total_streams": 13669,
+        "ganho_semanal": 0,
+        "variacao": 0
       }
     ],
     "youtube": [],
@@ -680,31 +920,35 @@
     },
     {
       "ano": 2019,
-      "total_streams": 0,
+      "total_streams": 4739585,
       "total_views": 6372110,
-      "quantidade_obras": 4,
-      "obra_lider": "Clipe Oficial Mangueira 2019"
+      "quantidade_obras": 5,
+      "obra_lider": "História Para Ninar Gente Grande",
+      "enredo": "História Para Ninar Gente Grande"
     },
     {
       "ano": 2018,
-      "total_streams": 0,
+      "total_streams": 806353,
       "total_views": 1106940,
-      "quantidade_obras": 3,
-      "obra_lider": "Clipe Oficial do Samba da Estação Primeira de Mangueira para o Carnaval 2018"
+      "quantidade_obras": 4,
+      "obra_lider": "Com Dinheiro Ou Sem Dinheiro...",
+      "enredo": "Com Dinheiro Ou Sem Dinheiro..."
     },
     {
       "ano": 2017,
-      "total_streams": 0,
+      "total_streams": 1972231,
       "total_views": 885022,
-      "quantidade_obras": 4,
-      "obra_lider": "Mangueira 2017 Letra e Samba"
+      "quantidade_obras": 5,
+      "obra_lider": "Só Com A Ajuda Do Santo",
+      "enredo": "Só Com A Ajuda Do Santo"
     },
     {
       "ano": 2016,
-      "total_streams": 0,
+      "total_streams": 2809780,
       "total_views": 5861543,
-      "quantidade_obras": 3,
-      "obra_lider": "G.R.E.S.E.P. De Mangueira - Maria Bethânia, A Menina Dos Olhos De Oyá"
+      "quantidade_obras": 4,
+      "obra_lider": "Maria Bethânia, A Menina Dos Olhos De Oyá",
+      "enredo": "Maria Bethânia, A Menina Dos Olhos De Oyá"
     },
     {
       "ano": 2015,
@@ -722,24 +966,27 @@
     },
     {
       "ano": 2013,
-      "total_streams": 0,
+      "total_streams": 175267,
       "total_views": 103430,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 2013 8/12 - Cuiabá: um Paraíso no Centro da América"
+      "quantidade_obras": 3,
+      "obra_lider": "Cuiabá: Um Paraíso No Centro Da América!",
+      "enredo": "Cuiabá: Um Paraíso No Centro Da América!"
     },
     {
       "ano": 2012,
-      "total_streams": 0,
+      "total_streams": 842243,
       "total_views": 493062,
-      "quantidade_obras": 4,
-      "obra_lider": "Mangueira 2012 7/13 - Vou festejar! Sou Cacique, sou Mangueira"
+      "quantidade_obras": 5,
+      "obra_lider": "Vou Festejar! Sou Cacique, Sou Mangueira",
+      "enredo": "Vou Festejar! Sou Cacique, Sou Mangueira"
     },
     {
       "ano": 2011,
-      "total_streams": 0,
+      "total_streams": 321299,
       "total_views": 602069,
-      "quantidade_obras": 4,
-      "obra_lider": "Mangueira 2011 3/9 - O Filho Fiel, Sempre Mangueira"
+      "quantidade_obras": 5,
+      "obra_lider": "O Filho Fiel, Sempre Mangueira",
+      "enredo": "O Filho Fiel, Sempre Mangueira"
     },
     {
       "ano": 2010,
@@ -802,9 +1049,9 @@
     },
     {
       "ano": 2002,
-      "total_streams": 1476868,
+      "total_streams": 2953736,
       "total_views": 2763364,
-      "quantidade_obras": 3,
+      "quantidade_obras": 4,
       "obra_lider": "Brazil Com Z É Pra Cabra Da Peste, Brasil Com S É A Nação Do Nordeste",
       "enredo": "Brazil Com Z É Pra Cabra Da Peste, Brasil Com S É A Nação Do Nordeste"
     },
@@ -864,9 +1111,9 @@
     },
     {
       "ano": 1994,
-      "total_streams": 3433397,
+      "total_streams": 6725215,
       "total_views": 5182122,
-      "quantidade_obras": 4,
+      "quantidade_obras": 6,
       "obra_lider": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu",
       "enredo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu"
     },
@@ -932,17 +1179,19 @@
     },
     {
       "ano": 1985,
-      "total_streams": 0,
+      "total_streams": 30925,
       "total_views": 360693,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1985 9/16 - Abram alas, que eu quero passar"
+      "quantidade_obras": 3,
+      "obra_lider": "Abram Alas Que Eu Quero Passar",
+      "enredo": "Abram Alas Que Eu Quero Passar"
     },
     {
       "ano": 1984,
-      "total_streams": 0,
+      "total_streams": 13669,
       "total_views": 288901,
-      "quantidade_obras": 3,
-      "obra_lider": "Mangueira 1984 1/14 - Yes, nós temos Braguinha"
+      "quantidade_obras": 4,
+      "obra_lider": "Yes, Nós Temos Braguinha",
+      "enredo": "Yes, Nós Temos Braguinha"
     }
   ],
   "historico_semanal": {
@@ -1850,13 +2099,15 @@
       "ano": 2019,
       "total_views": 6372110,
       "quantidade_videos": 4,
-      "video_lider": "Clipe Oficial Mangueira 2019"
+      "video_lider": "Clipe Oficial Mangueira 2019",
+      "enredo": "História Para Ninar Gente Grande"
     },
     {
       "ano": 2016,
       "total_views": 5861543,
       "quantidade_videos": 3,
-      "video_lider": "G.R.E.S.E.P. De Mangueira - Maria Bethânia, A Menina Dos Olhos De Oyá"
+      "video_lider": "G.R.E.S.E.P. De Mangueira - Maria Bethânia, A Menina Dos Olhos De Oyá",
+      "enredo": "Maria Bethânia, A Menina Dos Olhos De Oyá"
     },
     {
       "ano": 1994,
@@ -1896,13 +2147,15 @@
       "ano": 2018,
       "total_views": 1106940,
       "quantidade_videos": 3,
-      "video_lider": "Clipe Oficial do Samba da Estação Primeira de Mangueira para o Carnaval 2018"
+      "video_lider": "Clipe Oficial do Samba da Estação Primeira de Mangueira para o Carnaval 2018",
+      "enredo": "Com Dinheiro Ou Sem Dinheiro..."
     },
     {
       "ano": 2017,
       "total_views": 885022,
       "quantidade_videos": 4,
-      "video_lider": "Mangueira 2017 Letra e Samba"
+      "video_lider": "Mangueira 2017 Letra e Samba",
+      "enredo": "Só Com A Ajuda Do Santo"
     },
     {
       "ano": 2014,
@@ -1928,13 +2181,15 @@
       "ano": 2011,
       "total_views": 602069,
       "quantidade_videos": 4,
-      "video_lider": "Mangueira 2011 3/9 - O Filho Fiel, Sempre Mangueira"
+      "video_lider": "Mangueira 2011 3/9 - O Filho Fiel, Sempre Mangueira",
+      "enredo": "O Filho Fiel, Sempre Mangueira"
     },
     {
       "ano": 2012,
       "total_views": 493062,
       "quantidade_videos": 4,
-      "video_lider": "Mangueira 2012 7/13 - Vou festejar! Sou Cacique, sou Mangueira"
+      "video_lider": "Mangueira 2012 7/13 - Vou festejar! Sou Cacique, sou Mangueira",
+      "enredo": "Vou Festejar! Sou Cacique, Sou Mangueira"
     },
     {
       "ano": 1993,
@@ -1952,7 +2207,8 @@
       "ano": 1985,
       "total_views": 360693,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1985 9/16 - Abram alas, que eu quero passar"
+      "video_lider": "Mangueira 1985 9/16 - Abram alas, que eu quero passar",
+      "enredo": "Abram Alas Que Eu Quero Passar"
     },
     {
       "ano": 2009,
@@ -1971,7 +2227,8 @@
       "ano": 1984,
       "total_views": 288901,
       "quantidade_videos": 3,
-      "video_lider": "Mangueira 1984 1/14 - Yes, nós temos Braguinha"
+      "video_lider": "Mangueira 1984 1/14 - Yes, nós temos Braguinha",
+      "enredo": "Yes, Nós Temos Braguinha"
     },
     {
       "ano": 2007,
@@ -2041,7 +2298,8 @@
       "ano": 2013,
       "total_views": 103430,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 2013 8/12 - Cuiabá: um Paraíso no Centro da América"
+      "video_lider": "Mangueira 2013 8/12 - Cuiabá: um Paraíso no Centro da América",
+      "enredo": "Cuiabá: Um Paraíso No Centro Da América!"
     },
     {
       "ano": 2004,
