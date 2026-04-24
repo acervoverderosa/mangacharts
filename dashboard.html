@@ -1118,10 +1118,6 @@ nav a svg { flex-shrink: 0; }
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
       Desfiles
     </a>
-    <a href="#" onclick="navigate('compositores',this)">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
-      Compositores
-    </a>
     <a href="#" onclick="navigate('sobre',this)">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       Sobre
@@ -1160,9 +1156,9 @@ nav a svg { flex-shrink: 0; }
   </div>
   <div class="topbar-right">
     <div class="semana-nav">
-      <button onclick="prevWeek()">&#8249;</button>
-      <span id="semana-display">Sem. 20 abr 2026</span>
-      <button onclick="nextWeek()">&#8250;</button>
+      <button onclick="prevWeek()" id="btn-prev-week" disabled style="opacity:0.35;cursor:not-allowed;">&#8249;</button>
+      <span id="semana-display">Sem. 20 abr. de 2026</span>
+      <button onclick="nextWeek()" id="btn-next-week" disabled style="opacity:0.35;cursor:not-allowed;">&#8250;</button>
     </div>
     <div class="topbar-update" id="topbar-update">—</div>
     <div class="status-dot">
@@ -1249,11 +1245,15 @@ nav a svg { flex-shrink: 0; }
         </div>
         <div class="panel stagger-item" style="animation-delay:0.36s">
           <div class="panel-header">
-            <span class="panel-title">Evolução semanal</span>
-            <span class="panel-tag">últimas 12 semanas</span>
+            <span class="panel-title">🏆 Top 5 Desfiles Mais Vistos</span>
+            <span class="panel-tag">YouTube · acumulado</span>
           </div>
-          <div class="chart-wrap">
-            <canvas id="chart-evolucao"></canvas>
+          <div id="top5-desfiles-content">
+            <div class="empty-state" style="padding:30px 10px">
+              <div class="empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+              <div class="empty-title">Sem desfiles cadastrados</div>
+              <div class="empty-desc">Os desfiles e visualizações<br>aparecerão aqui após o cadastro.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1328,6 +1328,38 @@ nav a svg { flex-shrink: 0; }
     <div class="main-footer"><p>uma criação · <strong>acervo verde e rosa</strong></p></div>
   </div>
 
+  <!-- ─── MODAL ANO DETALHE ─── -->
+  <div id="modal-ano-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:300;overflow-y:auto;padding:24px 16px;" onclick="fecharModalAno(event)">
+    <div id="modal-ano-box" style="max-width:800px;margin:0 auto;background:var(--panel-bg);border-radius:14px;border:1px solid var(--cinza-borda);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);" onclick="event.stopPropagation()">
+      <div id="modal-ano-header" style="padding:20px 24px;border-bottom:1px solid var(--cinza-borda);display:flex;align-items:center;justify-content:space-between;background:var(--verde-escuro);">
+        <div>
+          <div id="modal-ano-titulo" style="font-family:var(--font-titulo);font-weight:700;font-size:22px;color:#fff;"></div>
+          <div id="modal-ano-subtitulo" style="font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,0.55);margin-top:3px;"></div>
+        </div>
+        <button onclick="fecharModalAno()" style="background:rgba(255,255,255,0.12);border:none;border-radius:8px;width:34px;height:34px;color:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div id="modal-ano-stats" style="display:flex;gap:0;border-bottom:1px solid var(--cinza-borda);"></div>
+      <div id="modal-ano-body" style="padding:0;"></div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL OBRA DETALHE ─── -->
+  <div id="modal-obra-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:400;overflow-y:auto;padding:24px 16px;" onclick="fecharModalObra(event)">
+    <div id="modal-obra-box" style="max-width:680px;margin:0 auto;background:var(--panel-bg);border-radius:14px;border:1px solid var(--cinza-borda);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.35);" onclick="event.stopPropagation()">
+      <div id="modal-obra-header" style="padding:20px 24px;border-bottom:1px solid var(--cinza-borda);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--verde-escuro),var(--verde-medio));">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div id="modal-obra-thumb" style="width:52px;height:52px;border-radius:8px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-titulo);font-weight:700;font-size:22px;color:#fff;flex-shrink:0;"></div>
+          <div>
+            <div id="modal-obra-titulo" style="font-family:var(--font-titulo);font-weight:700;font-size:18px;color:#fff;"></div>
+            <div id="modal-obra-meta" style="font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,0.6);margin-top:4px;"></div>
+          </div>
+        </div>
+        <button onclick="fecharModalObra()" style="background:rgba(255,255,255,0.12);border:none;border-radius:8px;width:34px;height:34px;color:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div id="modal-obra-body" style="padding:20px 24px;"></div>
+    </div>
+  </div>
+
   <!-- ─── DESFILES ─── -->
   <div class="page" id="page-desfiles">
     <div class="stat-bar">
@@ -1347,36 +1379,7 @@ nav a svg { flex-shrink: 0; }
     <div class="main-footer"><p>uma criação · <strong>acervo verde e rosa</strong></p></div>
   </div>
 
-  <!-- ─── COMPOSITORES ─── -->
-  <div class="page" id="page-compositores">
-    <div class="stat-bar">
-      <div class="stat-item"><span class="stat-item-val" id="comp-count">0</span><span class="stat-item-label">compositores</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat-item"><span class="stat-item-val" id="comp-obras-total">0</span><span class="stat-item-label">obras atribuídas</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat-item"><span class="stat-item-val" id="comp-streams-total">—</span><span class="stat-item-label">streams integrais totais</span></div>
-    </div>
 
-    <div class="comp-table-wrap">
-      <div class="full-panel-header">
-        <span class="panel-title">Ranking de Compositores</span>
-        <div class="comp-metric-toggle">
-          <span style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);margin-right:4px;">métrica:</span>
-          <button class="comp-toggle-btn active" onclick="setCompMetric('integral',this)">Integral</button>
-          <button class="comp-toggle-btn" onclick="setCompMetric('fracionado',this)">Fracionado</button>
-        </div>
-      </div>
-      <div id="comp-table-container">
-        <div class="empty-state" style="padding:56px 20px">
-          <div class="empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
-          <div class="empty-title">Nenhum compositor cadastrado</div>
-          <div class="empty-desc">Os compositores aparecerão aqui<br>após o vínculo com as obras.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="main-footer"><p>uma criação · <strong>acervo verde e rosa</strong></p></div>
-  </div>
 
   <!-- ─── SOBRE ─── -->
   <div class="page" id="page-sobre">
@@ -1429,7 +1432,6 @@ nav a svg { flex-shrink: 0; }
 <script>
 // ─── ESTADO ───────────────────────────────────────────────────────────────────
 let DATA = null;
-let compMetric = 'integral';
 let currentRanking = 'geral';
 let loadStart = performance.now();
 
@@ -1440,7 +1442,6 @@ const pageTitles = {
   rankings: 'Rankings',
   anos: 'Anos',
   desfiles: 'Desfiles',
-  compositores: 'Compositores',
   sobre: 'Sobre'
 };
 
@@ -1470,8 +1471,6 @@ async function loadData() {
   populateUI();
   initCharts();
   renderRankTable(currentRanking);
-  renderCompTable();
-
   // Oculta loading
   const ov = document.getElementById('loading-overlay');
   ov.classList.add('hidden');
@@ -1556,16 +1555,11 @@ function populateUI() {
   el('sobre-atualizacao').textContent  = upd;
   el('sobre-schema').textContent       = DATA.schema_versao || '—';
 
-  // Compositores stats
-  const comps = DATA.compositores || [];
-  el('comp-count').textContent         = comps.length;
-  const totalObrasComp = comps.reduce((s, c) => s + (c.obras ? c.obras.length : 0), 0);
-  el('comp-obras-total').textContent   = totalObrasComp;
-  const totalStreamsComp = comps.reduce((s, c) => s + (c.streams_integrais || 0), 0);
-  el('comp-streams-total').textContent = fmtNum(totalStreamsComp);
-
   // Top 10
   renderTop10();
+
+  // Top 5 Desfiles
+  renderTop5Desfiles();
 }
 
 function el(id) { return document.getElementById(id); }
@@ -1631,7 +1625,8 @@ function renderTop10() {
   let html = `<table class="rank-table"><thead><tr><th style="width:36px">#</th><th style="width:40px">Var.</th><th>Obra</th><th class="right" style="width:90px">Streams</th></tr></thead><tbody>`;
   data.forEach((obra, i) => {
     const pos = i + 1;
-    html += `<tr>
+    const tituloEsc = (obra.titulo || '').replace(/'/g,"\\'");
+    html += `<tr onclick="abrirModalObra('${tituloEsc}')">
       <td><span class="rank-pos${pos<=3?' top':''}">${pos}</span></td>
       <td>${renderDelta(obra.variacao)}</td>
       <td><div class="obra-cell">
@@ -1652,21 +1647,261 @@ function renderTop10() {
   container.innerHTML = html;
 }
 
-// ─── ANOS GRID ────────────────────────────────────────────────────────────────
+// ─── ANOS RANKING ─────────────────────────────────────────────────────────────
 function renderAnosGrid(anos) {
   const container = el('anos-grid-container');
   if (!anos || anos.length === 0) return;
 
-  const html = `<div class="anos-grid">${anos.map(a => `
-    <div class="ano-card stagger-item">
-      <div class="ano-num">${a.ano}</div>
-      <div class="ano-streams">${fmtNum(a.total_streams)}</div>
-      <div class="ano-obras-count">${a.quantidade_obras || 0} obras</div>
-      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--cinza-suave);">
-        <div style="font-family:var(--font-corpo);font-size:10px;color:var(--cinza-neutro);font-style:italic;">${a.obra_lider || '—'}</div>
-      </div>
-    </div>`).join('')}</div>`;
+  // Ordenar por total_streams desc
+  const sorted = anos.slice().sort((a, b) => (b.total_streams || 0) - (a.total_streams || 0));
+  const maxS = Math.max(...sorted.map(a => a.total_streams || 0));
+
+  let html = `<div class="full-panel">
+    <div class="full-panel-header">
+      <span class="panel-title">Ranking por Ano — Total de Streams</span>
+      <span class="panel-tag">${sorted.length} anos cadastrados</span>
+    </div>
+    <div class="full-panel-body">
+      <table class="rank-table-full"><thead><tr>
+        <th style="width:42px">#</th>
+        <th>Ano</th>
+        <th class="right" style="width:150px">Total streams</th>
+        <th class="right" style="width:100px">Obras</th>
+        <th style="width:200px">Obra líder</th>
+      </tr></thead><tbody>`;
+
+  sorted.forEach((a, i) => {
+    const pct = maxS > 0 ? ((a.total_streams / maxS) * 100).toFixed(1) : 0;
+    html += `<tr onclick="abrirModalAno('${a.ano}')" style="cursor:pointer;">
+      <td><span class="rank-pos${i < 3 ? ' top' : ''}">${i + 1}</span></td>
+      <td>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--verde-escuro),var(--verde-medio));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-family:var(--font-titulo);font-weight:700;font-size:12px;color:rgba(255,255,255,0.9);">${a.ano}</span>
+          </div>
+          <div>
+            <div style="font-family:var(--font-titulo);font-weight:700;font-size:15px;color:var(--verde-mais-escuro);">${a.ano}</div>
+            <div class="progress-bar-wrap" style="max-width:180px;margin-top:6px;"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+          </div>
+        </div>
+      </td>
+      <td class="streams-cell"><div class="streams-total">${fmtNum(a.total_streams || 0)}</div></td>
+      <td class="streams-cell"><div class="streams-ganho">${a.quantidade_obras || 0}</div></td>
+      <td><div style="font-family:var(--font-corpo);font-size:11.5px;color:var(--cinza-neutro);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px;">${a.obra_lider || '—'}</div></td>
+    </tr>`;
+  });
+
+  html += '</tbody></table></div></div>';
   container.innerHTML = html;
+}
+
+// ─── MODAL ANO ────────────────────────────────────────────────────────────────
+function abrirModalAno(ano) {
+  if (!DATA) return;
+  const anoData = (DATA.agregacoes_por_ano || []).find(a => String(a.ano) === String(ano));
+  if (!anoData) return;
+
+  // Filtrar obras desse ano
+  const obras = (DATA.obras || []).filter(o => String(o.ano) === String(ano));
+  // Pegar do ranking geral as obras desse ano
+  const obrasRanking = (DATA.rankings && DATA.rankings.geral)
+    ? DATA.rankings.geral.filter(o => String(o.ano) === String(ano))
+    : obras.map(o => ({ titulo: o.titulo, total_streams: o.total_streams || 0, ganho_semanal: o.ganho_semanal || 0 }));
+
+  el('modal-ano-titulo').textContent = `Ano ${ano}`;
+  el('modal-ano-subtitulo').textContent = `${anoData.quantidade_obras || obras.length || 0} obras · clique em uma obra para ver detalhes`;
+
+  // Stats bar
+  el('modal-ano-stats').innerHTML = `
+    <div style="flex:1;padding:14px 20px;border-right:1px solid var(--cinza-borda);">
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${fmtNum(anoData.total_streams || 0)}</div>
+      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">streams totais</div>
+    </div>
+    <div style="flex:1;padding:14px 20px;border-right:1px solid var(--cinza-borda);">
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${anoData.quantidade_obras || obras.length || 0}</div>
+      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">obras cadastradas</div>
+    </div>
+    <div style="flex:1;padding:14px 20px;">
+      <div style="font-family:var(--font-titulo);font-weight:600;font-size:13px;color:var(--verde-escuro);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${anoData.obra_lider || '—'}</div>
+      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">obra líder</div>
+    </div>`;
+
+  // Tabela de obras
+  let bodyHtml = '';
+  if (obrasRanking.length === 0) {
+    bodyHtml = `<div class="empty-state" style="padding:40px 20px">
+      <div class="empty-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <div class="empty-title">Nenhuma obra registrada em ${ano}</div>
+      <div class="empty-desc">As obras aparecerão aqui após o cadastro.</div>
+    </div>`;
+  } else {
+    const maxS2 = Math.max(...obrasRanking.map(o => o.total_streams || 0));
+    bodyHtml = `<table class="rank-table-full"><thead><tr>
+      <th style="width:42px">#</th>
+      <th>Obra</th>
+      <th class="right" style="width:130px">Streams</th>
+      <th class="right" style="width:110px">Ganho sem.</th>
+    </tr></thead><tbody>`;
+    obrasRanking.forEach((obra, i) => {
+      bodyHtml += `<tr onclick="abrirModalObra(${JSON.stringify(obra.titulo || '').replace(/"/g, '&quot;')})" style="cursor:pointer;">
+        <td><span class="rank-pos${i < 3 ? ' top' : ''}">${i + 1}</span></td>
+        <td><div class="obra-cell">
+          <div class="obra-thumb-placeholder"><span>${(obra.titulo || '?')[0]}</span></div>
+          <div class="obra-info">
+            <div class="obra-titulo">${obra.titulo || '—'}</div>
+            <div class="obra-ano">${ano}</div>
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${maxS2 > 0 ? ((obra.total_streams / maxS2) * 100).toFixed(1) : 0}%"></div></div>
+          </div>
+        </div></td>
+        <td class="streams-cell"><div class="streams-total">${fmtNum(obra.total_streams || 0)}</div></td>
+        <td class="streams-cell"><div class="streams-ganho" style="color:${(obra.ganho_semanal || 0) > 0 ? 'var(--verde-medio)' : 'var(--cinza-neutro)'}">
+          ${(obra.ganho_semanal || 0) >= 0 ? '+' : ''}${fmtNum(obra.ganho_semanal || 0)}
+        </div></td>
+      </tr>`;
+    });
+    bodyHtml += '</tbody></table>';
+  }
+  el('modal-ano-body').innerHTML = bodyHtml;
+  el('modal-ano-overlay').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharModalAno(e) {
+  if (e && e.target !== el('modal-ano-overlay') && !e.target.closest('button[onclick="fecharModalAno()"]')) return;
+  el('modal-ano-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// ─── MODAL OBRA ────────────────────────────────────────────────────────────────
+function abrirModalObra(titulo) {
+  if (!DATA) return;
+
+  // Buscar obra em rankings e dados
+  const obraRank = (DATA.rankings && DATA.rankings.geral)
+    ? DATA.rankings.geral.find(o => (o.titulo || '') === titulo) : null;
+  const obraData = (DATA.obras || []).find(o => (o.titulo || '') === titulo);
+  const obra = obraRank || obraData || { titulo };
+
+  // Per-platform streams
+  const platKeys = [
+    { key: 'spotify', name: 'Spotify', cor: '#1DB954' },
+    { key: 'youtube', name: 'YouTube', cor: '#FF0000' },
+    { key: 'deezer',  name: 'Deezer',  cor: '#A238FF' },
+  ];
+  const platStreams = {};
+  platKeys.forEach(p => {
+    const found = (DATA.rankings && DATA.rankings[p.key])
+      ? DATA.rankings[p.key].find(o => (o.titulo || '') === titulo) : null;
+    platStreams[p.key] = found ? (found.total_streams || 0) : 0;
+  });
+
+  // Videos/streams vinculados
+  const videos = (DATA.metricas_videos || []).filter(v =>
+    String(v.obra_id || v.titulo || '') === String(obra.id || obra.titulo || titulo)
+  );
+  const videosDesfile = (DATA.videos_desfile || []).filter(v =>
+    String(v.obra_titulo || v.titulo || '') === titulo
+  );
+
+  // Semana atual
+  const semanaAtual = (() => {
+    if (DATA.historico_semanal && DATA.historico_semanal.semanas && DATA.historico_semanal.semanas.length > 0) {
+      return DATA.historico_semanal.semanas[DATA.historico_semanal.semanas.length - 1];
+    }
+    return semanaLabel(0);
+  })();
+
+  el('modal-obra-thumb').textContent = (titulo || '?')[0];
+  el('modal-obra-titulo').textContent = titulo || '—';
+  el('modal-obra-meta').textContent = `${obra.ano || '—'} · ${obra.tipo || obra.compositor || '—'}`;
+
+  const agora = new Date();
+  const ultimaAtt = DATA.meta && DATA.meta.ultima_atualizacao ? new Date(DATA.meta.ultima_atualizacao) : null;
+  const novaSemanaBadge = ultimaAtt && (agora - ultimaAtt > 6 * 24 * 60 * 60 * 1000)
+    ? `<span style="display:inline-block;background:rgba(246,168,0,0.15);color:var(--laranja);font-family:var(--font-mono);font-size:9px;padding:2px 7px;border-radius:4px;margin-left:8px;">✦ nova semana detectada</span>` : '';
+
+  const maxPlat = Math.max(...platKeys.map(p => platStreams[p.key]), 1);
+
+  let bodyHtml = `
+    <!-- Stats da obra -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--cinza-borda);border-radius:8px;overflow:hidden;margin-bottom:18px;">
+      <div style="padding:14px 16px;border-right:1px solid var(--cinza-borda);">
+        <div style="font-family:var(--font-mono);font-size:20px;color:var(--verde-escuro);">${fmtNum(obra.total_streams || 0)}</div>
+        <div style="font-family:var(--font-corpo);font-size:10px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">streams totais</div>
+      </div>
+      <div style="padding:14px 16px;border-right:1px solid var(--cinza-borda);">
+        <div style="font-family:var(--font-mono);font-size:20px;color:${(obra.ganho_semanal || 0) > 0 ? 'var(--verde-medio)' : 'var(--cinza-neutro)'};">
+          ${(obra.ganho_semanal || 0) >= 0 ? '+' : ''}${fmtNum(obra.ganho_semanal || 0)}
+        </div>
+        <div style="font-family:var(--font-corpo);font-size:10px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">ganho esta semana</div>
+      </div>
+      <div style="padding:14px 16px;">
+        <div style="font-family:var(--font-titulo);font-weight:700;font-size:13px;color:var(--verde-escuro);">${renderDelta(obra.variacao || 0)}</div>
+        <div style="font-family:var(--font-corpo);font-size:10px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">variação no ranking</div>
+      </div>
+    </div>
+
+    <!-- Breakdown por plataforma -->
+    <div style="margin-bottom:18px;">
+      <div style="font-family:var(--font-titulo);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--verde-escuro);border-bottom:2px solid var(--verde-escuro);display:inline-block;padding-bottom:5px;margin-bottom:12px;">
+        Streams por Plataforma
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        ${platKeys.map(p => {
+          const val = platStreams[p.key];
+          const pct = maxPlat > 0 ? ((val / maxPlat) * 100).toFixed(1) : 0;
+          return `<div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:70px;font-family:var(--font-titulo);font-weight:600;font-size:11px;color:${p.cor};">${p.name}</div>
+            <div style="flex:1;height:7px;background:var(--cinza-suave);border-radius:4px;overflow:hidden;">
+              <div style="height:100%;background:${p.cor};border-radius:4px;width:${pct}%;transition:width 0.7s ease;"></div>
+            </div>
+            <div style="font-family:var(--font-mono);font-size:11.5px;color:var(--cinza-texto);min-width:54px;text-align:right;">${fmtNum(val)}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+
+  // Todos os vídeos/streams
+  const todosVideos = [...videos, ...videosDesfile];
+  bodyHtml += `<div>
+    <div style="font-family:var(--font-titulo);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--verde-escuro);border-bottom:2px solid var(--verde-escuro);display:inline-block;padding-bottom:5px;margin-bottom:12px;">
+      Vídeos / Streams Registrados
+    </div>`;
+
+  if (todosVideos.length === 0) {
+    bodyHtml += `<div style="background:var(--fundo-alt);border-radius:8px;border:1px solid var(--cinza-borda);padding:18px;text-align:center;">
+      <div style="font-family:var(--font-corpo);font-size:12px;color:var(--cinza-neutro);font-style:italic;">
+        Nenhum vídeo ou stream individual vinculado a esta faixa ainda.
+      </div>
+    </div>`;
+  } else {
+    bodyHtml += `<div style="display:flex;flex-direction:column;gap:8px;">`;
+    todosVideos.forEach(v => {
+      const plat = (v.plataforma || v.platform || '').toLowerCase();
+      const cor = plat.includes('youtube') ? '#FF0000' : plat.includes('spotify') ? '#1DB954' : '#A238FF';
+      const nomePlat = plat.includes('youtube') ? 'YouTube' : plat.includes('spotify') ? 'Spotify' : plat || 'Link';
+      bodyHtml += `<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--fundo-alt);border-radius:8px;border:1px solid var(--cinza-borda);">
+        <div style="width:8px;height:8px;border-radius:50%;background:${cor};flex-shrink:0;"></div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-family:var(--font-titulo);font-weight:600;font-size:12px;color:var(--cinza-texto);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${v.titulo || v.nome || v.url || 'Sem título'}</div>
+          <div style="font-family:var(--font-mono);font-size:9.5px;color:var(--cinza-neutro);margin-top:2px;">${nomePlat} · ${fmtNum(v.views || v.streams || v.total || 0)} views/streams</div>
+        </div>
+        ${v.url ? `<a href="${v.url}" target="_blank" style="font-family:var(--font-mono);font-size:9px;color:var(--verde-medio);text-decoration:none;border:1px solid var(--verde-medio);padding:3px 7px;border-radius:4px;flex-shrink:0;">↗ ver</a>` : ''}
+      </div>`;
+    });
+    bodyHtml += '</div>';
+  }
+  bodyHtml += '</div>';
+
+  el('modal-obra-body').innerHTML = bodyHtml;
+  el('modal-obra-overlay').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharModalObra(e) {
+  if (e && e.target !== el('modal-obra-overlay') && !e.target.closest('button[onclick="fecharModalObra()"]')) return;
+  el('modal-obra-overlay').style.display = 'none';
+  document.body.style.overflow = '';
 }
 
 // ─── DESFILES GRID ────────────────────────────────────────────────────────────
@@ -1720,7 +1955,8 @@ function renderRankTable(type) {
 
   data.forEach((obra, i) => {
     const pos = i + 1;
-    html += `<tr>
+    const tituloEsc = (obra.titulo || '').replace(/"/g, '&quot;');
+    html += `<tr onclick="abrirModalObra('${tituloEsc.replace(/'/g,"\\'")}')">
       <td><span class="rank-pos${pos<=3?' top':''}">${pos}</span></td>
       <td>${renderDelta(obra.variacao)}</td>
       <td><div class="obra-cell">
@@ -1748,60 +1984,46 @@ function renderDelta(v) {
   return `<div class="rank-delta down">▼ ${Math.abs(v)}</div>`;
 }
 
-// ─── COMPOSITORES ─────────────────────────────────────────────────────────────
-function setCompMetric(metric, btn) {
-  document.querySelectorAll('.comp-toggle-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  compMetric = metric;
-  renderCompTable();
-}
+// ─── TOP 5 DESFILES ───────────────────────────────────────────────────────────
+function renderTop5Desfiles() {
+  const container = el('top5-desfiles-content');
+  if (!container) return;
+  const desfiles = (DATA.desfiles || [])
+    .filter(d => (d.total_views || 0) > 0)
+    .sort((a, b) => (b.total_views || 0) - (a.total_views || 0))
+    .slice(0, 5);
 
-function renderCompTable() {
-  if (!DATA) return;
-  const comps = (DATA.compositores || []).slice().sort((a, b) => {
-    const va = compMetric === 'integral' ? (a.streams_integrais || 0) : (a.streams_fracionados || 0);
-    const vb = compMetric === 'integral' ? (b.streams_integrais || 0) : (b.streams_fracionados || 0);
-    return vb - va;
-  });
-  const container = el('comp-table-container');
-
-  if (comps.length === 0) {
-    container.innerHTML = `<div class="empty-state" style="padding:56px 20px"><div class="empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="empty-title">Nenhum compositor</div><div class="empty-desc">Os compositores aparecerão aqui<br>após o vínculo com as obras.</div></div>`;
+  if (desfiles.length === 0) {
+    container.innerHTML = `<div class="empty-state" style="padding:30px 10px">
+      <div class="empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+      <div class="empty-title">Sem desfiles cadastrados</div>
+      <div class="empty-desc">Os desfiles e visualizações<br>aparecerão aqui após o cadastro.</div>
+    </div>`;
     return;
   }
 
-  const maxS = Math.max(...comps.map(c => compMetric === 'integral' ? (c.streams_integrais || 0) : (c.streams_fracionados || 0)));
-
-  let html = `<table class="comp-table"><thead><tr>
-    <th style="width:42px">#</th>
-    <th>Compositor</th>
-    <th class="right" style="width:130px">Streams (${compMetric === 'integral' ? 'integral' : 'fracionado'})</th>
-    <th class="right" style="width:90px">Obras</th>
-    <th style="width:140px">Obra líder</th>
-  </tr></thead><tbody>`;
-
-  comps.forEach((c, i) => {
-    const val = compMetric === 'integral' ? (c.streams_integrais || 0) : (c.streams_fracionados || 0);
-    const pct = maxS > 0 ? ((val / maxS) * 100).toFixed(1) : 0;
-    const lider = c.obra_lider || '—';
-    html += `<tr>
-      <td><span class="rank-pos${i<3?' top':''}">${i+1}</span></td>
-      <td>
-        <div class="comp-name">${c.nome || '—'}</div>
-        <div class="progress-bar-wrap" style="max-width:200px"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-      </td>
-      <td class="streams-cell"><div class="streams-total">${fmtNum(val)}</div></td>
-      <td class="streams-cell"><div class="streams-ganho">${(c.obras || []).length}</div></td>
-      <td><div style="font-family:var(--font-corpo);font-size:11.5px;color:var(--cinza-neutro);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px">${lider}</div></td>
-    </tr>`;
-  });
-
-  html += '</tbody></table>';
-  container.innerHTML = html;
+  const maxV = Math.max(...desfiles.map(d => d.total_views || 0), 1);
+  container.innerHTML = `<div style="display:flex;flex-direction:column;gap:10px;padding:4px 0;">
+    ${desfiles.map((d, i) => {
+      const pct = ((d.total_views || 0) / maxV * 100).toFixed(1);
+      const medals = ['🥇','🥈','🥉','4°','5°'];
+      return `<div style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 6px;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background='rgba(15,163,107,0.06)'" onmouseout="this.style.background='transparent'">
+        <span style="font-size:16px;min-width:24px;text-align:center;">${medals[i]}</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-family:var(--font-titulo);font-weight:600;font-size:12px;color:var(--verde-mais-escuro);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${d.enredo || d.titulo || 'Desfile ' + d.ano}</div>
+          <div style="font-family:var(--font-mono);font-size:9.5px;color:var(--cinza-neutro);margin-top:2px;">${d.ano || '—'}</div>
+          <div style="height:4px;background:var(--cinza-suave);border-radius:2px;margin-top:5px;overflow:hidden;">
+            <div style="height:100%;background:linear-gradient(90deg,var(--rosa-vibrante),var(--rosa-escuro));border-radius:2px;width:${pct}%;transition:width 0.7s ease;"></div>
+          </div>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--verde-escuro);min-width:52px;text-align:right;">${fmtNum(d.total_views || 0)}</span>
+      </div>`;
+    }).join('')}
+  </div>`;
 }
 
 // ─── CHARTS ───────────────────────────────────────────────────────────────────
-let chartPlat = null, chartEv = null;
+let chartPlat = null;
 
 function chartTextColor() {
   return document.documentElement.getAttribute('data-theme') === 'dark' ? 'rgba(255,255,255,0.5)' : '#8C8C8C';
@@ -1839,44 +2061,6 @@ function initCharts() {
       scales: {
         x: { grid: { color: chartGridColor() }, ticks: { font: { size: 10 }, callback: v => fmtNum(v), color: chartTextColor() } },
         y: { grid: { display: false }, ticks: { font: { size: 11, family: "'Sora', sans-serif", weight: '600' }, color: chartTextColor() } }
-      }
-    }
-  });
-
-  // Weekly evolution
-  const semanas = DATA.historico_semanal && DATA.historico_semanal.semanas.length > 0
-    ? DATA.historico_semanal.semanas
-    : ['S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12'];
-  const vals = DATA.historico_semanal && DATA.historico_semanal.total_streams_por_semana.length > 0
-    ? DATA.historico_semanal.total_streams_por_semana
-    : Array(12).fill(0);
-
-  if (chartEv) chartEv.destroy();
-  const ctxEv = document.getElementById('chart-evolucao').getContext('2d');
-  chartEv = new Chart(ctxEv, {
-    type: 'line',
-    data: {
-      labels: semanas,
-      datasets: [{
-        data: vals,
-        borderColor: '#0FA36B',
-        backgroundColor: isDark ? 'rgba(15,163,107,0.12)' : 'rgba(15,163,107,0.07)',
-        pointBackgroundColor: '#F5008F',
-        pointBorderColor: '#F5008F',
-        pointRadius: 3.5,
-        pointHoverRadius: 5.5,
-        borderWidth: 2.2,
-        fill: true,
-        tension: 0.42
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' ' + fmtNum(ctx.parsed.y) } } },
-      scales: {
-        x: { grid: { color: chartGridColor() }, ticks: { font: { size: 9.5 }, maxTicksLimit: 6, color: chartTextColor() } },
-        y: { grid: { color: chartGridColor() }, ticks: { font: { size: 9.5 }, callback: v => fmtNum(v), color: chartTextColor() } }
       }
     }
   });
@@ -1918,16 +2102,62 @@ function closeSidebar() {
 
 // ─── SEMANA NAV ───────────────────────────────────────────────────────────────
 let semanaOffset = 0;
-const semanaBase = new Date('2026-04-20');
+
+// Detecta a semana atual dinamicamente (sempre segunda-feira)
+function getSemanAtual() {
+  const hoje = new Date();
+  const dia = hoje.getDay(); // 0=dom, 1=seg...
+  const diff = dia === 0 ? -6 : 1 - dia; // volta para segunda
+  const seg = new Date(hoje);
+  seg.setDate(hoje.getDate() + diff);
+  seg.setHours(0, 0, 0, 0);
+  return seg;
+}
+
+const semanaBase = getSemanAtual();
 
 function semanaLabel(offset) {
   const d = new Date(semanaBase);
   d.setDate(d.getDate() + offset * 7);
-  return 'Sem. ' + d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }).replace(' de ', ' ');
+  return 'Sem. ' + d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
-function prevWeek() { semanaOffset--; el('semana-display').textContent = semanaLabel(semanaOffset); }
-function nextWeek() { if (semanaOffset >= 0) return; semanaOffset++; el('semana-display').textContent = semanaLabel(semanaOffset); }
+function updateSemanaNav() {
+  // Só existe semana atual (offset 0), sem histórico anterior ainda
+  const total = (DATA && DATA.historico_semanal && DATA.historico_semanal.semanas)
+    ? DATA.historico_semanal.semanas.length : 1;
+  const minOffset = -(total - 1);
+  const prevBtn = el('btn-prev-week');
+  const nextBtn = el('btn-next-week');
+  if (prevBtn) {
+    const disabled = semanaOffset <= minOffset || total <= 1;
+    prevBtn.disabled = disabled;
+    prevBtn.style.opacity = disabled ? '0.35' : '1';
+    prevBtn.style.cursor = disabled ? 'not-allowed' : 'pointer';
+  }
+  if (nextBtn) {
+    const disabled = semanaOffset >= 0;
+    nextBtn.disabled = disabled;
+    nextBtn.style.opacity = disabled ? '0.35' : '1';
+    nextBtn.style.cursor = disabled ? 'not-allowed' : 'pointer';
+  }
+}
+
+function prevWeek() {
+  const total = (DATA && DATA.historico_semanal && DATA.historico_semanal.semanas)
+    ? DATA.historico_semanal.semanas.length : 1;
+  if (semanaOffset <= -(total - 1)) return;
+  semanaOffset--;
+  el('semana-display').textContent = semanaLabel(semanaOffset);
+  updateSemanaNav();
+}
+
+function nextWeek() {
+  if (semanaOffset >= 0) return;
+  semanaOffset++;
+  el('semana-display').textContent = semanaLabel(semanaOffset);
+  updateSemanaNav();
+}
 
 // ─── DARK MODE ────────────────────────────────────────────────────────────────
 function toggleDark() {
@@ -1942,7 +2172,8 @@ function toggleDark() {
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  el('rank-panel-semana').textContent = semanaLabel(0);
+  el('semana-display').textContent = semanaLabel(0);
+  updateSemanaNav();
   loadData();
 });
 </script>
