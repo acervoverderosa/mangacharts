@@ -1433,7 +1433,6 @@ let compMetric = 'integral';
 let currentRanking = 'geral';
 let loadStart = performance.now();
 
-// Cache-bust: garante que o JSON sempre seja buscado sem cache
 const JSON_URL = 'https://raw.githubusercontent.com/acervoverderosa/mangacharts/refs/heads/main/data.json';
 
 const pageTitles = {
@@ -1454,21 +1453,19 @@ const rankTitles = {
   quedas: 'Maiores Quedas da Semana'
 };
 
-// ─── FETCH JSON (sempre sem cache) ────────────────────────────────────────────
+// ─── FETCH JSON ───────────────────────────────────────────────────────────────
 async function loadData() {
   try {
-    const cacheBust = JSON_URL + '?_=' + Date.now();
-    const res = await fetch(cacheBust, { cache: 'no-store' });
+    const res = await fetch(JSON_URL);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     DATA = await res.json();
-    detectNewWeekAndUpdateHistory();
   } catch (e) {
     console.warn('Falha ao buscar JSON, usando estrutura vazia.', e);
     DATA = buildEmptyData();
   }
   const loadTime = ((performance.now() - loadStart) / 1000).toFixed(2) + 's';
-  const el_lt = document.getElementById('sobre-load-time');
-  if (el_lt) el_lt.textContent = loadTime;
+  const el = document.getElementById('sobre-load-time');
+  if (el) el.textContent = loadTime;
 
   populateUI();
   initCharts();
@@ -1481,91 +1478,11 @@ async function loadData() {
   setTimeout(() => ov.style.display = 'none', 450);
 }
 
-// ─── DETECÇÃO DE NOVA SEMANA ──────────────────────────────────────────────────
-// Semana começa na segunda-feira. Detecta se mudou de semana desde último carregamento.
-function getWeekKey(date) {
-  // Retorna a data da segunda-feira da semana como chave
-  const d = new Date(date);
-  const day = d.getDay(); // 0=Dom,1=Seg,...
-  const diff = (day === 0 ? -6 : 1 - day);
-  d.setDate(d.getDate() + diff);
-  return d.toISOString().slice(0, 10);
-}
-
-function detectNewWeekAndUpdateHistory() {
-  if (!DATA) return;
-  const today = new Date();
-  const currentWeekKey = getWeekKey(today);
-
-  // Garante que historico_semanal existe
-  if (!DATA.historico_semanal) {
-    DATA.historico_semanal = { semanas: [], total_streams_por_semana: [] };
-  }
-  const hist = DATA.historico_semanal;
-
-  // A semana atual do JSON
-  const jsonWeekKey = DATA.meta && DATA.meta.semana_atual
-    ? getWeekKey(DATA.meta.semana_atual)
-    : null;
-
-  // Se existe histórico, a última semana registrada
-  const lastHistWeek = hist.semanas.length > 0
-    ? getWeekKey(hist.semanas[hist.semanas.length - 1])
-    : null;
-
-  // Se a semana atual ainda não está no histórico, adiciona
-  if (!hist.semanas.includes(currentWeekKey) && !hist.semanas.some(s => getWeekKey(s) === currentWeekKey)) {
-    const currentTotal = DATA.meta ? (DATA.meta.total_streams_geral || 0) : 0;
-    hist.semanas.push(currentWeekKey);
-    hist.total_streams_por_semana.push(currentTotal);
-  }
-
-  // Recalcula variações semanais das obras comparando com histórico anterior
-  if (DATA.obras && DATA.obras.length > 0) {
-    // Identifica se essa é uma nova semana em relação à última coleta
-    const isNewWeek = jsonWeekKey && lastHistWeek && jsonWeekKey !== lastHistWeek;
-    if (isNewWeek) {
-      // Recalcula ganho_semanal e variação de posição para cada obra
-      // (os dados do JSON já terão ganho_semanal atualizado pelo backend, aqui só sinalizamos)
-      DATA._nova_semana_detectada = true;
-    }
-  }
-
-  // Garante que rankings sejam sempre do maior para menor
-  ensureRankingsDescending();
-}
-
-function ensureRankingsDescending() {
-  if (!DATA || !DATA.rankings) return;
-  const rankingsToSort = ['geral', 'spotify', 'youtube', 'deezer'];
-  rankingsToSort.forEach(key => {
-    if (DATA.rankings[key] && DATA.rankings[key].length > 0) {
-      DATA.rankings[key].sort((a, b) => (b.total_streams || 0) - (a.total_streams || 0));
-    }
-  });
-  // trending: maior ganho semanal primeiro
-  if (DATA.rankings.trending && DATA.rankings.trending.length > 0) {
-    DATA.rankings.trending.sort((a, b) => (b.ganho_semanal || 0) - (a.ganho_semanal || 0));
-  }
-  // quedas: maior queda primeiro (mais negativo)
-  if (DATA.rankings.quedas && DATA.rankings.quedas.length > 0) {
-    DATA.rankings.quedas.sort((a, b) => (a.ganho_semanal || 0) - (b.ganho_semanal || 0));
-  }
-  // ranking semanal: ganho semanal decrescente
-  if (DATA.rankings.semanal && DATA.rankings.semanal.length > 0) {
-    DATA.rankings.semanal.sort((a, b) => (b.ganho_semanal || 0) - (a.ganho_semanal || 0));
-  }
-  // agregacoes_por_ano: maior total_streams primeiro
-  if (DATA.agregacoes_por_ano && DATA.agregacoes_por_ano.length > 0) {
-    DATA.agregacoes_por_ano.sort((a, b) => (b.total_streams || 0) - (a.total_streams || 0));
-  }
-}
-
 function buildEmptyData() {
   return {
     meta: { ultima_atualizacao: null, semana_atual: null, semana_fim: null, status_coleta: 'idle', total_obras: 0, total_streams_geral: 0, total_views_desfiles: 0, plataforma_lider: null, obras_ativas_semana: 0 },
     obras: [], plataformas: [], metricas_semanais: [], desfiles: [], videos_desfile: [], metricas_videos: [],
-    rankings: { geral: [], spotify: [], youtube: [], deezer: [], trending: [], quedas: [], semanal: [] },
+    rankings: { geral: [], spotify: [], youtube: [], deezer: [], trending: [], quedas: [] },
     agregacoes_por_ano: [],
     historico_semanal: { semanas: [], total_streams_por_semana: [] },
     compositores: [],
@@ -1594,28 +1511,12 @@ function fmtDate(iso) {
 function populateUI() {
   const m = DATA.meta || {};
 
-  // Recalcula total_streams_geral somando plataformas (corrige soma errada no JSON)
-  let totalStreamsCalc = m.total_streams_geral || 0;
-  if (DATA.plataformas && DATA.plataformas.length > 0) {
-    const soma = DATA.plataformas.reduce((s, p) => s + (p.total_streams || p.total || 0), 0);
-    if (soma > 0) totalStreamsCalc = soma;
-  }
-  if (totalStreamsCalc === 0 && DATA.rankings) {
-    // Fallback: soma ranking geral
-    totalStreamsCalc = (DATA.rankings.geral || []).reduce((s, o) => s + (o.total_streams || 0), 0);
-  }
-
   // Cards
-  el('card-total-streams').textContent = fmtNum(totalStreamsCalc);
+  el('card-total-streams').textContent = fmtNum(m.total_streams_geral);
   el('card-total-views').textContent   = fmtNum(m.total_views_desfiles);
   el('card-obras-ativas').textContent  = m.obras_ativas_semana ?? 0;
   el('card-obras-total').textContent   = m.total_obras ?? 0;
-
-  // Plataforma líder: calcula a que tem mais streams
-  const platTotals = calcPlatTotals();
-  const liderKey = Object.entries(platTotals).sort((a,b) => b[1]-a[1])[0];
-  const liderName = liderKey ? liderKey[0].charAt(0).toUpperCase() + liderKey[0].slice(1) : (m.plataforma_lider || '—');
-  el('card-plat-lider').textContent = liderName;
+  el('card-plat-lider').textContent    = m.plataforma_lider || '—';
 
   // Status
   const isActive = m.status_coleta === 'active' || m.status_coleta === 'running';
@@ -1633,12 +1534,12 @@ function populateUI() {
   // Plataformas breakdown
   renderPlatRow();
 
-  // Anos — ordenados por total_streams desc
-  const anos = (DATA.agregacoes_por_ano || []).slice().sort((a,b) => (b.total_streams||0)-(a.total_streams||0));
+  // Anos
+  const anos = DATA.agregacoes_por_ano || [];
   el('anos-count').textContent      = anos.length;
   el('anos-total-obras').textContent = m.total_obras ?? 0;
   el('anos-ano-lider').textContent  = anos.length > 0 ? anos[0].ano : '—';
-  renderAnosRanking(anos);
+  renderAnosGrid(anos);
 
   // Desfiles
   const desfiles = DATA.desfiles || [];
@@ -1667,20 +1568,6 @@ function populateUI() {
   renderTop10();
 }
 
-function calcPlatTotals() {
-  const plats = DATA.plataformas || [];
-  const keys = ['spotify', 'youtube', 'deezer'];
-  const totals = {};
-  keys.forEach(k => {
-    const found = plats.find(p => (p.nome || p.name || '').toLowerCase() === k);
-    totals[k] = found ? (found.total_streams || found.total || 0) : 0;
-    if (totals[k] === 0 && DATA.rankings && DATA.rankings[k]) {
-      totals[k] = DATA.rankings[k].reduce((s, o) => s + (o.total_streams || 0), 0);
-    }
-  });
-  return totals;
-}
-
 function el(id) { return document.getElementById(id); }
 
 // ─── PLATFORM BREAKDOWN ───────────────────────────────────────────────────────
@@ -1688,13 +1575,24 @@ function renderPlatRow() {
   const plats = DATA.plataformas || [];
   const container = el('plat-row-container');
 
+  // Build platform totals from plataformas array or rankings
   const platDefs = [
     { key: 'spotify', name: 'Spotify',  cls: 'sp', svgPath: 'M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z', fill: '#1DB954' },
     { key: 'youtube', name: 'YouTube',  cls: 'yt', svgPath: 'M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z', fill: '#FF0000' },
     { key: 'deezer',  name: 'Deezer',   cls: 'dz', svgPath: 'M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.027h5.189V8.38H6.27zm6.27 0v3.027h5.19V8.38h-5.19zm6.27 0v3.027H24V8.38h-5.19zm-12.54 4.22v3.027h5.189V12.6H6.27zm6.27 0v3.027h5.19V12.6h-5.19zm6.27 0v3.027H24V12.6h-5.19zM0 16.81v3.027h5.189V16.81H0zm6.27 0v3.027h5.189V16.81H6.27zm6.27 0v3.027h5.19V16.81h-5.19zm6.27 0v3.027H24V16.81h-5.19z', fill: '#A238FF' },
   ];
 
-  const totals = calcPlatTotals();
+  // Try to get totals from plataformas field or sum from rankings
+  const totals = {};
+  platDefs.forEach(p => {
+    const found = plats.find(x => (x.nome || x.name || '').toLowerCase() === p.key);
+    totals[p.key] = found ? (found.total_streams || found.total || 0) : 0;
+    // fallback: sum ranking
+    if (totals[p.key] === 0 && DATA.rankings && DATA.rankings[p.key]) {
+      totals[p.key] = DATA.rankings[p.key].reduce((s, o) => s + (o.total_streams || 0), 0);
+    }
+  });
+
   const grandTotal = Object.values(totals).reduce((s, v) => s + v, 0);
 
   container.innerHTML = platDefs.map(p => {
@@ -1754,235 +1652,21 @@ function renderTop10() {
   container.innerHTML = html;
 }
 
-// ─── ANOS RANKING (substituiu o grid) ────────────────────────────────────────
-function renderAnosRanking(anos) {
+// ─── ANOS GRID ────────────────────────────────────────────────────────────────
+function renderAnosGrid(anos) {
   const container = el('anos-grid-container');
   if (!anos || anos.length === 0) return;
 
-  const maxS = Math.max(...anos.map(a => a.total_streams || 0));
-
-  let html = `<div class="full-panel">
-    <div class="full-panel-header">
-      <span class="panel-title">Ranking por Ano — Total de Streams</span>
-      <span class="panel-tag">${anos.length} anos registrados</span>
-    </div>
-    <div class="full-panel-body">
-    <table class="rank-table-full"><thead><tr>
-      <th style="width:42px">#</th>
-      <th>Ano</th>
-      <th class="right" style="width:130px">Total streams</th>
-      <th class="right" style="width:100px">Obras</th>
-      <th style="width:200px">Obra líder</th>
-    </tr></thead><tbody>`;
-
-  anos.forEach((a, i) => {
-    const pos = i + 1;
-    const pct = maxS > 0 ? ((a.total_streams / maxS) * 100).toFixed(1) : 0;
-    html += `<tr onclick="openAnoDetail('${a.ano}')">
-      <td><span class="rank-pos${pos<=3?' top':''}">${pos}</span></td>
-      <td>
-        <div style="font-family:var(--font-titulo);font-weight:700;font-size:20px;color:var(--verde-escuro)">${a.ano}</div>
-        <div class="progress-bar-wrap" style="max-width:200px;margin-top:6px"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-      </td>
-      <td class="streams-cell"><div class="streams-total">${fmtNum(a.total_streams)}</div></td>
-      <td class="streams-cell"><div class="streams-ganho">${a.quantidade_obras || 0}</div></td>
-      <td><div style="font-family:var(--font-corpo);font-size:11.5px;color:var(--cinza-neutro);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px">${a.obra_lider || '—'}</div></td>
-    </tr>`;
-  });
-
-  html += '</tbody></table></div></div>';
+  const html = `<div class="anos-grid">${anos.map(a => `
+    <div class="ano-card stagger-item">
+      <div class="ano-num">${a.ano}</div>
+      <div class="ano-streams">${fmtNum(a.total_streams)}</div>
+      <div class="ano-obras-count">${a.quantidade_obras || 0} obras</div>
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--cinza-suave);">
+        <div style="font-family:var(--font-corpo);font-size:10px;color:var(--cinza-neutro);font-style:italic;">${a.obra_lider || '—'}</div>
+      </div>
+    </div>`).join('')}</div>`;
   container.innerHTML = html;
-}
-
-// ─── MODAL DETALHES DE ANO / OBRA ─────────────────────────────────────────────
-function openAnoDetail(ano) {
-  const aData = (DATA.agregacoes_por_ano || []).find(a => String(a.ano) === String(ano));
-  if (!aData) return;
-
-  // Obras do ano (do ranking geral filtradas por ano)
-  const obrasDoAno = getObrasDoAno(ano);
-
-  let obrasHtml = '';
-  if (obrasDoAno.length > 0) {
-    const maxS = Math.max(...obrasDoAno.map(o => o.total_streams || 0));
-    obrasHtml = `<table class="rank-table-full" style="margin-top:0">
-      <thead><tr>
-        <th style="width:36px">#</th>
-        <th style="width:46px">Var.</th>
-        <th>Obra</th>
-        <th class="right" style="width:120px">Streams</th>
-        <th class="right" style="width:110px">Ganho sem.</th>
-      </tr></thead><tbody>`;
-    obrasDoAno.forEach((o, i) => {
-      const pct = maxS > 0 ? ((o.total_streams / maxS) * 100).toFixed(1) : 0;
-      obrasHtml += `<tr onclick="openObraDetail('${encodeURIComponent(o.titulo || '')}');event.stopPropagation()">
-        <td><span class="rank-pos${i<3?' top':''}">${i+1}</span></td>
-        <td>${renderDelta(o.variacao)}</td>
-        <td><div class="obra-cell">
-          <div class="obra-thumb-placeholder"><span>${(o.titulo||'?')[0]}</span></div>
-          <div class="obra-info">
-            <div class="obra-titulo">${o.titulo||'—'}</div>
-            <div class="obra-ano">${o.ano||'—'}</div>
-            <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-          </div>
-        </div></td>
-        <td class="streams-cell"><div class="streams-total">${fmtNum(o.total_streams)}</div></td>
-        <td class="streams-cell"><div class="streams-ganho">${(o.ganho_semanal||0)>=0?'+':''}${fmtNum(o.ganho_semanal||0)}</div></td>
-      </tr>`;
-    });
-    obrasHtml += '</tbody></table>';
-  } else {
-    obrasHtml = `<div class="empty-state" style="padding:30px"><div class="empty-title">Nenhuma obra registrada</div></div>`;
-  }
-
-  showModal(`
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
-      <div style="font-family:var(--font-titulo);font-weight:700;font-size:52px;color:var(--verde-escuro);line-height:1">${ano}</div>
-      <div>
-        <div style="font-family:var(--font-mono);font-size:22px;color:var(--verde-escuro)">${fmtNum(aData.total_streams)}</div>
-        <div style="font-family:var(--font-corpo);font-size:11px;color:var(--cinza-neutro);font-style:italic">streams totais · ${aData.quantidade_obras || obrasDoAno.length} obras</div>
-      </div>
-    </div>
-    <div class="section-title" style="margin-bottom:12px">Obras registradas — ${ano}</div>
-    ${obrasHtml}
-  `);
-}
-
-function getObrasDoAno(ano) {
-  const geral = DATA.rankings && DATA.rankings.geral ? DATA.rankings.geral : [];
-  const obras = DATA.obras || [];
-  let lista = geral.filter(o => String(o.ano) === String(ano));
-  if (lista.length === 0) {
-    lista = obras.filter(o => String(o.ano) === String(ano)).map(o => ({
-      titulo: o.titulo || o.nome,
-      ano: o.ano,
-      total_streams: o.total_streams || 0,
-      ganho_semanal: o.ganho_semanal || 0,
-      variacao: o.variacao
-    }));
-  }
-  return lista.sort((a, b) => (b.total_streams || 0) - (a.total_streams || 0));
-}
-
-// ─── MODAL DETALHES DE OBRA ───────────────────────────────────────────────────
-function openObraDetail(tituloEncoded) {
-  const titulo = decodeURIComponent(tituloEncoded);
-  const geral = (DATA.rankings && DATA.rankings.geral) || [];
-  const obras = DATA.obras || [];
-
-  let obra = geral.find(o => o.titulo === titulo) || obras.find(o => (o.titulo || o.nome) === titulo);
-  if (!obra) return;
-
-  // Vídeos/streams vinculados (videos_desfile ou metricas_semanais)
-  const videos = (DATA.videos_desfile || []).filter(v =>
-    (v.titulo_obra || v.obra || '').toLowerCase().includes(titulo.toLowerCase())
-  );
-  const metsSem = (DATA.metricas_semanais || []).filter(m =>
-    (m.titulo_obra || m.obra_id || '').toLowerCase().includes(titulo.toLowerCase())
-  );
-
-  // Semana atual — evolução
-  const hist = DATA.historico_semanal || { semanas: [], total_streams_por_semana: [] };
-  const semanaAtual = hist.semanas.length > 0 ? hist.semanas[hist.semanas.length - 1] : null;
-  const semAtualLabel = semanaAtual ? new Date(semanaAtual).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }) : '—';
-
-  let videosHtml = '';
-  if (videos.length > 0) {
-    videosHtml = `<div class="section-title" style="margin:16px 0 10px">Vídeos/Streams registrados</div>
-    <div style="display:flex;flex-direction:column;gap:8px">`;
-    videos.forEach(v => {
-      videosHtml += `<div style="background:var(--fundo-alt);border-radius:6px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">
-        <div>
-          <div style="font-family:var(--font-titulo);font-weight:600;font-size:12px;color:var(--verde-mais-escuro)">${v.titulo || v.titulo_video || 'Sem título'}</div>
-          <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic">${v.plataforma || ''} ${v.ano_desfile ? '· '+v.ano_desfile : ''}</div>
-        </div>
-        <div style="font-family:var(--font-mono);font-size:13px;color:var(--verde-escuro)">${fmtNum(v.views || v.total_views || 0)}</div>
-      </div>`;
-    });
-    videosHtml += '</div>';
-  }
-
-  let semsHtml = '';
-  if (metsSem.length > 0) {
-    semsHtml = `<div class="section-title" style="margin:16px 0 10px">Métricas semanais</div>
-    <div style="display:flex;flex-direction:column;gap:8px">`;
-    metsSem.slice(0, 8).forEach(m => {
-      semsHtml += `<div style="background:var(--fundo-alt);border-radius:6px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">
-        <div style="font-family:var(--font-mono);font-size:11px;color:var(--cinza-neutro)">${m.semana || '—'}</div>
-        <div style="font-family:var(--font-mono);font-size:13px;color:var(--verde-escuro)">${fmtNum(m.streams || m.total_streams || 0)}</div>
-      </div>`;
-    });
-    semsHtml += '</div>';
-  }
-
-  showModal(`
-    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
-      <div class="obra-thumb-placeholder" style="width:52px;height:52px;font-size:22px;flex-shrink:0"><span>${(obra.titulo||obra.nome||'?')[0]}</span></div>
-      <div>
-        <div style="font-family:var(--font-titulo);font-weight:700;font-size:19px;color:var(--verde-mais-escuro)">${obra.titulo || obra.nome || '—'}</div>
-        <div style="font-family:var(--font-corpo);font-size:11.5px;color:var(--cinza-neutro);font-style:italic">Ano: ${obra.ano || '—'}</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px">
-      <div style="background:var(--fundo-alt);border-radius:8px;padding:12px 14px">
-        <div style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px">Total streams</div>
-        <div style="font-family:var(--font-mono);font-size:20px;color:var(--verde-escuro)">${fmtNum(obra.total_streams || 0)}</div>
-      </div>
-      <div style="background:var(--fundo-alt);border-radius:8px;padding:12px 14px">
-        <div style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px">Ganho semana</div>
-        <div style="font-family:var(--font-mono);font-size:20px;color:var(--verde-medio)">${(obra.ganho_semanal||0)>=0?'+':''}${fmtNum(obra.ganho_semanal||0)}</div>
-      </div>
-      <div style="background:var(--fundo-alt);border-radius:8px;padding:12px 14px">
-        <div style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px">Variação</div>
-        <div style="font-size:18px;padding-top:2px">${renderDelta(obra.variacao)}</div>
-      </div>
-    </div>
-    <div style="background:var(--fundo-alt);border-radius:8px;padding:12px 14px;margin-bottom:4px">
-      <div style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px">Evolução semanal — Semana atual (${semAtualLabel})</div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="flex:1;height:6px;background:var(--cinza-suave);border-radius:3px;overflow:hidden">
-          <div style="height:100%;background:var(--verde-medio);border-radius:3px;width:${obra.ganho_semanal > 0 ? Math.min(100, (obra.ganho_semanal / (obra.total_streams || 1)) * 100 * 20).toFixed(1) : 0}%;transition:width .8s ease"></div>
-        </div>
-        <div style="font-family:var(--font-mono);font-size:12px;color:var(--verde-medio);white-space:nowrap">${(obra.ganho_semanal||0)>=0?'+':''}${fmtNum(obra.ganho_semanal||0)}</div>
-      </div>
-    </div>
-    ${videosHtml}
-    ${semsHtml}
-  `);
-}
-
-// ─── MODAL GENÉRICO ───────────────────────────────────────────────────────────
-function showModal(content) {
-  let modal = document.getElementById('detail-modal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'detail-modal';
-    modal.style.cssText = `
-      position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;
-      background:rgba(0,0,0,0.55);padding:20px;animation:fadeIn .18s ease;
-    `;
-    modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-    document.body.appendChild(modal);
-  }
-  modal.innerHTML = `
-    <div style="
-      background:var(--panel-bg);border:1px solid var(--cinza-borda);border-radius:14px;
-      max-width:680px;width:100%;max-height:88vh;overflow-y:auto;
-      box-shadow:0 20px 60px rgba(0,0,0,0.25);padding:24px 26px;position:relative;
-    ">
-      <button onclick="closeModal()" style="
-        position:absolute;top:14px;right:14px;background:var(--cinza-suave);
-        border:none;border-radius:6px;width:30px;height:30px;cursor:pointer;
-        display:flex;align-items:center;justify-content:center;color:var(--cinza-neutro);font-size:16px;
-      ">✕</button>
-      ${content}
-    </div>`;
-  modal.style.display = 'flex';
-}
-
-function closeModal() {
-  const modal = document.getElementById('detail-modal');
-  if (modal) modal.style.display = 'none';
 }
 
 // ─── DESFILES GRID ────────────────────────────────────────────────────────────
@@ -2199,8 +1883,14 @@ function initCharts() {
 }
 
 function getPlatData() {
-  const totals = calcPlatTotals();
-  return [totals.spotify, totals.youtube, totals.deezer];
+  const plats = DATA.plataformas || [];
+  const keys = ['spotify', 'youtube', 'deezer'];
+  return keys.map(k => {
+    const found = plats.find(p => (p.nome || p.name || '').toLowerCase() === k);
+    if (found) return found.total_streams || found.total || 0;
+    if (DATA.rankings && DATA.rankings[k]) return DATA.rankings[k].reduce((s, o) => s + (o.total_streams || 0), 0);
+    return 0;
+  });
 }
 
 // ─── NAVEGAÇÃO ────────────────────────────────────────────────────────────────
