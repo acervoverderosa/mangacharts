@@ -1,6 +1,3 @@
-Segue o arquivo `data.json` atualizado com a data **23/04/2026** e os dados dos sambas da Mangueira (apenas Spotify), conforme solicitado.
-
-```json
 {
   "meta": {
     "ultima_atualizacao": "2026-04-23T00:00:00",
