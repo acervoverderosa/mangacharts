@@ -1,15 +1,17 @@
 {
-  "schema_versao": "2.2.0",
+  "schema_versao": "1.0.0",
   "meta": {
-    "ultima_atualizacao": "2026-04-24",
+    "ultima_atualizacao": "2026-04-23",
     "semana_atual": "2026-04-17",
     "semana_fim": "2026-04-23",
     "status_coleta": "active",
-    "total_obras": 48,
-    "total_streams_geral": 51248698,
-    "total_views_desfiles": 41005387,
+    "total_obras": 9,
+    "total_streams_geral": 8816603,
+    "total_views_desfiles": 0,
     "plataforma_lider": "Spotify",
-    "obras_ativas_semana": 9
+    "obras_ativas_semana": 9,
+    "total_obras_youtube": 93,
+    "total_views_youtube": 36155387
   },
   "plataformas": [
     {
@@ -19,7 +21,7 @@
     },
     {
       "nome": "youtube",
-      "total_streams": 42432095,
+      "total_streams": 36155387,
       "ganho_semanal": 0
     },
     {
@@ -34,7 +36,7 @@
       "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra",
       "ano": 2026,
       "tipo": "Estúdio",
-      "total_streams": 2010951,
+      "total_streams": 1280064,
       "ganho_semanal": 18420
     },
     {
@@ -42,7 +44,7 @@
       "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo",
       "ano": 2026,
       "tipo": "Ao Vivo",
-      "total_streams": 85488,
+      "total_streams": 62324,
       "ganho_semanal": 3210
     },
     {
@@ -50,7 +52,7 @@
       "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
       "ano": 2025,
       "tipo": "Estúdio",
-      "total_streams": 3135996,
+      "total_streams": 1874029,
       "ganho_semanal": 9840
     },
     {
@@ -58,7 +60,7 @@
       "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo",
       "ano": 2025,
       "tipo": "Ao Vivo",
-      "total_streams": 645674,
+      "total_streams": 370650,
       "ganho_semanal": 4120
     },
     {
@@ -66,7 +68,7 @@
       "titulo": "A Negra Voz do Amanhã",
       "ano": 2024,
       "tipo": "Estúdio",
-      "total_streams": 3490962,
+      "total_streams": 1597267,
       "ganho_semanal": 5230
     },
     {
@@ -74,7 +76,7 @@
       "titulo": "A Negra Voz do Amanhã - Ao Vivo",
       "ano": 2024,
       "tipo": "Ao Vivo",
-      "total_streams": 467590,
+      "total_streams": 328678,
       "ganho_semanal": 2890
     },
     {
@@ -82,7 +84,7 @@
       "titulo": "As Áfricas Que a Bahia Canta",
       "ano": 2023,
       "tipo": "Estúdio",
-      "total_streams": 2166254,
+      "total_streams": 1483307,
       "ganho_semanal": 3980
     },
     {
@@ -90,7 +92,7 @@
       "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",
       "ano": 2023,
       "tipo": "Ao Vivo",
-      "total_streams": 849669,
+      "total_streams": 636441,
       "ganho_semanal": 2340
     },
     {
@@ -98,406 +100,57 @@
       "titulo": "Angenor, José & Laurindo",
       "ano": 2022,
       "tipo": "Estúdio",
-      "total_streams": 2240727,
+      "total_streams": 1183843,
       "ganho_semanal": 1460
-    },
-    {
-      "id": "obra-2022-liv",
-      "titulo": "Angenor, José & Laurindo - Ao Vivo",
-      "ano": 2022,
-      "tipo": "Ao Vivo",
-      "total_streams": 0,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2023-vivo",
-      "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo (Alternativo)",
-      "ano": 2023,
-      "tipo": "Ao Vivo",
-      "total_streams": 0,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2020-yt",
-      "titulo": "A Verdade Vós Fará Livre",
-      "ano": 2020,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 3523604,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2019-yt",
-      "titulo": "História Para Ninar Gente Grande",
-      "ano": 2019,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 6372110,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2018-yt",
-      "titulo": "Com Dinheiro Ou Sem Dinheiro Eu Brinco",
-      "ano": 2018,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 1106940,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2017-yt",
-      "titulo": "Só Com A Ajuda Do Santo",
-      "ano": 2017,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 885022,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2016-yt",
-      "titulo": "Maria Bethânia: A Menina dos Olhos de Oyá",
-      "ano": 2016,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 5861543,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2015-yt",
-      "titulo": "Agora Chegou A Vez, Vou Cantar: Mulher De Mangueira",
-      "ano": 2015,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 193796,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2014-yt",
-      "titulo": "A Festança Brasileira Cai No Samba Da Mangueira",
-      "ano": 2014,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 682626,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2013-yt",
-      "titulo": "Cuiabá: Um Paraíso No Centro Da América",
-      "ano": 2013,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 103430,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2012-yt",
-      "titulo": "Vou Festejar! Sou Cacique, Sou Mangueira",
-      "ano": 2012,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 493062,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2011-yt",
-      "titulo": "O Filho Fiel, Sempre Mangueira",
-      "ano": 2011,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 602069,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2010-yt",
-      "titulo": "Mangueira É Música Do Brasil",
-      "ano": 2010,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 233788,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2009-yt",
-      "titulo": "A Mangueira Traz Os Brasis Do Brasil, Mostrando A Formação Do Povo Brasileiro",
-      "ano": 2009,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 333420,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2008-yt",
-      "titulo": "100 Anos Do Frevo, É De Perder O Sapato. Recife Mandou Me Chamar",
-      "ano": 2008,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 117922,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2007-yt",
-      "titulo": "Minha Pátria É Minha Língua",
-      "ano": 2007,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 264554,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2006-yt",
-      "titulo": "Das Águas Do Velho Chico, Nasce Um Rio De Esperança",
-      "ano": 2006,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 262431,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2005-yt",
-      "titulo": "Mangueira Energiza A Avenida",
-      "ano": 2005,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 69791,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2004-yt",
-      "titulo": "Mangueira Redescobre A Estrada Real",
-      "ano": 2004,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 96614,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2003-yt",
-      "titulo": "Os Dez Mandamentos: O Samba Da Paz Canta A Saga Da Liberdade",
-      "ano": 2003,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 640781,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2002-yt",
-      "titulo": "Brazil Com Z É Pra Cabra Da Peste, Brasil Com S É A Nação Do Nordeste",
-      "ano": 2002,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 2763364,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2001-yt",
-      "titulo": "A Seiva Da Vida",
-      "ano": 2001,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 84404,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-2000-yt",
-      "titulo": "Dom Obá II — Rei Dos Esfarrapados, Príncipe Do Povo",
-      "ano": 2000,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 198266,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1999-yt",
-      "titulo": "O Século Do Samba",
-      "ano": 1999,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 215562,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1998-yt",
-      "titulo": "Chico Buarque da Mangueira",
-      "ano": 1998,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 621684,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1997-yt",
-      "titulo": "Olimpo É Verde E Rosa",
-      "ano": 1997,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 67935,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1996-yt",
-      "titulo": "Os Tambores Da Mangueira Na Terra Da Encantaria",
-      "ano": 1996,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 147699,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1995-yt",
-      "titulo": "A Esmeralda Do Atlântico",
-      "ano": 1995,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 78358,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1994-yt",
-      "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu",
-      "ano": 1994,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 5182122,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1993-yt",
-      "titulo": "Dessa Fruta Eu Como Até Caroço",
-      "ano": 1993,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 446779,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1992-yt",
-      "titulo": "Se Todos Fossem Iguais A Você",
-      "ano": 1992,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 134043,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1991-yt",
-      "titulo": "As Três Rendeiras Do Universo",
-      "ano": 1991,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 94392,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1990-yt",
-      "titulo": "E Deu A Louca No Barroco",
-      "ano": 1990,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 205031,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1989-yt",
-      "titulo": "Trinca De Reis",
-      "ano": 1989,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 385712,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1988-yt",
-      "titulo": "Cem Anos De Liberdade, Realidade E Ilusão",
-      "ano": 1988,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 1350667,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1987-yt",
-      "titulo": "No Reino Das Palavras — Carlos Drummond de Andrade",
-      "ano": 1987,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 291520,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1986-yt",
-      "titulo": "Caymmi Mostra Ao Mundo O Que A Bahia E A Mangueira Têm",
-      "ano": 1986,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 1394752,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1985-yt",
-      "titulo": "Abram Alas, Que Eu Quero Passar",
-      "ano": 1985,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 360693,
-      "ganho_semanal": 0
-    },
-    {
-      "id": "obra-1984-yt",
-      "titulo": "Yes, Nós Temos Braguinha",
-      "ano": 1984,
-      "tipo": "YouTube",
-      "plataforma": "youtube",
-      "total_streams": 288901,
-      "ganho_semanal": 0
     }
   ],
   "rankings": {
     "geral": [
       {
-        "titulo": "A Negra Voz do Amanhã",
-        "ano": 2024,
-        "tipo": "Estúdio",
-        "total_streams": 3490962,
-        "ganho_semanal": 5230,
-        "variacao": 1
-      },
-      {
         "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
         "ano": 2025,
         "tipo": "Estúdio",
-        "total_streams": 3135996,
+        "total_streams": 1874029,
         "ganho_semanal": 9840,
-        "variacao": -1
+        "variacao": 0
       },
       {
-        "titulo": "Angenor, José & Laurindo",
-        "ano": 2022,
+        "titulo": "A Negra Voz do Amanhã",
+        "ano": 2024,
         "tipo": "Estúdio",
-        "total_streams": 2240727,
-        "ganho_semanal": 1460,
-        "variacao": 2
-      },
-      {
-        "titulo": "As Áfricas Que a Bahia Canta",
-        "ano": 2023,
-        "tipo": "Estúdio",
-        "total_streams": 2166254,
-        "ganho_semanal": 3980,
+        "total_streams": 1597267,
+        "ganho_semanal": 5230,
         "variacao": 0
       },
       {
         "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra",
         "ano": 2026,
         "tipo": "Estúdio",
-        "total_streams": 2010951,
+        "total_streams": 1280064,
         "ganho_semanal": 18420,
-        "variacao": -2
+        "variacao": 2
+      },
+      {
+        "titulo": "As Áfricas Que a Bahia Canta",
+        "ano": 2023,
+        "tipo": "Estúdio",
+        "total_streams": 1483307,
+        "ganho_semanal": 3980,
+        "variacao": -1
+      },
+      {
+        "titulo": "Angenor, José & Laurindo",
+        "ano": 2022,
+        "tipo": "Estúdio",
+        "total_streams": 1183843,
+        "ganho_semanal": 1460,
+        "variacao": 0
       },
       {
         "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",
         "ano": 2023,
         "tipo": "Ao Vivo",
-        "total_streams": 849669,
+        "total_streams": 636441,
         "ganho_semanal": 2340,
         "variacao": 0
       },
@@ -505,7 +158,7 @@
         "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo",
         "ano": 2025,
         "tipo": "Ao Vivo",
-        "total_streams": 645674,
+        "total_streams": 370650,
         "ganho_semanal": 4120,
         "variacao": 1
       },
@@ -513,7 +166,7 @@
         "titulo": "A Negra Voz do Amanhã - Ao Vivo",
         "ano": 2024,
         "tipo": "Ao Vivo",
-        "total_streams": 467590,
+        "total_streams": 328678,
         "ganho_semanal": 2890,
         "variacao": -1
       },
@@ -521,7 +174,7 @@
         "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo",
         "ano": 2026,
         "tipo": "Ao Vivo",
-        "total_streams": 85488,
+        "total_streams": 62324,
         "ganho_semanal": 3210,
         "variacao": "novo"
       }
@@ -600,87 +253,14 @@
         "variacao": "novo"
       }
     ],
-    "youtube": [
-      {
-        "titulo": "A Negra Voz do Amanhã",
-        "ano": 2024,
-        "tipo": "Estúdio",
-        "total_streams": 1893695,
-        "ganho_semanal": 0,
-        "variacao": 0
-      },
-      {
-        "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
-        "ano": 2025,
-        "tipo": "Estúdio",
-        "total_streams": 1261967,
-        "ganho_semanal": 0,
-        "variacao": 0
-      },
-      {
-        "titulo": "Angenor, José & Laurindo",
-        "ano": 2022,
-        "tipo": "Estúdio",
-        "total_streams": 1056884,
-        "ganho_semanal": 0,
-        "variacao": 0
-      },
-      {
-        "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra",
-        "ano": 2026,
-        "tipo": "Estúdio",
-        "total_streams": 730887,
-        "ganho_semanal": 0,
-        "variacao": 0
-      },
-      {
-        "titulo": "As Áfricas Que a Bahia Canta",
-        "ano": 2023,
-        "tipo": "Estúdio",
-        "total_streams": 682947,
-        "ganho_semanal": 0,
-        "variacao": 0
-      },
-      {
-        "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo",
-        "ano": 2025,
-        "tipo": "Ao Vivo",
-        "total_streams": 275024,
-        "ganho_semanal": 0,
-        "variacao": 0
-      },
-      {
-        "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",
-        "ano": 2023,
-        "tipo": "Ao Vivo",
-        "total_streams": 213228,
-        "ganho_semanal": 0,
-        "variacao": 0
-      },
-      {
-        "titulo": "A Negra Voz do Amanhã - Ao Vivo",
-        "ano": 2024,
-        "tipo": "Ao Vivo",
-        "total_streams": 138912,
-        "ganho_semanal": 0,
-        "variacao": 0
-      },
-      {
-        "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo",
-        "ano": 2026,
-        "tipo": "Ao Vivo",
-        "total_streams": 23164,
-        "ganho_semanal": 0,
-        "variacao": "novo"
-      }
-    ],
+    "youtube": [],
     "deezer": [],
     "trending": [
       {
         "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra",
         "ano": 2026,
         "tipo": "Estúdio",
-        "total_streams": 2010951,
+        "total_streams": 1280064,
         "ganho_semanal": 18420,
         "variacao": 2
       },
@@ -688,7 +268,7 @@
         "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
         "ano": 2025,
         "tipo": "Estúdio",
-        "total_streams": 3135996,
+        "total_streams": 1874029,
         "ganho_semanal": 9840,
         "variacao": 0
       },
@@ -696,7 +276,7 @@
         "titulo": "A Negra Voz do Amanhã",
         "ano": 2024,
         "tipo": "Estúdio",
-        "total_streams": 3490962,
+        "total_streams": 1597267,
         "ganho_semanal": 5230,
         "variacao": 0
       },
@@ -704,7 +284,7 @@
         "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo",
         "ano": 2025,
         "tipo": "Ao Vivo",
-        "total_streams": 645674,
+        "total_streams": 370650,
         "ganho_semanal": 4120,
         "variacao": 1
       },
@@ -712,7 +292,7 @@
         "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo",
         "ano": 2026,
         "tipo": "Ao Vivo",
-        "total_streams": 85488,
+        "total_streams": 62324,
         "ganho_semanal": 3210,
         "variacao": "novo"
       }
@@ -721,34 +301,34 @@
   },
   "agregacoes_por_ano": [
     {
-      "ano": 2024,
-      "total_streams": 3958552,
-      "quantidade_obras": 2,
-      "obra_lider": "A Negra Voz do Amanhã"
-    },
-    {
       "ano": 2025,
-      "total_streams": 3781670,
+      "total_streams": 2244679,
       "quantidade_obras": 2,
       "obra_lider": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões"
     },
     {
+      "ano": 2024,
+      "total_streams": 1925945,
+      "quantidade_obras": 2,
+      "obra_lider": "A Negra Voz do Amanhã"
+    },
+    {
       "ano": 2023,
-      "total_streams": 3015923,
-      "quantidade_obras": 3,
+      "total_streams": 2119748,
+      "quantidade_obras": 2,
       "obra_lider": "As Áfricas Que a Bahia Canta"
     },
     {
-      "ano": 2022,
-      "total_streams": 2240727,
-      "quantidade_obras": 2,
-      "obra_lider": "Angenor, José & Laurindo"
-    },
-    {
       "ano": 2026,
-      "total_streams": 2096439,
+      "total_streams": 1342388,
       "quantidade_obras": 2,
       "obra_lider": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra"
+    },
+    {
+      "ano": 2022,
+      "total_streams": 1183843,
+      "quantidade_obras": 1,
+      "obra_lider": "Angenor, José & Laurindo"
     }
   ],
   "historico_semanal": {
@@ -789,1098 +369,16 @@
       78490
     ]
   },
-  "desfiles": [
-    {
-      "id": "desfile-2026",
-      "ano": 2026,
-      "enredo": "Mestre Sacaca do Encanto Tucuju — O Guardião da Amazônia Negra",
-      "carnavalesco": "Fran Sérgio e Guilherme Estevam",
-      "total_views": 1820000,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2025",
-      "ano": 2025,
-      "enredo": "À Flor da Terra — No Rio da Negritude Entre Dores e Paixões",
-      "carnavalesco": "Fran Sérgio e Guilherme Estevam",
-      "total_views": 1450000,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2024",
-      "ano": 2024,
-      "enredo": "A Negra Voz do Amanhã",
-      "carnavalesco": "Fran Sérgio e Guilherme Estevam",
-      "total_views": 980000,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2023",
-      "ano": 2023,
-      "enredo": "As Áfricas Que a Bahia Canta",
-      "carnavalesco": "Fran Sérgio",
-      "total_views": 420000,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2022",
-      "ano": 2022,
-      "enredo": "Angenor, José & Laurindo",
-      "carnavalesco": "Fran Sérgio",
-      "total_views": 180000,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2020",
-      "ano": 2020,
-      "enredo": "A Verdade Vós Fará Livre",
-      "carnavalesco": "",
-      "total_views": 3523604,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2019",
-      "ano": 2019,
-      "enredo": "História Para Ninar Gente Grande",
-      "carnavalesco": "",
-      "total_views": 6372110,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2018",
-      "ano": 2018,
-      "enredo": "Com Dinheiro Ou Sem Dinheiro Eu Brinco",
-      "carnavalesco": "",
-      "total_views": 1106940,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2017",
-      "ano": 2017,
-      "enredo": "Só Com A Ajuda Do Santo",
-      "carnavalesco": "",
-      "total_views": 885022,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2016",
-      "ano": 2016,
-      "enredo": "Maria Bethânia: A Menina dos Olhos de Oyá",
-      "carnavalesco": "",
-      "total_views": 5861543,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2015",
-      "ano": 2015,
-      "enredo": "Agora Chegou A Vez, Vou Cantar: Mulher De Mangueira",
-      "carnavalesco": "",
-      "total_views": 193796,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2014",
-      "ano": 2014,
-      "enredo": "A Festança Brasileira Cai No Samba Da Mangueira",
-      "carnavalesco": "",
-      "total_views": 682626,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2013",
-      "ano": 2013,
-      "enredo": "Cuiabá: Um Paraíso No Centro Da América",
-      "carnavalesco": "",
-      "total_views": 103430,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2012",
-      "ano": 2012,
-      "enredo": "Vou Festejar! Sou Cacique, Sou Mangueira",
-      "carnavalesco": "",
-      "total_views": 493062,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2011",
-      "ano": 2011,
-      "enredo": "O Filho Fiel, Sempre Mangueira",
-      "carnavalesco": "",
-      "total_views": 602069,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2010",
-      "ano": 2010,
-      "enredo": "Mangueira É Música Do Brasil",
-      "carnavalesco": "",
-      "total_views": 233788,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2009",
-      "ano": 2009,
-      "enredo": "A Mangueira Traz Os Brasis Do Brasil, Mostrando A Formação Do Povo Brasileiro",
-      "carnavalesco": "",
-      "total_views": 333420,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2008",
-      "ano": 2008,
-      "enredo": "100 Anos Do Frevo, É De Perder O Sapato. Recife Mandou Me Chamar",
-      "carnavalesco": "",
-      "total_views": 117922,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2007",
-      "ano": 2007,
-      "enredo": "Minha Pátria É Minha Língua",
-      "carnavalesco": "",
-      "total_views": 264554,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2006",
-      "ano": 2006,
-      "enredo": "Das Águas Do Velho Chico, Nasce Um Rio De Esperança",
-      "carnavalesco": "",
-      "total_views": 262431,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2005",
-      "ano": 2005,
-      "enredo": "Mangueira Energiza A Avenida",
-      "carnavalesco": "",
-      "total_views": 69791,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2004",
-      "ano": 2004,
-      "enredo": "Mangueira Redescobre A Estrada Real",
-      "carnavalesco": "",
-      "total_views": 96614,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2003",
-      "ano": 2003,
-      "enredo": "Os Dez Mandamentos: O Samba Da Paz Canta A Saga Da Liberdade",
-      "carnavalesco": "",
-      "total_views": 640781,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2002",
-      "ano": 2002,
-      "enredo": "Brazil Com Z É Pra Cabra Da Peste, Brasil Com S É A Nação Do Nordeste",
-      "carnavalesco": "",
-      "total_views": 2763364,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2001",
-      "ano": 2001,
-      "enredo": "A Seiva Da Vida",
-      "carnavalesco": "",
-      "total_views": 84404,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-2000",
-      "ano": 2000,
-      "enredo": "Dom Obá II — Rei Dos Esfarrapados, Príncipe Do Povo",
-      "carnavalesco": "",
-      "total_views": 198266,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1999",
-      "ano": 1999,
-      "enredo": "O Século Do Samba",
-      "carnavalesco": "",
-      "total_views": 215562,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1998",
-      "ano": 1998,
-      "enredo": "Chico Buarque da Mangueira",
-      "carnavalesco": "",
-      "total_views": 621684,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1997",
-      "ano": 1997,
-      "enredo": "Olimpo É Verde E Rosa",
-      "carnavalesco": "",
-      "total_views": 67935,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1996",
-      "ano": 1996,
-      "enredo": "Os Tambores Da Mangueira Na Terra Da Encantaria",
-      "carnavalesco": "",
-      "total_views": 147699,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1995",
-      "ano": 1995,
-      "enredo": "A Esmeralda Do Atlântico",
-      "carnavalesco": "",
-      "total_views": 78358,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1994",
-      "ano": 1994,
-      "enredo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu",
-      "carnavalesco": "",
-      "total_views": 5182122,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1993",
-      "ano": 1993,
-      "enredo": "Dessa Fruta Eu Como Até Caroço",
-      "carnavalesco": "",
-      "total_views": 446779,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1992",
-      "ano": 1992,
-      "enredo": "Se Todos Fossem Iguais A Você",
-      "carnavalesco": "",
-      "total_views": 134043,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1991",
-      "ano": 1991,
-      "enredo": "As Três Rendeiras Do Universo",
-      "carnavalesco": "",
-      "total_views": 94392,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1990",
-      "ano": 1990,
-      "enredo": "E Deu A Louca No Barroco",
-      "carnavalesco": "",
-      "total_views": 205031,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1989",
-      "ano": 1989,
-      "enredo": "Trinca De Reis",
-      "carnavalesco": "",
-      "total_views": 385712,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1988",
-      "ano": 1988,
-      "enredo": "Cem Anos De Liberdade, Realidade E Ilusão",
-      "carnavalesco": "",
-      "total_views": 1350667,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1987",
-      "ano": 1987,
-      "enredo": "No Reino Das Palavras — Carlos Drummond de Andrade",
-      "carnavalesco": "",
-      "total_views": 291520,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1986",
-      "ano": 1986,
-      "enredo": "Caymmi Mostra Ao Mundo O Que A Bahia E A Mangueira Têm",
-      "carnavalesco": "",
-      "total_views": 1394752,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1985",
-      "ano": 1985,
-      "enredo": "Abram Alas, Que Eu Quero Passar",
-      "carnavalesco": "",
-      "total_views": 360693,
-      "capa_url": ""
-    },
-    {
-      "id": "desfile-1984",
-      "ano": 1984,
-      "enredo": "Yes, Nós Temos Braguinha",
-      "carnavalesco": "",
-      "total_views": 288901,
-      "capa_url": ""
-    }
-  ],
-  "videos_desfile": [
-    {
-      "id": "vid-yt-2020-1",
-      "desfile_id": "desfile-2020",
-      "titulo": "Clipe Oficial Mangueira 2020",
-      "plataforma": "youtube",
-      "views": 2110807,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2020-2",
-      "desfile_id": "desfile-2020",
-      "titulo": "A Verdade Vós Fará Livre (Audio oficial)",
-      "plataforma": "youtube",
-      "views": 229685,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2020-3",
-      "desfile_id": "desfile-2020",
-      "titulo": "Mangueira 2020 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 163485,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2020-4",
-      "desfile_id": "desfile-2020",
-      "titulo": "Clipe samba-enredo Mangueira 2020",
-      "plataforma": "youtube",
-      "views": 1019627,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2019-1",
-      "desfile_id": "desfile-2019",
-      "titulo": "Clipe Oficial Mangueira 2019",
-      "plataforma": "youtube",
-      "views": 3582854,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2019-2",
-      "desfile_id": "desfile-2019",
-      "titulo": "Mangueira 2019 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 1208991,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2019-3",
-      "desfile_id": "desfile-2019",
-      "titulo": "Samba-enredo da Mangueira em 2019 fará homenagem a Marielle Franco",
-      "plataforma": "youtube",
-      "views": 1097185,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2019-4",
-      "desfile_id": "desfile-2019",
-      "titulo": "História Para Ninar Gente Grande (audio oficial)",
-      "plataforma": "youtube",
-      "views": 483080,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2018-1",
-      "desfile_id": "desfile-2018",
-      "titulo": "Clipe Oficial do Samba da Estação Primeira de Mangueira para o Carnaval 2018",
-      "plataforma": "youtube",
-      "views": 686310,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2018-2",
-      "desfile_id": "desfile-2018",
-      "titulo": "Mangueira 2018 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 359077,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2018-3",
-      "desfile_id": "desfile-2018",
-      "titulo": "Com Dinheiro Ou Sem Dinheiro... (Audio oficial)",
-      "plataforma": "youtube",
-      "views": 61553,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2017-1",
-      "desfile_id": "desfile-2017",
-      "titulo": "Mangueira 2017 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 765562,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2017-2",
-      "desfile_id": "desfile-2017",
-      "titulo": "Clipe Oficial do Samba 2017 da Mangueira",
-      "plataforma": "youtube",
-      "views": 13880,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2017-3",
-      "desfile_id": "desfile-2017",
-      "titulo": "Só Com A Ajuda Do Santo (Lyric Video)",
-      "plataforma": "youtube",
-      "views": 80339,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2017-4",
-      "desfile_id": "desfile-2017",
-      "titulo": "Só Com A Ajuda Do Santo (Radio Edit)",
-      "plataforma": "youtube",
-      "views": 25241,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2016-1",
-      "desfile_id": "desfile-2016",
-      "titulo": "Mangueira 2016 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 2862190,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2016-2",
-      "desfile_id": "desfile-2016",
-      "titulo": "G.R.E.S.E.P. De Mangueira — Maria Bethânia, A Menina Dos Olhos De Oyá",
-      "plataforma": "youtube",
-      "views": 2979663,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2016-3",
-      "desfile_id": "desfile-2016",
-      "titulo": "Mangueira 2016 — Maria Bethânia: A menina dos olhos de Oyá",
-      "plataforma": "youtube",
-      "views": 19690,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2015-1",
-      "desfile_id": "desfile-2015",
-      "titulo": "Mangueira 2015 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 97484,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2015-2",
-      "desfile_id": "desfile-2015",
-      "titulo": "Mangueira 2015 — Agora chegou a vez, vou Cantar",
-      "plataforma": "youtube",
-      "views": 48899,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2015-3",
-      "desfile_id": "desfile-2015",
-      "titulo": "Agora Chegou A Vez Vou Cantar: Mulher De Mangueira",
-      "plataforma": "youtube",
-      "views": 47413,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2014-1",
-      "desfile_id": "desfile-2014",
-      "titulo": "A Festança Brasileira Cai No Samba Da Mangueira",
-      "plataforma": "youtube",
-      "views": 609331,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2014-2",
-      "desfile_id": "desfile-2014",
-      "titulo": "Mangueira 2014 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 50160,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2014-3",
-      "desfile_id": "desfile-2014",
-      "titulo": "Mangueira 2014 — A festança brasileira cai no samba da Mangueira",
-      "plataforma": "youtube",
-      "views": 23135,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2013-1",
-      "desfile_id": "desfile-2013",
-      "titulo": "Mangueira 2013 — Cuiabá: um Paraíso no Centro da América",
-      "plataforma": "youtube",
-      "views": 83190,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2013-2",
-      "desfile_id": "desfile-2013",
-      "titulo": "Cuiabá: Um Paraíso No Centro Da América",
-      "plataforma": "youtube",
-      "views": 20240,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2012-1",
-      "desfile_id": "desfile-2012",
-      "titulo": "Vou Festejar! Sou Cacique, Sou Mangueira",
-      "plataforma": "youtube",
-      "views": 30881,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2012-2",
-      "desfile_id": "desfile-2012",
-      "titulo": "Mangueira 2012 — Vou festejar! Sou Cacique, sou Mangueira",
-      "plataforma": "youtube",
-      "views": 220906,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2012-3",
-      "desfile_id": "desfile-2012",
-      "titulo": "Samba da Mangueira Carnaval 2012 — Clip Oficial",
-      "plataforma": "youtube",
-      "views": 165896,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2012-4",
-      "desfile_id": "desfile-2012",
-      "titulo": "Mangueira — Samba Oficial 2012 HD",
-      "plataforma": "youtube",
-      "views": 75379,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2011-1",
-      "desfile_id": "desfile-2011",
-      "titulo": "Mangueira 2011 — O Filho Fiel, Sempre Mangueira",
-      "plataforma": "youtube",
-      "views": 252132,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2011-2",
-      "desfile_id": "desfile-2011",
-      "titulo": "Vídeoclip OFICIAL da Mangueira 2011 — SEM CORTES",
-      "plataforma": "youtube",
-      "views": 179782,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2011-3",
-      "desfile_id": "desfile-2011",
-      "titulo": "O Filho Fiel, Sempre Mangueira",
-      "plataforma": "youtube",
-      "views": 56539,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2011-4",
-      "desfile_id": "desfile-2011",
-      "titulo": "Mangueira 2011 — SAMBA OFICIAL HD",
-      "plataforma": "youtube",
-      "views": 113616,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2010-1",
-      "desfile_id": "desfile-2010",
-      "titulo": "Mangueira 2010 — Mangueira É Música do Brasil",
-      "plataforma": "youtube",
-      "views": 165084,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2010-2",
-      "desfile_id": "desfile-2010",
-      "titulo": "Mangueira é música do Brasil — carnaval 2010 Clipe oficial",
-      "plataforma": "youtube",
-      "views": 14081,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2010-3",
-      "desfile_id": "desfile-2010",
-      "titulo": "Mangueira É Música Do Brasil / Inclusão: Bem Simples",
-      "plataforma": "youtube",
-      "views": 54623,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2009-1",
-      "desfile_id": "desfile-2009",
-      "titulo": "A Mangueira Traz Os Brasis Do Brasil, Mostrando A Formação Do Povo Brasileiro",
-      "plataforma": "youtube",
-      "views": 33033,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2009-2",
-      "desfile_id": "desfile-2009",
-      "titulo": "Mangueira 2009 — A Mangueira Traz Os Brasis do Brasil",
-      "plataforma": "youtube",
-      "views": 107001,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2009-3",
-      "desfile_id": "desfile-2009",
-      "titulo": "GRES Mangueira 2009 — Samba Enredo Oficial — Legendado",
-      "plataforma": "youtube",
-      "views": 193386,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2008-1",
-      "desfile_id": "desfile-2008",
-      "titulo": "Mangueira 2008 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 57264,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2008-2",
-      "desfile_id": "desfile-2008",
-      "titulo": "100 Anos Do Frevo, É De Perder O Sapato (Citação Musical)",
-      "plataforma": "youtube",
-      "views": 25989,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2008-3",
-      "desfile_id": "desfile-2008",
-      "titulo": "Mangueira 2008 — 100 anos do frevo, é de perder o sapato",
-      "plataforma": "youtube",
-      "views": 34669,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2007-1",
-      "desfile_id": "desfile-2007",
-      "titulo": "Mangueira 2007 — Minha Pátria É Minha Língua",
-      "plataforma": "youtube",
-      "views": 222311,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2007-2",
-      "desfile_id": "desfile-2007",
-      "titulo": "Minha Pátria É Minha Língua — Luizito & Alcione",
-      "plataforma": "youtube",
-      "views": 42243,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2006-1",
-      "desfile_id": "desfile-2006",
-      "titulo": "Mangueira 2006 — Das Águas do Velho Chico, Nasce um Rio de Esperança",
-      "plataforma": "youtube",
-      "views": 163639,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2006-2",
-      "desfile_id": "desfile-2006",
-      "titulo": "Das Águas Do Velho Chico, Nasce Um Rio De Esperança",
-      "plataforma": "youtube",
-      "views": 98792,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2005-1",
-      "desfile_id": "desfile-2005",
-      "titulo": "Mangueira 2005 — Mangueira Energiza a Avenida",
-      "plataforma": "youtube",
-      "views": 69791,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2004-1",
-      "desfile_id": "desfile-2004",
-      "titulo": "Mangueira 2004 — Mangueira redescobre a estrada real",
-      "plataforma": "youtube",
-      "views": 67454,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2004-2",
-      "desfile_id": "desfile-2004",
-      "titulo": "Mangueira Redescobre A Estrada Real — E Deste Eldorado Faz Seu Carnaval",
-      "plataforma": "youtube",
-      "views": 29160,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2003-1",
-      "desfile_id": "desfile-2003",
-      "titulo": "Mangueira 2003 — Os dez mandamentos: o samba da paz canta a saga da liberdade",
-      "plataforma": "youtube",
-      "views": 329584,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2003-2",
-      "desfile_id": "desfile-2003",
-      "titulo": "Os Dez Mandamentos: O Samba Da Paz Canta A Saga Da Liberdade",
-      "plataforma": "youtube",
-      "views": 311197,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2002-1",
-      "desfile_id": "desfile-2002",
-      "titulo": "Brazil Com Z É Pra Cabra Da Peste, Brasil Com S É A Nação Do Nordeste",
-      "plataforma": "youtube",
-      "views": 1240327,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2002-2",
-      "desfile_id": "desfile-2002",
-      "titulo": "Mangueira 2002 — Brazil com 'z' é pra cabra da peste",
-      "plataforma": "youtube",
-      "views": 1523037,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2001-1",
-      "desfile_id": "desfile-2001",
-      "titulo": "Mangueira 2001 — A Seiva da Vida (HQ)",
-      "plataforma": "youtube",
-      "views": 52876,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2001-2",
-      "desfile_id": "desfile-2001",
-      "titulo": "A Seiva Da Vida",
-      "plataforma": "youtube",
-      "views": 31528,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2000-1",
-      "desfile_id": "desfile-2000",
-      "titulo": "Mangueira 2000 — Dom Obá II — Rei dos Esfarrapados, Príncipe do Povo",
-      "plataforma": "youtube",
-      "views": 192771,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-2000-2",
-      "desfile_id": "desfile-2000",
-      "titulo": "Mangueira 2000 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 5495,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1999-1",
-      "desfile_id": "desfile-1999",
-      "titulo": "Mangueira 1999 — O Século do Samba",
-      "plataforma": "youtube",
-      "views": 151137,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1999-2",
-      "desfile_id": "desfile-1999",
-      "titulo": "O Século Do Samba",
-      "plataforma": "youtube",
-      "views": 64425,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1998-1",
-      "desfile_id": "desfile-1998",
-      "titulo": "Mangueira 1998 — Chico Buarque da Mangueira (HQ)",
-      "plataforma": "youtube",
-      "views": 608094,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1998-2",
-      "desfile_id": "desfile-1998",
-      "titulo": "Mangueira 1998 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 13590,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1997-1",
-      "desfile_id": "desfile-1997",
-      "titulo": "Mangueira 1997 — O olimpo é verde e rosa",
-      "plataforma": "youtube",
-      "views": 44233,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1997-2",
-      "desfile_id": "desfile-1997",
-      "titulo": "Olimpo É Verde E Rosa",
-      "plataforma": "youtube",
-      "views": 23702,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1996-1",
-      "desfile_id": "desfile-1996",
-      "titulo": "Mangueira 1996 — Os tambores da mangueira na terra da encantaria",
-      "plataforma": "youtube",
-      "views": 109782,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1996-2",
-      "desfile_id": "desfile-1996",
-      "titulo": "Os Tambores Da Mangueira Na Terra Da Encantaria",
-      "plataforma": "youtube",
-      "views": 37917,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1995-1",
-      "desfile_id": "desfile-1995",
-      "titulo": "Mangueira 1995 — A ESMERALDA DO ATLÂNTICO",
-      "plataforma": "youtube",
-      "views": 74258,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1995-2",
-      "desfile_id": "desfile-1995",
-      "titulo": "Mangueira 1995 — A esmeralda do Atlântico",
-      "plataforma": "youtube",
-      "views": 4100,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1994-1",
-      "desfile_id": "desfile-1994",
-      "titulo": "Mangueira 1994 — Atrás da verde e rosa só não vai quem já...",
-      "plataforma": "youtube",
-      "views": 3649040,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1994-2",
-      "desfile_id": "desfile-1994",
-      "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu",
-      "plataforma": "youtube",
-      "views": 118900,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1994-3",
-      "desfile_id": "desfile-1994",
-      "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu (Edit)",
-      "plataforma": "youtube",
-      "views": 1414182,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1993-1",
-      "desfile_id": "desfile-1993",
-      "titulo": "Mangueira 1993 — Dessa fruta eu como até caroço",
-      "plataforma": "youtube",
-      "views": 446779,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1992-1",
-      "desfile_id": "desfile-1992",
-      "titulo": "Mangueira 1992 — Se todos fossem iguais a você",
-      "plataforma": "youtube",
-      "views": 104158,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1992-2",
-      "desfile_id": "desfile-1992",
-      "titulo": "Se Todos Fossem Iguais A Você",
-      "plataforma": "youtube",
-      "views": 29885,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1991-1",
-      "desfile_id": "desfile-1991",
-      "titulo": "Mangueira 1991 — As três rendeiras do universo",
-      "plataforma": "youtube",
-      "views": 90319,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1991-2",
-      "desfile_id": "desfile-1991",
-      "titulo": "Mangueira 1991 — As três rendeiras do universo (alt)",
-      "plataforma": "youtube",
-      "views": 4073,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1990-1",
-      "desfile_id": "desfile-1990",
-      "titulo": "Mangueira 1990 — E deu a louca no barroco",
-      "plataforma": "youtube",
-      "views": 196038,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1990-2",
-      "desfile_id": "desfile-1990",
-      "titulo": "Mangueira 1990 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 8993,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1989-1",
-      "desfile_id": "desfile-1989",
-      "titulo": "Mangueira 1989 — TRINCA DE REIS",
-      "plataforma": "youtube",
-      "views": 385712,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1988-1",
-      "desfile_id": "desfile-1988",
-      "titulo": "Mangueira 1988 — Cem anos de liberdade, realidade e ilusão",
-      "plataforma": "youtube",
-      "views": 1042236,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1988-2",
-      "desfile_id": "desfile-1988",
-      "titulo": "100 Anos De Liberdade, Realidade Ou Ilusão",
-      "plataforma": "youtube",
-      "views": 274413,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1988-3",
-      "desfile_id": "desfile-1988",
-      "titulo": "Mangueira 1988 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 34018,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1987-1",
-      "desfile_id": "desfile-1987",
-      "titulo": "Mangueira 1987 — No Reino Das Palavras, Carlos Drummond de Andrade",
-      "plataforma": "youtube",
-      "views": 200962,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1987-2",
-      "desfile_id": "desfile-1987",
-      "titulo": "O Reino Das Palavras",
-      "plataforma": "youtube",
-      "views": 90558,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1986-1",
-      "desfile_id": "desfile-1986",
-      "titulo": "Mangueira 1986 — Caymmi mostra ao Mundo o que a Bahia e a Mangueira tem",
-      "plataforma": "youtube",
-      "views": 1121588,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1986-2",
-      "desfile_id": "desfile-1986",
-      "titulo": "Caymmi Mostra Ao Mundo O Que A Bahia E A Mangueira Têm",
-      "plataforma": "youtube",
-      "views": 107219,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1986-3",
-      "desfile_id": "desfile-1986",
-      "titulo": "Mangueira 1986 Letra e Samba",
-      "plataforma": "youtube",
-      "views": 66622,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1986-4",
-      "desfile_id": "desfile-1986",
-      "titulo": "Caymmi Mostra Ao Mundo O Que A Bahia E A Mangueira Tem (alt)",
-      "plataforma": "youtube",
-      "views": 99323,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1985-1",
-      "desfile_id": "desfile-1985",
-      "titulo": "Mangueira 1985 — Abram alas, que eu quero passar",
-      "plataforma": "youtube",
-      "views": 319687,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1985-2",
-      "desfile_id": "desfile-1985",
-      "titulo": "Abram Alas que eu Quero Passar",
-      "plataforma": "youtube",
-      "views": 41006,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1984-1",
-      "desfile_id": "desfile-1984",
-      "titulo": "Mangueira 1984 — Yes, nós temos Braguinha",
-      "plataforma": "youtube",
-      "views": 259036,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1984-2",
-      "desfile_id": "desfile-1984",
-      "titulo": "Yes, Nós Temos Braguinha",
-      "plataforma": "youtube",
-      "views": 18860,
-      "url": ""
-    },
-    {
-      "id": "vid-yt-1984-3",
-      "desfile_id": "desfile-1984",
-      "titulo": "Mangueira 1984 — Yes, nós temos Braguinha (alt)",
-      "plataforma": "youtube",
-      "views": 11005,
-      "url": ""
-    }
-  ],
+  "desfiles": [],
+  "videos_desfile": [],
   "metricas_videos": [],
   "metricas_semanais": [],
   "compositores": [
     {
       "nome": "Mangueira — Compositores",
-      "streams_integrais": 15093311,
-      "streams_fracionados": 7546655,
-      "obra_lider": "A Negra Voz do Amanhã",
+      "streams_integrais": 8816603,
+      "streams_fracionados": 4408301,
+      "obra_lider": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
       "obras": [
         "obra-2026-est",
         "obra-2026-liv",
@@ -1890,32 +388,1071 @@
         "obra-2024-liv",
         "obra-2023-est",
         "obra-2023-liv",
-        "obra-2023-vivo",
-        "obra-2022-est",
-        "obra-2022-liv"
+        "obra-2022-est"
       ]
     }
   ],
-  "_changelog": {
-    "v2.0.0": [
-      "Adicionados 5 desfiles com total_views para alimentar o painel Top 5 Desfiles Mais Vistos no Dashboard",
-      "meta.total_views_desfiles atualizado com soma real dos desfiles",
-      "schema_versao atualizado para 2.0.0",
-      "Aba Compositores removida da UI (dados mantidos no JSON para compatibilidade)",
-      "Gráfico de evolução semanal substituído pelo Top 5 Desfiles no Dashboard",
-      "Clique em qualquer faixa abre modal com análise detalhada por plataforma e vídeos vinculados"
-    ],
-    "v2.1.0": [
-      "Adicionados 37 desfiles com dados reais do YouTube (1984–2020)",
-      "Adicionados 93 vídeos individuais em videos_desfile",
-      "total_views_desfiles atualizado para 41,005,387",
-      "Top 5 Desfiles agora reflete dados reais: 2019 (6.3M), 2016 (5.8M), 1994 (5.1M), 2020 (3.5M), 2002 (2.7M)"
-    ],
-    "v2.2.0": [
-      "Adicionadas 37 obras históricas do YouTube (1984–2020) com views por música/samba-enredo",
-      "total_obras atualizado para 48",
-      "total_streams_geral atualizado incluindo views do YouTube histórico",
-      "plataforma youtube total_streams atualizado com views históricas"
-    ]
-  }
+  "obras_youtube": [
+    {
+      "id": "yt-2020-000",
+      "titulo": "Clipe Oficial Mangueira 2020",
+      "ano": 2020,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 2110807,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2020-001",
+      "titulo": "A Verdade Vós Fará Livre (Audio oficial)",
+      "ano": 2020,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 229685,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2020-002",
+      "titulo": "Mangueira 2020 Letra e Samba",
+      "ano": 2020,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 163485,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2020-003",
+      "titulo": "Clipe samba-enredo Mangueira 2020",
+      "ano": 2020,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 1019627,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2019-004",
+      "titulo": "Clipe Oficial Mangueira 2019",
+      "ano": 2019,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 3582854,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2019-005",
+      "titulo": "Mangueira 2019 Letra e Samba",
+      "ano": 2019,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 1208991,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2019-006",
+      "titulo": "Samba-enredo da Mangueira em 2019 fará homenagem a Marielle Franco",
+      "ano": 2019,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 1097185,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2019-007",
+      "titulo": "História Para Ninar Gente Grande (audio oficial)",
+      "ano": 2019,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 483080,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2018-008",
+      "titulo": "Clipe Oficial do Samba da Estação Primeira de Mangueira para o Carnaval 2018",
+      "ano": 2018,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 686310,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2018-009",
+      "titulo": "Mangueira 2018 Letra e Samba",
+      "ano": 2018,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 359077,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2018-010",
+      "titulo": "Com Dinheiro Ou Sem Dinheiro... (Audio oficial)",
+      "ano": 2018,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 61553,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2017-011",
+      "titulo": "Mangueira 2017 Letra e Samba",
+      "ano": 2017,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 765562,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2017-012",
+      "titulo": "Clipe Oficial do Samba 2017 da Mangueira",
+      "ano": 2017,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 13880,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2017-013",
+      "titulo": "Estação Primeira De Mangueira, Ciganerey, Milton Gonçalves - Só Com A Ajuda Do Santo (Lyric Video)",
+      "ano": 2017,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 80339,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2017-014",
+      "titulo": "Só Com A Ajuda Do Santo (Radio Edit)",
+      "ano": 2017,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 25241,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2016-015",
+      "titulo": "Mangueira 2016 Letra e Samba",
+      "ano": 2016,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 2862190,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2016-016",
+      "titulo": "G.R.E.S.E.P. De Mangueira - Maria Bethânia, A Menina Dos Olhos De Oyá",
+      "ano": 2016,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 2979663,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2016-017",
+      "titulo": "Mangueira 2016 - Maria Bethânia: A menina dos olhos de Oyá",
+      "ano": 2016,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 19690,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2015-018",
+      "titulo": "Mangueira 2015 Letra e Samba",
+      "ano": 2015,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 97484,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2015-019",
+      "titulo": "Mangueira 2015 10/12 - Agora chegou a vez, vou Cantar",
+      "ano": 2015,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 48899,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2015-020",
+      "titulo": "Agora Chegou A Vez Vou Cantar: Mulher De Mangueira, Mulher Brasileira Em Primeiro Lugar",
+      "ano": 2015,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 47413,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2014-021",
+      "titulo": "G.R.E.S.E.P. De Mangueira - A Festança Brasileira Cai No Samba Da Mangueira",
+      "ano": 2014,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 609331,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2014-022",
+      "titulo": "Mangueira 2014 Letra e Samba",
+      "ano": 2014,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 50160,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2014-023",
+      "titulo": "Mangueira 2014 8/12 - A festança brasileira cai no samba da Mangueira",
+      "ano": 2014,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 23135,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2013-024",
+      "titulo": "Mangueira 2013 8/12 - Cuiabá: um Paraíso no Centro da América",
+      "ano": 2013,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 83190,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2013-025",
+      "titulo": "Cuiabá: Um Paraíso No Centro Da América! / Citação: Acima De Tudo Mangueira",
+      "ano": 2013,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 20240,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2012-026",
+      "titulo": "Vou Festejar! Sou Cacique, Sou Mangueira (GRES Estação Primeira De Mangueira)",
+      "ano": 2012,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 30881,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2012-027",
+      "titulo": "Mangueira 2012 7/13 - Vou festejar! Sou Cacique, sou Mangueira",
+      "ano": 2012,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 220906,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2012-028",
+      "titulo": "Samba da Mangueira Carnaval 2012 - Clip Oficial",
+      "ano": 2012,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 165896,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2012-029",
+      "titulo": "Mangueira - Samba Oficial 2012 HD",
+      "ano": 2012,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 75379,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2011-030",
+      "titulo": "Mangueira 2011 3/9 - O Filho Fiel, Sempre Mangueira",
+      "ano": 2011,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 252132,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2011-031",
+      "titulo": "Vídeoclip OFICIAL da Mangueira 2011 - SEM CORTES",
+      "ano": 2011,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 179782,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2011-032",
+      "titulo": "O Filho Fiel, Sempre Mangueira",
+      "ano": 2011,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 56539,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2011-033",
+      "titulo": "Mangueira 2011 - SAMBA OFICIAL HD",
+      "ano": 2011,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 113616,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2010-034",
+      "titulo": "Mangueira 2010 6/12 - Mangueira É Música do Brasil",
+      "ano": 2010,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 165084,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2010-035",
+      "titulo": "Mangueira é música do Brasil - carnaval 2010 Clipe oficial",
+      "ano": 2010,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 14081,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2010-036",
+      "titulo": "Mangueira É Música Do Brasil / Inclusão: Bem Simples",
+      "ano": 2010,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 54623,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2009-037",
+      "titulo": "A Mangueira Traz Os Brasis Do Brasil, Mostrando A Formação Do Povo Brasileiro",
+      "ano": 2009,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 33033,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2009-038",
+      "titulo": "Mangueira 2009 6/12 - A Mangueira Traz Os Brasis do Brasil Mostrando a Formação do Povo Brasileiro",
+      "ano": 2009,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 107001,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2009-039",
+      "titulo": "GRES Mangueira 2009 - Samba Enredo Oficial - Legendado",
+      "ano": 2009,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 193386,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2008-040",
+      "titulo": "Mangueira 2008 Letra e Samba",
+      "ano": 2008,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 57264,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2008-041",
+      "titulo": "100 Anos Do Frevo, É De Perder O Sapato. Recife Mandou Me Chamar... / Citação Musical",
+      "ano": 2008,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 25989,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2008-042",
+      "titulo": "Mangueira 2008 - 100 anos do frevo, é de perder o sapato. Recife mandou me chamar",
+      "ano": 2008,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 34669,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2007-043",
+      "titulo": "Mangueira 2007 3/13 - Minha Pátria É Minha Língua",
+      "ano": 2007,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 222311,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2007-044",
+      "titulo": "Minha Pátria É Minha Língua, Mangueira Meu Grande Amor · Luizito · Alcione",
+      "ano": 2007,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 42243,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2006-045",
+      "titulo": "Mangueira 2006 4/14 - Das Águas do Velho Chico, Nasce um Rio de Esperança",
+      "ano": 2006,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 163639,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2006-046",
+      "titulo": "Das Águas Do Velho Chico, Nasce Um Rio De Esperança",
+      "ano": 2006,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 98792,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2005-047",
+      "titulo": "Mangueira 2005 6/14 - Mangueira Energiza a Avenida. O Carnaval é pura Energia",
+      "ano": 2005,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 69791,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2004-048",
+      "titulo": "Mangueira 2004 3/14 - Mangueira redescobre a estrada real... e deste eldorado faz seu",
+      "ano": 2004,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 67454,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2004-049",
+      "titulo": "Mangueira Redescobre A Estrada Real... E Deste Eldorado Faz Seu Carnaval",
+      "ano": 2004,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 29160,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2003-050",
+      "titulo": "Mangueira 2003 2/14 - Os dez mandamentos: o samba da paz canta a saga da liberdade",
+      "ano": 2003,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 329584,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2003-051",
+      "titulo": "Os Dez Mandamentos: O Samba Da Paz Canta A Saga Da Liberdade",
+      "ano": 2003,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 311197,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2002-052",
+      "titulo": "Brazil Com Z É Pra Cabra Da Peste, Brasil Com S É A Nação Do Nordeste",
+      "ano": 2002,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 1240327,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2002-053",
+      "titulo": "Mangueira 2002 1/14 - Brazil com Z é pra cabra da peste",
+      "ano": 2002,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 1523037,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2001-054",
+      "titulo": "Mangueira 2001 3/14 - A Seiva da Vida (HQ)",
+      "ano": 2001,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 52876,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2001-055",
+      "titulo": "A Seiva Da Vida",
+      "ano": 2001,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 31528,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2000-056",
+      "titulo": "Mangueira 2000 7/14 - Dom Obá II - Rei dos Esfarrapados, Príncipe do Povo",
+      "ano": 2000,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 192771,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-2000-057",
+      "titulo": "Mangueira 2000 Letra e Samba",
+      "ano": 2000,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 5495,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1999-058",
+      "titulo": "Mangueira 1999 7/14 - O Século do Samba",
+      "ano": 1999,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 151137,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1999-059",
+      "titulo": "O Século Do Samba",
+      "ano": 1999,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 64425,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1998-060",
+      "titulo": "Mangueira 1998 1/14 - Chico Buarque da Mangueira (HQ)",
+      "ano": 1998,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 608094,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1998-061",
+      "titulo": "Mangueira 1998 Letra e Samba",
+      "ano": 1998,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 13590,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1997-062",
+      "titulo": "Mangueira 1997 3/16 - O olimpo é verde e rosa",
+      "ano": 1997,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 44233,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1997-063",
+      "titulo": "Olimpo É Verde E Rosa",
+      "ano": 1997,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 23702,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1996-064",
+      "titulo": "Mangueira 1996 4/18 - Os tambores da mangueira na terra da encantaria",
+      "ano": 1996,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 109782,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1996-065",
+      "titulo": "Os Tambores Da Mangueira Na Terra Da Encantaria",
+      "ano": 1996,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 37917,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1995-066",
+      "titulo": "Mangueira 1995 4/15 - A Esmeralda do Atlântico",
+      "ano": 1995,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 74258,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1995-067",
+      "titulo": "Mangueira 1995 - A esmeralda do Atlântico",
+      "ano": 1995,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 4100,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1994-068",
+      "titulo": "Mangueira 1994 11/16 - Atrás da verde e rosa só não vai quem já...",
+      "ano": 1994,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 3649040,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1994-069",
+      "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu",
+      "ano": 1994,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 118900,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1994-070",
+      "titulo": "Atrás Da Verde E Rosa Só Não Vai Quem Já Morreu (Edit)",
+      "ano": 1994,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 1414182,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1993-071",
+      "titulo": "Mangueira 1993 5/14 - Dessa fruta eu como até caroço",
+      "ano": 1993,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 446779,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1992-072",
+      "titulo": "Mangueira 1992 6/15 - Se todos fossem iguais a você",
+      "ano": 1992,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 104158,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1992-073",
+      "titulo": "Se Todos Fossem Iguais A Você",
+      "ano": 1992,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 29885,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1991-074",
+      "titulo": "Mangueira 1991 12/16 - As três rendeiras do universo",
+      "ano": 1991,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 90319,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1991-075",
+      "titulo": "Mangueira 1991 - As três rendeiras do universo",
+      "ano": 1991,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 4073,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1990-076",
+      "titulo": "Mangueira 1990 8/16 - E deu a louca no barroco",
+      "ano": 1990,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 196038,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1990-077",
+      "titulo": "Mangueira 1990 Letra e Samba",
+      "ano": 1990,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 8993,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1989-078",
+      "titulo": "Mangueira 1989 11/18 TRINCA DE REIS",
+      "ano": 1989,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 385712,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1988-079",
+      "titulo": "Mangueira 1988 2/14 - Cem anos de liberdade, realidade e ilusão",
+      "ano": 1988,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 1042236,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1988-080",
+      "titulo": "100 Anos De Liberdade, Realidade Ou Ilusão",
+      "ano": 1988,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 274413,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1988-081",
+      "titulo": "Mangueira 1988 Letra e Samba",
+      "ano": 1988,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 34018,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1987-082",
+      "titulo": "Mangueira 1987 1/12 - No Reino Das Palavras, Carlos Drummond de Andrade",
+      "ano": 1987,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 200962,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1987-083",
+      "titulo": "O Reino Das Palavras",
+      "ano": 1987,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 90558,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1986-084",
+      "titulo": "Mangueira 1986 1/15 - Caymmi mostra ao Mundo o que a Bahia e a Mangueira tem",
+      "ano": 1986,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 1121588,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1986-085",
+      "titulo": "Caymmi Mostra Ao Mundo O Que A Bahia E A Mangueira Têm",
+      "ano": 1986,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 107219,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1986-086",
+      "titulo": "Mangueira 1986 Letra e Samba",
+      "ano": 1986,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 66622,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1986-087",
+      "titulo": "Caymmi Mostra Ao Mundo O Que A Bahia E A Mangueira Tem",
+      "ano": 1986,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 99323,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1985-088",
+      "titulo": "Mangueira 1985 9/16 - Abram alas, que eu quero passar",
+      "ano": 1985,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 319687,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1985-089",
+      "titulo": "Abram Alas que eu Quero Passar",
+      "ano": 1985,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 41006,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1984-090",
+      "titulo": "Mangueira 1984 1/14 - Yes, nós temos Braguinha",
+      "ano": 1984,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 259036,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1984-091",
+      "titulo": "Yes, Nós Temos Braguinha",
+      "ano": 1984,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 18860,
+      "ganho_semanal": 0
+    },
+    {
+      "id": "yt-1984-092",
+      "titulo": "Mangueira 1984 - Yes, nós temos Braguinha",
+      "ano": 1984,
+      "tipo": "YouTube",
+      "plataforma": "youtube",
+      "total_views": 11005,
+      "ganho_semanal": 0
+    }
+  ],
+  "agregacoes_youtube": [
+    {
+      "ano": 2019,
+      "total_views": 6372110,
+      "quantidade_videos": 4,
+      "video_lider": "Clipe Oficial Mangueira 2019"
+    },
+    {
+      "ano": 2016,
+      "total_views": 5861543,
+      "quantidade_videos": 3,
+      "video_lider": "G.R.E.S.E.P. De Mangueira - Maria Bethânia, A Menina Dos Olhos De Oyá"
+    },
+    {
+      "ano": 1994,
+      "total_views": 5182122,
+      "quantidade_videos": 3,
+      "video_lider": "Mangueira 1994 11/16 - Atrás da verde e rosa só não vai quem já..."
+    },
+    {
+      "ano": 2020,
+      "total_views": 3523604,
+      "quantidade_videos": 4,
+      "video_lider": "Clipe Oficial Mangueira 2020"
+    },
+    {
+      "ano": 2002,
+      "total_views": 2763364,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 2002 1/14 - Brazil com Z é pra cabra da peste"
+    },
+    {
+      "ano": 1986,
+      "total_views": 1394752,
+      "quantidade_videos": 4,
+      "video_lider": "Mangueira 1986 1/15 - Caymmi mostra ao Mundo o que a Bahia e a Mangueira tem"
+    },
+    {
+      "ano": 1988,
+      "total_views": 1350667,
+      "quantidade_videos": 3,
+      "video_lider": "Mangueira 1988 2/14 - Cem anos de liberdade, realidade e ilusão"
+    },
+    {
+      "ano": 2018,
+      "total_views": 1106940,
+      "quantidade_videos": 3,
+      "video_lider": "Clipe Oficial do Samba da Estação Primeira de Mangueira para o Carnaval 2018"
+    },
+    {
+      "ano": 2017,
+      "total_views": 885022,
+      "quantidade_videos": 4,
+      "video_lider": "Mangueira 2017 Letra e Samba"
+    },
+    {
+      "ano": 2014,
+      "total_views": 682626,
+      "quantidade_videos": 3,
+      "video_lider": "G.R.E.S.E.P. De Mangueira - A Festança Brasileira Cai No Samba Da Mangueira"
+    },
+    {
+      "ano": 2003,
+      "total_views": 640781,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 2003 2/14 - Os dez mandamentos: o samba da paz canta a saga da liberdade"
+    },
+    {
+      "ano": 1998,
+      "total_views": 621684,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1998 1/14 - Chico Buarque da Mangueira (HQ)"
+    },
+    {
+      "ano": 2011,
+      "total_views": 602069,
+      "quantidade_videos": 4,
+      "video_lider": "Mangueira 2011 3/9 - O Filho Fiel, Sempre Mangueira"
+    },
+    {
+      "ano": 2012,
+      "total_views": 493062,
+      "quantidade_videos": 4,
+      "video_lider": "Mangueira 2012 7/13 - Vou festejar! Sou Cacique, sou Mangueira"
+    },
+    {
+      "ano": 1993,
+      "total_views": 446779,
+      "quantidade_videos": 1,
+      "video_lider": "Mangueira 1993 5/14 - Dessa fruta eu como até caroço"
+    },
+    {
+      "ano": 1989,
+      "total_views": 385712,
+      "quantidade_videos": 1,
+      "video_lider": "Mangueira 1989 11/18 TRINCA DE REIS"
+    },
+    {
+      "ano": 1985,
+      "total_views": 360693,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1985 9/16 - Abram alas, que eu quero passar"
+    },
+    {
+      "ano": 2009,
+      "total_views": 333420,
+      "quantidade_videos": 3,
+      "video_lider": "GRES Mangueira 2009 - Samba Enredo Oficial - Legendado"
+    },
+    {
+      "ano": 1987,
+      "total_views": 291520,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1987 1/12 - No Reino Das Palavras, Carlos Drummond de Andrade"
+    },
+    {
+      "ano": 1984,
+      "total_views": 288901,
+      "quantidade_videos": 3,
+      "video_lider": "Mangueira 1984 1/14 - Yes, nós temos Braguinha"
+    },
+    {
+      "ano": 2007,
+      "total_views": 264554,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 2007 3/13 - Minha Pátria É Minha Língua"
+    },
+    {
+      "ano": 2006,
+      "total_views": 262431,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 2006 4/14 - Das Águas do Velho Chico, Nasce um Rio de Esperança"
+    },
+    {
+      "ano": 2010,
+      "total_views": 233788,
+      "quantidade_videos": 3,
+      "video_lider": "Mangueira 2010 6/12 - Mangueira É Música do Brasil"
+    },
+    {
+      "ano": 1999,
+      "total_views": 215562,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1999 7/14 - O Século do Samba"
+    },
+    {
+      "ano": 1990,
+      "total_views": 205031,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1990 8/16 - E deu a louca no barroco"
+    },
+    {
+      "ano": 2000,
+      "total_views": 198266,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 2000 7/14 - Dom Obá II - Rei dos Esfarrapados, Príncipe do Povo"
+    },
+    {
+      "ano": 2015,
+      "total_views": 193796,
+      "quantidade_videos": 3,
+      "video_lider": "Mangueira 2015 Letra e Samba"
+    },
+    {
+      "ano": 1996,
+      "total_views": 147699,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1996 4/18 - Os tambores da mangueira na terra da encantaria"
+    },
+    {
+      "ano": 1992,
+      "total_views": 134043,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1992 6/15 - Se todos fossem iguais a você"
+    },
+    {
+      "ano": 2008,
+      "total_views": 117922,
+      "quantidade_videos": 3,
+      "video_lider": "Mangueira 2008 Letra e Samba"
+    },
+    {
+      "ano": 2013,
+      "total_views": 103430,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 2013 8/12 - Cuiabá: um Paraíso no Centro da América"
+    },
+    {
+      "ano": 2004,
+      "total_views": 96614,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 2004 3/14 - Mangueira redescobre a estrada real... e deste eldorado faz seu"
+    },
+    {
+      "ano": 1991,
+      "total_views": 94392,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1991 12/16 - As três rendeiras do universo"
+    },
+    {
+      "ano": 2001,
+      "total_views": 84404,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 2001 3/14 - A Seiva da Vida (HQ)"
+    },
+    {
+      "ano": 1995,
+      "total_views": 78358,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1995 4/15 - A Esmeralda do Atlântico"
+    },
+    {
+      "ano": 2005,
+      "total_views": 69791,
+      "quantidade_videos": 1,
+      "video_lider": "Mangueira 2005 6/14 - Mangueira Energiza a Avenida. O Carnaval é pura Energia"
+    },
+    {
+      "ano": 1997,
+      "total_views": 67935,
+      "quantidade_videos": 2,
+      "video_lider": "Mangueira 1997 3/16 - O olimpo é verde e rosa"
+    }
+  ]
 }
