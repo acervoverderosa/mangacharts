@@ -1085,7 +1085,7 @@ nav a svg { flex-shrink: 0; }
     </circle>
   </svg>
   <div class="loading-bar"><div class="loading-bar-fill"></div></div>
-  <div class="loading-text">carregando dados · mangacharts</div>
+  <div class="loading-text" id="loading-text">carregando dados · mangacharts</div>
 </div>
 
 <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
@@ -1455,26 +1455,103 @@ const rankTitles = {
 };
 
 // ─── FETCH JSON ───────────────────────────────────────────────────────────────
-async function loadData() {
-  try {
-    const res = await fetch(JSON_URL);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    DATA = await res.json();
-  } catch (e) {
-    console.warn('Falha ao buscar JSON, usando estrutura vazia.', e);
-    DATA = buildEmptyData();
-  }
-  const loadTime = ((performance.now() - loadStart) / 1000).toFixed(2) + 's';
+const CACHE_KEY   = 'mangacharts_data_v1';
+const CACHE_TS    = 'mangacharts_ts_v1';
+const CACHE_TTL   = 30 * 60 * 1000; // 30 min
+
+function setLoadingText(txt) {
+  const el = document.getElementById('loading-text');
+  if (el) el.textContent = txt;
+}
+
+function applyData(source) {
+  const loadTime = ((performance.now() - loadStart) / 1000).toFixed(2) + 's (' + source + ')';
   const el = document.getElementById('sobre-load-time');
   if (el) el.textContent = loadTime;
-
   populateUI();
   initCharts();
   renderRankTable(currentRanking);
-  // Oculta loading
   const ov = document.getElementById('loading-overlay');
   ov.classList.add('hidden');
   setTimeout(() => ov.style.display = 'none', 450);
+}
+
+async function fetchWithTimeout(url, ms) {
+  const ctrl = new AbortController();
+  const id = setTimeout(() => ctrl.abort(), ms);
+  try {
+    const res = await fetch(url, { signal: ctrl.signal, cache: 'no-store' });
+    clearTimeout(id);
+    return res;
+  } catch(e) {
+    clearTimeout(id);
+    throw e;
+  }
+}
+
+async function loadData() {
+  // 1) Tenta carregar do cache imediatamente
+  try {
+    const cached = localStorage.getItem(CACHE_KEY);
+    const ts     = parseInt(localStorage.getItem(CACHE_TS) || '0', 10);
+    const age    = Date.now() - ts;
+    if (cached && age < CACHE_TTL) {
+      DATA = JSON.parse(cached);
+      applyData('cache');
+      // Atualiza em background sem bloquear a UI
+      refreshInBackground();
+      return;
+    }
+  } catch(e) { /* ignora erros de localStorage */ }
+
+  // 2) Sem cache válido — busca direto
+  setLoadingText('BUSCANDO DADOS...');
+  await fetchAndRender();
+}
+
+async function fetchAndRender() {
+  try {
+    const res = await fetchWithTimeout(JSON_URL, 12000); // timeout 12s
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+    DATA = json;
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify(json));
+      localStorage.setItem(CACHE_TS, String(Date.now()));
+    } catch(e) { /* quota exceeded — ignora */ }
+    applyData('rede');
+  } catch (e) {
+    console.warn('Falha ao buscar JSON:', e);
+    // Tenta cache expirado como fallback
+    try {
+      const cached = localStorage.getItem(CACHE_KEY);
+      if (cached) {
+        DATA = JSON.parse(cached);
+        applyData('cache antigo');
+        return;
+      }
+    } catch(e2) {}
+    DATA = buildEmptyData();
+    applyData('offline');
+  }
+}
+
+async function refreshInBackground() {
+  try {
+    const res = await fetchWithTimeout(JSON_URL, 15000);
+    if (!res.ok) return;
+    const json = await res.json();
+    localStorage.setItem(CACHE_KEY, JSON.stringify(json));
+    localStorage.setItem(CACHE_TS, String(Date.now()));
+    // Atualiza silenciosamente se os dados mudaram
+    const oldTotal = DATA?.meta?.total_streams_geral;
+    DATA = json;
+    if (json?.meta?.total_streams_geral !== oldTotal) {
+      populateUI();
+      initCharts();
+      renderRankTable(currentRanking);
+    }
+  } catch(e) { /* silencioso */ }
 }
 
 function buildEmptyData() {
@@ -1652,26 +1729,34 @@ function renderAnosGrid(anos) {
   const container = el('anos-grid-container');
   if (!anos || anos.length === 0) return;
 
-  // Ordenar por total_streams desc
-  const sorted = anos.slice().sort((a, b) => (b.total_streams || 0) - (a.total_streams || 0));
-  const maxS = Math.max(...sorted.map(a => a.total_streams || 0));
+  // Ordenar: anos com streams primeiro (por streams desc), depois só YouTube (por views desc)
+  const sorted = anos.slice().sort((a, b) => {
+    const aVal = (a.total_streams || 0) > 0 ? (a.total_streams || 0) * 1000 + (a.total_views || 0) : (a.total_views || 0);
+    const bVal = (b.total_streams || 0) > 0 ? (b.total_streams || 0) * 1000 + (b.total_views || 0) : (b.total_views || 0);
+    return bVal - aVal;
+  });
+  const maxS = Math.max(...sorted.map(a => (a.total_streams || 0) > 0 ? (a.total_streams || 0) : (a.total_views || 0)), 1);
 
   let html = `<div class="full-panel">
     <div class="full-panel-header">
-      <span class="panel-title">Ranking por Ano — Total de Streams</span>
+      <span class="panel-title">Ranking por Ano — Streams & Visualizações</span>
       <span class="panel-tag">${sorted.length} anos cadastrados</span>
     </div>
     <div class="full-panel-body">
       <table class="rank-table-full"><thead><tr>
         <th style="width:42px">#</th>
         <th>Ano</th>
-        <th class="right" style="width:150px">Total streams</th>
+        <th class="right" style="width:160px">Streams / Views</th>
         <th class="right" style="width:100px">Obras</th>
-        <th style="width:200px">Obra líder</th>
+        <th style="width:200px">Obra / Vídeo líder</th>
       </tr></thead><tbody>`;
 
   sorted.forEach((a, i) => {
-    const pct = maxS > 0 ? ((a.total_streams / maxS) * 100).toFixed(1) : 0;
+    const hasStreams = (a.total_streams || 0) > 0;
+    const metricVal = hasStreams ? (a.total_streams || 0) : (a.total_views || 0);
+    const metricLabel = hasStreams ? 'Spotify' : 'YouTube';
+    const metricColor = hasStreams ? 'var(--sp-color)' : 'var(--yt-color)';
+    const pct = maxS > 0 ? (metricVal / maxS * 100).toFixed(1) : 0;
     html += `<tr onclick="abrirModalAno('${a.ano}')" style="cursor:pointer;">
       <td><span class="rank-pos${i < 3 ? ' top' : ''}">${i + 1}</span></td>
       <td>
@@ -1681,11 +1766,14 @@ function renderAnosGrid(anos) {
           </div>
           <div>
             <div style="font-family:var(--font-titulo);font-weight:700;font-size:15px;color:var(--verde-mais-escuro);">${a.ano}</div>
-            <div class="progress-bar-wrap" style="max-width:180px;margin-top:6px;"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+            <div class="progress-bar-wrap" style="max-width:180px;margin-top:6px;"><div class="progress-bar-fill" style="width:${pct}%;background:${metricColor};"></div></div>
           </div>
         </div>
       </td>
-      <td class="streams-cell"><div class="streams-total">${fmtNum(a.total_streams || 0)}</div></td>
+      <td class="streams-cell">
+        <div class="streams-total">${fmtNum(metricVal)}</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:${metricColor};margin-top:2px;">${metricLabel}</div>
+      </td>
       <td class="streams-cell"><div class="streams-ganho">${a.quantidade_obras || 0}</div></td>
       <td><div style="font-family:var(--font-corpo);font-size:11.5px;color:var(--cinza-neutro);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px;">${a.obra_lider || '—'}</div></td>
     </tr>`;
@@ -1712,10 +1800,13 @@ function abrirModalAno(ano) {
   el('modal-ano-subtitulo').textContent = `${anoData.quantidade_obras || obras.length || 0} obras · clique em uma obra para ver detalhes`;
 
   // Stats bar
+  const hasSpStreams = (anoData.total_streams || 0) > 0;
+  const metricVal2 = hasSpStreams ? (anoData.total_streams || 0) : (anoData.total_views || 0);
+  const metricLab2 = hasSpStreams ? 'streams Spotify' : 'views YouTube';
   el('modal-ano-stats').innerHTML = `
     <div style="flex:1;padding:14px 20px;border-right:1px solid var(--cinza-borda);">
-      <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${fmtNum(anoData.total_streams || 0)}</div>
-      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">streams totais</div>
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${fmtNum(metricVal2)}</div>
+      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">${metricLab2}</div>
     </div>
     <div style="flex:1;padding:14px 20px;border-right:1px solid var(--cinza-borda);">
       <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${anoData.quantidade_obras || obras.length || 0}</div>
