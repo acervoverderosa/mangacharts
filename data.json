@@ -1,0 +1,128 @@
+Segue o arquivo `data.json` atualizado com a data **23/04/2026** e os dados dos sambas da Mangueira (apenas Spotify), conforme solicitado.
+
+```json
+{
+  "meta": {
+    "ultima_atualizacao": "2026-04-23T00:00:00",
+    "semana_atual": "2026-04-14",
+    "semana_fim": "2026-04-20",
+    "status_coleta": "idle",
+    "total_obras": 11,
+    "total_streams_geral": 8816603,
+    "total_views_desfiles": 0,
+    "plataforma_lider": "spotify",
+    "obras_ativas_semana": 11
+  },
+  "obras": [
+    {
+      "ano": 2026,
+      "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra",
+      "versao": "Estúdio",
+      "plataforma": "spotify",
+      "reproducoes": 1280064
+    },
+    {
+      "ano": 2026,
+      "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo",
+      "versao": "Ao Vivo",
+      "plataforma": "spotify",
+      "reproducoes": 62324
+    },
+    {
+      "ano": 2025,
+      "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
+      "versao": "Estúdio",
+      "plataforma": "spotify",
+      "reproducoes": 1874029
+    },
+    {
+      "ano": 2025,
+      "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo",
+      "versao": "Ao Vivo",
+      "plataforma": "spotify",
+      "reproducoes": 370650
+    },
+    {
+      "ano": 2024,
+      "titulo": "A Negra Voz do Amanhã",
+      "versao": "Estúdio",
+      "plataforma": "spotify",
+      "reproducoes": 1597267
+    },
+    {
+      "ano": 2024,
+      "titulo": "A Negra Voz do Amanhã - Ao Vivo",
+      "versao": "Ao Vivo",
+      "plataforma": "spotify",
+      "reproducoes": 328678
+    },
+    {
+      "ano": 2023,
+      "titulo": "As Áfricas Que a Bahia Canta",
+      "versao": "Estúdio",
+      "plataforma": "spotify",
+      "reproducoes": 1483307
+    },
+    {
+      "ano": 2023,
+      "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo",
+      "versao": "Ao Vivo",
+      "plataforma": "spotify",
+      "reproducoes": 636441
+    },
+    {
+      "ano": 2022,
+      "titulo": "Angenor, José & Laurindo",
+      "versao": "Estúdio",
+      "plataforma": "spotify",
+      "reproducoes": 1183843
+    }
+  ],
+  "plataformas": [
+    {
+      "nome": "spotify",
+      "total_obras": 11,
+      "total_streams": 8816603
+    }
+  ],
+  "metricas_semanais": [],
+  "desfiles": [],
+  "videos_desfile": [],
+  "metricas_videos": [],
+  "rankings": {
+    "geral": [
+      { "posicao": 1, "ano": 2025, "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões", "versao": "Estúdio", "streams": 1874029 },
+      { "posicao": 2, "ano": 2024, "titulo": "A Negra Voz do Amanhã", "versao": "Estúdio", "streams": 1597267 },
+      { "posicao": 3, "ano": 2023, "titulo": "As Áfricas Que a Bahia Canta", "versao": "Estúdio", "streams": 1483307 },
+      { "posicao": 4, "ano": 2026, "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra", "versao": "Estúdio", "streams": 1280064 },
+      { "posicao": 5, "ano": 2022, "titulo": "Angenor, José & Laurindo", "versao": "Estúdio", "streams": 1183843 },
+      { "posicao": 6, "ano": 2023, "titulo": "As Áfricas Que a Bahia Canta - Ao Vivo", "versao": "Ao Vivo", "streams": 636441 },
+      { "posicao": 7, "ano": 2025, "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões - Ao Vivo", "versao": "Ao Vivo", "streams": 370650 },
+      { "posicao": 8, "ano": 2024, "titulo": "A Negra Voz do Amanhã - Ao Vivo", "versao": "Ao Vivo", "streams": 328678 },
+      { "posicao": 9, "ano": 2026, "titulo": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra - Ao Vivo", "versao": "Ao Vivo", "streams": 62324 }
+    ],
+    "spotify": [
+      { "posicao": 1, "ano": 2025, "titulo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões", "streams": 1874029 },
+      { "posicao": 2, "ano": 2024, "titulo": "A Negra Voz do Amanhã", "streams": 1597267 },
+      { "posicao": 3, "ano": 2023, "titulo": "As Áfricas Que a Bahia Canta", "streams": 1483307 }
+    ],
+    "youtube": [],
+    "deezer": [],
+    "trending": [],
+    "quedas": []
+  },
+  "agregacoes_por_ano": [
+    { "ano": 2022, "total_streams": 1183843 },
+    { "ano": 2023, "total_streams": 2119748 },
+    { "ano": 2024, "total_streams": 1925945 },
+    { "ano": 2025, "total_streams": 2244679 },
+    { "ano": 2026, "total_streams": 1342388 }
+  ],
+  "historico_semanal": {
+    "semanas": [],
+    "total_streams_por_semana": []
+  },
+  "schema_versao": "1.0.0",
+  "notas": "Dados dos sambas da Mangueira importados em 23/04/2026. Apenas Spotify. Pendente coleta de YouTube/Deezer e desfiles."
+}
+```
