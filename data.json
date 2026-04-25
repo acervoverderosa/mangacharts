@@ -301,298 +301,39 @@
   },
   "agregacoes_por_ano": [
     {
-      "ano": 2026,
-      "total_streams": 1342388,
-      "total_views": 0,
-      "quantidade_obras": 2,
-      "obra_lider": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra"
-    },
-    {
       "ano": 2025,
       "total_streams": 2244679,
-      "total_views": 0,
       "quantidade_obras": 2,
-      "obra_lider": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões"
+      "obra_lider": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões",
+      "enredo": "À Flor da Terra – No Rio da Negritude Entre Dores e Paixões"
     },
     {
       "ano": 2024,
       "total_streams": 1925945,
-      "total_views": 0,
       "quantidade_obras": 2,
-      "obra_lider": "A Negra Voz do Amanhã"
+      "obra_lider": "A Negra Voz do Amanhã",
+      "enredo": "A Negra Voz do Amanhã"
     },
     {
       "ano": 2023,
       "total_streams": 2119748,
-      "total_views": 0,
       "quantidade_obras": 2,
-      "obra_lider": "As Áfricas Que a Bahia Canta"
+      "obra_lider": "As Áfricas Que a Bahia Canta",
+      "enredo": "As Áfricas Que a Bahia Canta"
+    },
+    {
+      "ano": 2026,
+      "total_streams": 1342388,
+      "quantidade_obras": 2,
+      "obra_lider": "Mestre Sacaca do Encanto Tucuju - O Guardião da Amazônia Negra",
+      "enredo": "Mestre Sacaca do Encanto Tucuju — O Guardião da Amazônia Negra"
     },
     {
       "ano": 2022,
       "total_streams": 1183843,
-      "total_views": 0,
       "quantidade_obras": 1,
-      "obra_lider": "Angenor, José & Laurindo"
-    },
-    {
-      "ano": 2020,
-      "total_streams": 0,
-      "total_views": 3523604,
-      "quantidade_obras": 4,
-      "obra_lider": "Clipe Oficial Mangueira 2020"
-    },
-    {
-      "ano": 2019,
-      "total_streams": 0,
-      "total_views": 6372110,
-      "quantidade_obras": 4,
-      "obra_lider": "Clipe Oficial Mangueira 2019"
-    },
-    {
-      "ano": 2018,
-      "total_streams": 0,
-      "total_views": 1106940,
-      "quantidade_obras": 3,
-      "obra_lider": "Clipe Oficial do Samba da Estação Primeira de Mangueira para o Carnaval 2018"
-    },
-    {
-      "ano": 2017,
-      "total_streams": 0,
-      "total_views": 885022,
-      "quantidade_obras": 4,
-      "obra_lider": "Mangueira 2017 Letra e Samba"
-    },
-    {
-      "ano": 2016,
-      "total_streams": 0,
-      "total_views": 5861543,
-      "quantidade_obras": 3,
-      "obra_lider": "G.R.E.S.E.P. De Mangueira - Maria Bethânia, A Menina Dos Olhos De Oyá"
-    },
-    {
-      "ano": 2015,
-      "total_streams": 0,
-      "total_views": 193796,
-      "quantidade_obras": 3,
-      "obra_lider": "Mangueira 2015 Letra e Samba"
-    },
-    {
-      "ano": 2014,
-      "total_streams": 0,
-      "total_views": 682626,
-      "quantidade_obras": 3,
-      "obra_lider": "G.R.E.S.E.P. De Mangueira - A Festança Brasileira Cai No Samba Da Mangueira"
-    },
-    {
-      "ano": 2013,
-      "total_streams": 0,
-      "total_views": 103430,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 2013 8/12 - Cuiabá: um Paraíso no Centro da América"
-    },
-    {
-      "ano": 2012,
-      "total_streams": 0,
-      "total_views": 493062,
-      "quantidade_obras": 4,
-      "obra_lider": "Mangueira 2012 7/13 - Vou festejar! Sou Cacique, sou Mangueira"
-    },
-    {
-      "ano": 2011,
-      "total_streams": 0,
-      "total_views": 602069,
-      "quantidade_obras": 4,
-      "obra_lider": "Mangueira 2011 3/9 - O Filho Fiel, Sempre Mangueira"
-    },
-    {
-      "ano": 2010,
-      "total_streams": 0,
-      "total_views": 233788,
-      "quantidade_obras": 3,
-      "obra_lider": "Mangueira 2010 6/12 - Mangueira É Música do Brasil"
-    },
-    {
-      "ano": 2009,
-      "total_streams": 0,
-      "total_views": 333420,
-      "quantidade_obras": 3,
-      "obra_lider": "GRES Mangueira 2009 - Samba Enredo Oficial - Legendado"
-    },
-    {
-      "ano": 2008,
-      "total_streams": 0,
-      "total_views": 117922,
-      "quantidade_obras": 3,
-      "obra_lider": "Mangueira 2008 Letra e Samba"
-    },
-    {
-      "ano": 2007,
-      "total_streams": 0,
-      "total_views": 264554,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 2007 3/13 - Minha Pátria É Minha Língua"
-    },
-    {
-      "ano": 2006,
-      "total_streams": 0,
-      "total_views": 262431,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 2006 4/14 - Das Águas do Velho Chico, Nasce um Rio de Esperança"
-    },
-    {
-      "ano": 2005,
-      "total_streams": 0,
-      "total_views": 69791,
-      "quantidade_obras": 1,
-      "obra_lider": "Mangueira 2005 6/14 - Mangueira Energiza a Avenida. O Carnaval é pura Energia"
-    },
-    {
-      "ano": 2004,
-      "total_streams": 0,
-      "total_views": 96614,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 2004 3/14 - Mangueira redescobre a estrada real... e deste eldorado faz seu"
-    },
-    {
-      "ano": 2003,
-      "total_streams": 0,
-      "total_views": 640781,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 2003 2/14 - Os dez mandamentos: o samba da paz canta a saga da liberdade"
-    },
-    {
-      "ano": 2002,
-      "total_streams": 0,
-      "total_views": 2763364,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 2002 1/14 - Brazil com Z é pra cabra da peste"
-    },
-    {
-      "ano": 2001,
-      "total_streams": 0,
-      "total_views": 84404,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 2001 3/14 - A Seiva da Vida (HQ)"
-    },
-    {
-      "ano": 2000,
-      "total_streams": 0,
-      "total_views": 198266,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 2000 7/14 - Dom Obá II - Rei dos Esfarrapados, Príncipe do Povo"
-    },
-    {
-      "ano": 1999,
-      "total_streams": 0,
-      "total_views": 215562,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1999 7/14 - O Século do Samba"
-    },
-    {
-      "ano": 1998,
-      "total_streams": 0,
-      "total_views": 621684,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1998 1/14 - Chico Buarque da Mangueira (HQ)"
-    },
-    {
-      "ano": 1997,
-      "total_streams": 0,
-      "total_views": 67935,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1997 3/16 - O olimpo é verde e rosa"
-    },
-    {
-      "ano": 1996,
-      "total_streams": 0,
-      "total_views": 147699,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1996 4/18 - Os tambores da mangueira na terra da encantaria"
-    },
-    {
-      "ano": 1995,
-      "total_streams": 0,
-      "total_views": 78358,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1995 4/15 - A Esmeralda do Atlântico"
-    },
-    {
-      "ano": 1994,
-      "total_streams": 0,
-      "total_views": 5182122,
-      "quantidade_obras": 3,
-      "obra_lider": "Mangueira 1994 11/16 - Atrás da verde e rosa só não vai quem já..."
-    },
-    {
-      "ano": 1993,
-      "total_streams": 0,
-      "total_views": 446779,
-      "quantidade_obras": 1,
-      "obra_lider": "Mangueira 1993 5/14 - Dessa fruta eu como até caroço"
-    },
-    {
-      "ano": 1992,
-      "total_streams": 0,
-      "total_views": 134043,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1992 6/15 - Se todos fossem iguais a você"
-    },
-    {
-      "ano": 1991,
-      "total_streams": 0,
-      "total_views": 94392,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1991 12/16 - As três rendeiras do universo"
-    },
-    {
-      "ano": 1990,
-      "total_streams": 0,
-      "total_views": 205031,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1990 8/16 - E deu a louca no barroco"
-    },
-    {
-      "ano": 1989,
-      "total_streams": 0,
-      "total_views": 385712,
-      "quantidade_obras": 1,
-      "obra_lider": "Mangueira 1989 11/18 TRINCA DE REIS"
-    },
-    {
-      "ano": 1988,
-      "total_streams": 0,
-      "total_views": 1350667,
-      "quantidade_obras": 3,
-      "obra_lider": "Mangueira 1988 2/14 - Cem anos de liberdade, realidade e ilusão"
-    },
-    {
-      "ano": 1987,
-      "total_streams": 0,
-      "total_views": 291520,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1987 1/12 - No Reino Das Palavras, Carlos Drummond de Andrade"
-    },
-    {
-      "ano": 1986,
-      "total_streams": 0,
-      "total_views": 1394752,
-      "quantidade_obras": 4,
-      "obra_lider": "Mangueira 1986 1/15 - Caymmi mostra ao Mundo o que a Bahia e a Mangueira tem"
-    },
-    {
-      "ano": 1985,
-      "total_streams": 0,
-      "total_views": 360693,
-      "quantidade_obras": 2,
-      "obra_lider": "Mangueira 1985 9/16 - Abram alas, que eu quero passar"
-    },
-    {
-      "ano": 1984,
-      "total_streams": 0,
-      "total_views": 288901,
-      "quantidade_obras": 3,
-      "obra_lider": "Mangueira 1984 1/14 - Yes, nós temos Braguinha"
+      "obra_lider": "Angenor, José & Laurindo",
+      "enredo": "Angenor, José & Laurindo"
     }
   ],
   "historico_semanal": {
@@ -1500,223 +1241,260 @@
       "ano": 2019,
       "total_views": 6372110,
       "quantidade_videos": 4,
-      "video_lider": "Clipe Oficial Mangueira 2019"
+      "video_lider": "Clipe Oficial Mangueira 2019",
+      "enredo": "História para Ninar Gente Grande"
     },
     {
       "ano": 2016,
       "total_views": 5861543,
       "quantidade_videos": 3,
-      "video_lider": "G.R.E.S.E.P. De Mangueira - Maria Bethânia, A Menina Dos Olhos De Oyá"
+      "video_lider": "G.R.E.S.E.P. De Mangueira - Maria Bethânia, A Menina Dos Olhos De Oyá",
+      "enredo": "Maria Bethânia, a Menina dos Olhos de Oyá"
     },
     {
       "ano": 1994,
       "total_views": 5182122,
       "quantidade_videos": 3,
-      "video_lider": "Mangueira 1994 11/16 - Atrás da verde e rosa só não vai quem já..."
+      "video_lider": "Mangueira 1994 11/16 - Atrás da verde e rosa só não vai quem já...",
+      "enredo": "Atrás da Verde e Rosa Só Não Vai Quem Já Morreu"
     },
     {
       "ano": 2020,
       "total_views": 3523604,
       "quantidade_videos": 4,
-      "video_lider": "Clipe Oficial Mangueira 2020"
+      "video_lider": "Clipe Oficial Mangueira 2020",
+      "enredo": "A Verdade Vós Fará Livre"
     },
     {
       "ano": 2002,
       "total_views": 2763364,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 2002 1/14 - Brazil com Z é pra cabra da peste"
+      "video_lider": "Mangueira 2002 1/14 - Brazil com Z é pra cabra da peste",
+      "enredo": "Brazil com Z É pra Cabra da Peste"
     },
     {
       "ano": 1986,
       "total_views": 1394752,
       "quantidade_videos": 4,
-      "video_lider": "Mangueira 1986 1/15 - Caymmi mostra ao Mundo o que a Bahia e a Mangueira tem"
+      "video_lider": "Mangueira 1986 1/15 - Caymmi mostra ao Mundo o que a Bahia e a Mangueira tem",
+      "enredo": "Caymmi Mostra ao Mundo o Que a Bahia e a Mangueira Têm"
     },
     {
       "ano": 1988,
       "total_views": 1350667,
       "quantidade_videos": 3,
-      "video_lider": "Mangueira 1988 2/14 - Cem anos de liberdade, realidade e ilusão"
+      "video_lider": "Mangueira 1988 2/14 - Cem anos de liberdade, realidade e ilusão",
+      "enredo": "Cem Anos de Liberdade, Realidade e Ilusão"
     },
     {
       "ano": 2018,
       "total_views": 1106940,
       "quantidade_videos": 3,
-      "video_lider": "Clipe Oficial do Samba da Estação Primeira de Mangueira para o Carnaval 2018"
+      "video_lider": "Clipe Oficial do Samba da Estação Primeira de Mangueira para o Carnaval 2018",
+      "enredo": "Com Deus, Meu Povo Não Tem Fronteiras"
     },
     {
       "ano": 2017,
       "total_views": 885022,
       "quantidade_videos": 4,
-      "video_lider": "Mangueira 2017 Letra e Samba"
+      "video_lider": "Mangueira 2017 Letra e Samba",
+      "enredo": "Vou Festejar!"
     },
     {
       "ano": 2014,
       "total_views": 682626,
       "quantidade_videos": 3,
-      "video_lider": "G.R.E.S.E.P. De Mangueira - A Festança Brasileira Cai No Samba Da Mangueira"
+      "video_lider": "G.R.E.S.E.P. De Mangueira - A Festança Brasileira Cai No Samba Da Mangueira",
+      "enredo": "A Festança Brasileira Cai no Samba da Mangueira"
     },
     {
       "ano": 2003,
       "total_views": 640781,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 2003 2/14 - Os dez mandamentos: o samba da paz canta a saga da liberdade"
+      "video_lider": "Mangueira 2003 2/14 - Os dez mandamentos: o samba da paz canta a saga da liberdade",
+      "enredo": "Os Dez Mandamentos: o Samba da Paz Canta a Saga da Liberdade"
     },
     {
       "ano": 1998,
       "total_views": 621684,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1998 1/14 - Chico Buarque da Mangueira (HQ)"
+      "video_lider": "Mangueira 1998 1/14 - Chico Buarque da Mangueira (HQ)",
+      "enredo": "Chico Buarque da Mangueira"
     },
     {
       "ano": 2011,
       "total_views": 602069,
       "quantidade_videos": 4,
-      "video_lider": "Mangueira 2011 3/9 - O Filho Fiel, Sempre Mangueira"
+      "video_lider": "Mangueira 2011 3/9 - O Filho Fiel, Sempre Mangueira",
+      "enredo": "O Filho Fiel, Sempre Mangueira"
     },
     {
       "ano": 2012,
       "total_views": 493062,
       "quantidade_videos": 4,
-      "video_lider": "Mangueira 2012 7/13 - Vou festejar! Sou Cacique, sou Mangueira"
+      "video_lider": "Mangueira 2012 7/13 - Vou festejar! Sou Cacique, sou Mangueira",
+      "enredo": "Vou Festejar! Sou Cacique, Sou Mangueira"
     },
     {
       "ano": 1993,
       "total_views": 446779,
       "quantidade_videos": 1,
-      "video_lider": "Mangueira 1993 5/14 - Dessa fruta eu como até caroço"
+      "video_lider": "Mangueira 1993 5/14 - Dessa fruta eu como até caroço",
+      "enredo": "Dessa Fruta Eu Como até Caroço"
     },
     {
       "ano": 1989,
       "total_views": 385712,
       "quantidade_videos": 1,
-      "video_lider": "Mangueira 1989 11/18 TRINCA DE REIS"
+      "video_lider": "Mangueira 1989 11/18 TRINCA DE REIS",
+      "enredo": "Trinca de Reis"
     },
     {
       "ano": 1985,
       "total_views": 360693,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1985 9/16 - Abram alas, que eu quero passar"
+      "video_lider": "Mangueira 1985 9/16 - Abram alas, que eu quero passar",
+      "enredo": "Abram Alas que Eu Quero Passar"
     },
     {
       "ano": 2009,
       "total_views": 333420,
       "quantidade_videos": 3,
-      "video_lider": "GRES Mangueira 2009 - Samba Enredo Oficial - Legendado"
+      "video_lider": "GRES Mangueira 2009 - Samba Enredo Oficial - Legendado",
+      "enredo": "Mangueira Bate na Porta do Céu"
     },
     {
       "ano": 1987,
       "total_views": 291520,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1987 1/12 - No Reino Das Palavras, Carlos Drummond de Andrade"
+      "video_lider": "Mangueira 1987 1/12 - No Reino Das Palavras, Carlos Drummond de Andrade",
+      "enredo": "No Reino das Palavras, Carlos Drummond de Andrade"
     },
     {
       "ano": 1984,
       "total_views": 288901,
       "quantidade_videos": 3,
-      "video_lider": "Mangueira 1984 1/14 - Yes, nós temos Braguinha"
+      "video_lider": "Mangueira 1984 1/14 - Yes, nós temos Braguinha",
+      "enredo": "Yes, Nós Temos Braguinha"
     },
     {
       "ano": 2007,
       "total_views": 264554,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 2007 3/13 - Minha Pátria É Minha Língua"
+      "video_lider": "Mangueira 2007 3/13 - Minha Pátria É Minha Língua",
+      "enredo": "Minha Pátria É Minha Língua"
     },
     {
       "ano": 2006,
       "total_views": 262431,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 2006 4/14 - Das Águas do Velho Chico, Nasce um Rio de Esperança"
+      "video_lider": "Mangueira 2006 4/14 - Das Águas do Velho Chico, Nasce um Rio de Esperança",
+      "enredo": "Das Águas do Velho Chico, Nasce um Rio de Esperança"
     },
     {
       "ano": 2010,
       "total_views": 233788,
       "quantidade_videos": 3,
-      "video_lider": "Mangueira 2010 6/12 - Mangueira É Música do Brasil"
+      "video_lider": "Mangueira 2010 6/12 - Mangueira É Música do Brasil",
+      "enredo": "Mangueira É Música do Brasil"
     },
     {
       "ano": 1999,
       "total_views": 215562,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1999 7/14 - O Século do Samba"
+      "video_lider": "Mangueira 1999 7/14 - O Século do Samba",
+      "enredo": "O Século do Samba"
     },
     {
       "ano": 1990,
       "total_views": 205031,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1990 8/16 - E deu a louca no barroco"
+      "video_lider": "Mangueira 1990 8/16 - E deu a louca no barroco",
+      "enredo": "E Deu a Louca no Barroco"
     },
     {
       "ano": 2000,
       "total_views": 198266,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 2000 7/14 - Dom Obá II - Rei dos Esfarrapados, Príncipe do Povo"
+      "video_lider": "Mangueira 2000 7/14 - Dom Obá II - Rei dos Esfarrapados, Príncipe do Povo",
+      "enredo": "Dom Obá II — Rei dos Esfarrapados, Príncipe do Povo"
     },
     {
       "ano": 2015,
       "total_views": 193796,
       "quantidade_videos": 3,
-      "video_lider": "Mangueira 2015 Letra e Samba"
+      "video_lider": "Mangueira 2015 Letra e Samba",
+      "enredo": "A Comadre Florzinha, o Dom de Fazer o Povo Sorrir"
     },
     {
       "ano": 1996,
       "total_views": 147699,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1996 4/18 - Os tambores da mangueira na terra da encantaria"
+      "video_lider": "Mangueira 1996 4/18 - Os tambores da mangueira na terra da encantaria",
+      "enredo": "Os Tambores da Mangueira na Terra da Encantaria"
     },
     {
       "ano": 1992,
       "total_views": 134043,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1992 6/15 - Se todos fossem iguais a você"
+      "video_lider": "Mangueira 1992 6/15 - Se todos fossem iguais a você",
+      "enredo": "Se Todos Fossem Iguais a Você"
     },
     {
       "ano": 2008,
       "total_views": 117922,
       "quantidade_videos": 3,
-      "video_lider": "Mangueira 2008 Letra e Samba"
+      "video_lider": "Mangueira 2008 Letra e Samba",
+      "enredo": "Dobrando a Glória"
     },
     {
       "ano": 2013,
       "total_views": 103430,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 2013 8/12 - Cuiabá: um Paraíso no Centro da América"
+      "video_lider": "Mangueira 2013 8/12 - Cuiabá: um Paraíso no Centro da América",
+      "enredo": "Cuiabá: um Paraíso no Centro da América"
     },
     {
       "ano": 2004,
       "total_views": 96614,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 2004 3/14 - Mangueira redescobre a estrada real... e deste eldorado faz seu"
+      "video_lider": "Mangueira 2004 3/14 - Mangueira redescobre a estrada real... e deste eldorado faz seu",
+      "enredo": "Mangueira Redescobre a Estrada Real"
     },
     {
       "ano": 1991,
       "total_views": 94392,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1991 12/16 - As três rendeiras do universo"
+      "video_lider": "Mangueira 1991 12/16 - As três rendeiras do universo",
+      "enredo": "As Três Rendeiras do Universo"
     },
     {
       "ano": 2001,
       "total_views": 84404,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 2001 3/14 - A Seiva da Vida (HQ)"
+      "video_lider": "Mangueira 2001 3/14 - A Seiva da Vida (HQ)",
+      "enredo": "A Seiva da Vida"
     },
     {
       "ano": 1995,
       "total_views": 78358,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1995 4/15 - A Esmeralda do Atlântico"
+      "video_lider": "Mangueira 1995 4/15 - A Esmeralda do Atlântico",
+      "enredo": "A Esmeralda do Atlântico"
     },
     {
       "ano": 2005,
       "total_views": 69791,
       "quantidade_videos": 1,
-      "video_lider": "Mangueira 2005 6/14 - Mangueira Energiza a Avenida. O Carnaval é pura Energia"
+      "video_lider": "Mangueira 2005 6/14 - Mangueira Energiza a Avenida. O Carnaval é pura Energia",
+      "enredo": "Mangueira Energiza a Avenida. O Carnaval é Pura Energia"
     },
     {
       "ano": 1997,
       "total_views": 67935,
       "quantidade_videos": 2,
-      "video_lider": "Mangueira 1997 3/16 - O olimpo é verde e rosa"
+      "video_lider": "Mangueira 1997 3/16 - O olimpo é verde e rosa",
+      "enredo": "O Olimpo é Verde e Rosa"
     }
   ]
 }
