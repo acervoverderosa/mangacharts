@@ -1979,8 +1979,12 @@ function renderTop10() {
       <td class="streams-cell">
         <div class="streams-total">${fmtNum(obra.total_streams)}</div>
         ${obra._sp_streams > 0 && obra._yt_views > 0
-          ? `<div class="streams-ganho" style="font-size:9px;"><span style="color:var(--sp-color)">SP</span> ${fmtNum(obra._sp_streams)} + <span style="color:var(--yt-color)">YT</span> ${fmtNum(obra._yt_views)}</div>`
-          : `<div class="streams-ganho">${(obra.ganho_semanal||0)>=0?'+':''}${fmtNum(obra.ganho_semanal||0)}</div>`}
+          ? `<div class="streams-ganho" style="font-size:9.5px;margin-top:2px;"><span style="color:var(--sp-color);font-weight:600;">SP</span> ${fmtNum(obra._sp_streams)} + <span style="color:var(--yt-color);font-weight:600;">YT</span> ${fmtNum(obra._yt_views)}</div>`
+          : obra._sp_streams > 0
+            ? `<div class="streams-ganho" style="color:var(--sp-color);font-size:9.5px;margin-top:2px;">Spotify</div>`
+            : obra._yt_views > 0
+              ? `<div class="streams-ganho" style="color:var(--yt-color);font-size:9.5px;margin-top:2px;">YouTube</div>`
+              : `<div class="streams-ganho">${(obra.ganho_semanal||0)>=0?'+':''}${fmtNum(obra.ganho_semanal||0)}</div>`}
       </td>
     </tr>`;
   });
@@ -2356,7 +2360,24 @@ function buildRankingData(type) {
 
   // YouTube exclusivo: apenas anos/obras com dados YT, por views desc
   if (type === 'youtube') {
-    return (DATA.agregacoes_youtube || []).slice()
+    // Preferir agregacoes_youtube; fallback: agregar obras_youtube por ano
+    let ytAggs = DATA.agregacoes_youtube || [];
+    if (ytAggs.length === 0 && (DATA.obras_youtube || []).length > 0) {
+      const byAno = {};
+      (DATA.obras_youtube || []).forEach(v => {
+        const k = String(v.ano || '');
+        if (!byAno[k]) byAno[k] = { ano: v.ano, enredo: v.enredo || '', total_views: 0, ganho_semanal: 0, video_lider: '' };
+        byAno[k].total_views += (v.total_views || 0);
+        byAno[k].ganho_semanal += (v.ganho_semanal || 0);
+        if ((v.total_views || 0) > ((byAno[k]._maxViews) || 0)) {
+          byAno[k]._maxViews = v.total_views;
+          byAno[k].video_lider = v.titulo || v.enredo || '';
+          if (!byAno[k].enredo && v.enredo) byAno[k].enredo = v.enredo;
+        }
+      });
+      ytAggs = Object.values(byAno);
+    }
+    return ytAggs.slice()
       .sort((a, b) => (b.total_views || 0) - (a.total_views || 0))
       .map(ytAggToItem);
   }
@@ -2454,8 +2475,12 @@ function renderRankTable(type) {
       <td class="streams-cell">
         <div class="streams-total">${fmtNum(obra.total_streams)}</div>
         ${obra._sp_streams > 0 && obra._yt_views > 0
-          ? `<div class="streams-ganho" style="color:var(--cinza-neutro);font-size:9px;"><span style="color:var(--sp-color)">SP</span> ${fmtNum(obra._sp_streams)} + <span style="color:var(--yt-color)">YT</span> ${fmtNum(obra._yt_views)}</div>`
-          : ''}
+          ? `<div class="streams-ganho" style="color:var(--cinza-neutro);font-size:9.5px;margin-top:2px;"><span style="color:var(--sp-color);font-weight:600;">SP</span> ${fmtNum(obra._sp_streams)} + <span style="color:var(--yt-color);font-weight:600;">YT</span> ${fmtNum(obra._yt_views)}</div>`
+          : obra._sp_streams > 0
+            ? `<div class="streams-ganho" style="color:var(--sp-color);font-size:9.5px;margin-top:2px;">Spotify</div>`
+            : obra._yt_views > 0
+              ? `<div class="streams-ganho" style="color:var(--yt-color);font-size:9.5px;margin-top:2px;">YouTube</div>`
+              : ''}
       </td>
       <td class="streams-cell"><div class="streams-ganho" style="color:${ganho>0?'var(--verde-medio)':'var(--cinza-neutro)'}">${ganho>=0?'+':''}${fmtNum(ganho)}</div></td>
     </tr>`;
