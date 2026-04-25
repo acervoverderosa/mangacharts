@@ -374,6 +374,10 @@ nav a svg { flex-shrink: 0; }
   margin-bottom: 22px;
 }
 
+@media (max-width: 1200px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 .card {
   background: var(--card-bg);
   border: 1px solid var(--cinza-borda);
@@ -1037,6 +1041,195 @@ nav a svg { flex-shrink: 0; }
 .stagger-item { opacity: 0; transform: translateY(8px); animation: staggerIn 0.3s ease forwards; }
 @keyframes staggerIn { to { opacity: 1; transform: translateY(0); } }
 
+/* ─── ANOS FILTERS BAR ─── */
+.anos-filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--panel-bg);
+  border: 1px solid var(--cinza-borda);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.anos-filter-group {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.anos-filter-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--cinza-neutro);
+  margin-right: 2px;
+}
+
+.anos-filter-chip {
+  font-family: var(--font-titulo);
+  font-weight: 600;
+  font-size: 11px;
+  padding: 5px 11px;
+  border-radius: 6px;
+  border: 1.5px solid var(--cinza-borda);
+  background: var(--card-bg);
+  color: var(--cinza-neutro);
+  cursor: pointer;
+  transition: all 0.14s;
+  white-space: nowrap;
+}
+
+.anos-filter-chip:hover { border-color: var(--verde-medio); color: var(--verde-medio); }
+.anos-filter-chip.active { background: var(--verde-escuro); border-color: var(--verde-escuro); color: #fff; }
+.anos-filter-chip.plat-sp.active { background: var(--sp-color); border-color: var(--sp-color); }
+.anos-filter-chip.plat-yt.active { background: var(--yt-color); border-color: var(--yt-color); }
+.anos-filter-chip.plat-dz.active { background: var(--dz-color); border-color: var(--dz-color); }
+
+.anos-filter-sep {
+  width: 1px;
+  height: 28px;
+  background: var(--cinza-borda);
+  flex-shrink: 0;
+}
+
+.anos-search-wrap {
+  flex: 1;
+  min-width: 160px;
+  position: relative;
+}
+
+.anos-search-input {
+  width: 100%;
+  font-family: var(--font-corpo);
+  font-size: 12px;
+  padding: 7px 10px 7px 30px;
+  border-radius: 6px;
+  border: 1.5px solid var(--cinza-borda);
+  background: var(--card-bg);
+  color: var(--cinza-texto);
+  outline: none;
+  transition: border-color 0.14s;
+}
+
+.anos-search-input:focus { border-color: var(--verde-medio); }
+.anos-search-input::placeholder { color: var(--cinza-neutro); font-style: italic; }
+
+.anos-search-icon {
+  position: absolute;
+  left: 9px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--cinza-neutro);
+  pointer-events: none;
+}
+
+/* ─── BAR CHART PANEL ─── */
+.anos-bar-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--cinza-borda);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 18px;
+}
+
+.anos-bar-chart {
+  position: relative;
+  height: 200px;
+  margin-top: 14px;
+}
+
+/* ─── RANKING SEARCH ─── */
+.rank-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 180px;
+  max-width: 280px;
+}
+
+.rank-search-input {
+  width: 100%;
+  font-family: var(--font-corpo);
+  font-size: 12px;
+  padding: 7px 10px 7px 30px;
+  border-radius: 6px;
+  border: 1.5px solid var(--cinza-borda);
+  background: var(--card-bg);
+  color: var(--cinza-texto);
+  outline: none;
+  transition: border-color 0.14s;
+}
+
+.rank-search-input:focus { border-color: var(--verde-medio); }
+.rank-search-input::placeholder { color: var(--cinza-neutro); font-style: italic; }
+
+.rank-search-icon {
+  position: absolute;
+  left: 9px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--cinza-neutro);
+  pointer-events: none;
+}
+
+/* ─── KPI COMPOSIÇÃO ANO ─── */
+.kpi-comp-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.kpi-comp-item {
+  background: var(--fundo-alt);
+  border-radius: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--cinza-borda);
+}
+
+.kpi-comp-year {
+  font-family: var(--font-titulo);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--verde-mais-escuro);
+}
+
+[data-theme="dark"] .kpi-comp-year { color: rgba(255,255,255,0.88); }
+
+.kpi-comp-pct {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--verde-escuro);
+  line-height: 1;
+  margin: 4px 0;
+}
+
+.kpi-comp-sub {
+  font-family: var(--font-corpo);
+  font-size: 10px;
+  color: var(--cinza-neutro);
+  font-style: italic;
+}
+
+.kpi-comp-bar {
+  height: 3px;
+  background: var(--cinza-suave);
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.kpi-comp-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--verde-medio);
+  transition: width 0.7s ease;
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1200px) {
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1208,6 +1401,13 @@ nav a svg { flex-shrink: 0; }
         <div class="card-delta neutro">por volume total</div>
         <div class="card-sub">Spotify · YouTube · Deezer</div>
       </div>
+      <div class="card stagger-item" style="animation-delay:0.23s;grid-column:1/-1;">
+        <div class="card-accent medio"></div>
+        <div class="card-label">Composição por Ano — Top 6 anos mais escutados</div>
+        <div class="kpi-comp-row" id="kpi-comp-row">
+          <div style="font-family:var(--font-corpo);font-size:11.5px;color:var(--cinza-neutro);font-style:italic;padding-top:8px;">Carregando...</div>
+        </div>
+      </div>
     </div>
 
     <!-- Platform breakdown -->
@@ -1219,7 +1419,7 @@ nav a svg { flex-shrink: 0; }
     <div class="content-grid">
       <div class="panel stagger-item" style="animation-delay:0.26s">
         <div class="panel-header">
-          <span class="panel-title">Top 10 — Ranking Geral</span>
+          <span class="panel-title">Ranking Geral — Todas as Obras</span>
           <span class="panel-tag" id="top10-semana-tag">cross-platform</span>
         </div>
         <div id="top10-content">
@@ -1277,7 +1477,7 @@ nav a svg { flex-shrink: 0; }
       </button>
       <button class="rank-filter-btn" onclick="setRanking('youtube',this)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-        YouTube
+        Só YouTube
       </button>
       <button class="rank-filter-btn" onclick="setRanking('deezer',this)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#A238FF"><path d="M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.027h5.189V8.38H6.27zm6.27 0v3.027h5.19V8.38h-5.19zm6.27 0v3.027H24V8.38h-5.19zm-12.54 4.22v3.027h5.189V12.6H6.27zm6.27 0v3.027h5.19V12.6h-5.19zm6.27 0v3.027H24V12.6h-5.19zM0 16.81v3.027h5.189V16.81H0zm6.27 0v3.027h5.189V16.81H6.27zm6.27 0v3.027h5.19V16.81h-5.19zm6.27 0v3.027H24V16.81h-5.19z"/></svg>
@@ -1291,6 +1491,10 @@ nav a svg { flex-shrink: 0; }
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="11 7 6 12 11 17"/><polyline points="18 7 13 12 18 17"/></svg>
         Maiores Quedas
       </button>
+      <div class="rank-search-wrap" style="margin-left:auto;">
+        <svg class="rank-search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input class="rank-search-input" type="text" id="rank-search-input" placeholder="Buscar obra ou ano..." oninput="filterRankTable()">
+      </div>
     </div>
 
     <div class="full-panel">
@@ -1318,6 +1522,49 @@ nav a svg { flex-shrink: 0; }
       <div class="stat-divider"></div>
       <div class="stat-item"><span class="stat-item-val" id="anos-ano-lider">—</span><span class="stat-item-label">ano com mais streams</span></div>
     </div>
+
+    <!-- Filter Bar -->
+    <div class="anos-filter-bar">
+      <span class="anos-filter-label">Plataforma</span>
+      <div class="anos-filter-group">
+        <button class="anos-filter-chip active" id="anos-plat-all" onclick="setAnosPlat('all',this)">Todas</button>
+        <button class="anos-filter-chip plat-sp" id="anos-plat-sp" onclick="setAnosPlat('spotify',this)">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:3px"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          Spotify
+        </button>
+        <button class="anos-filter-chip plat-yt" id="anos-plat-yt" onclick="setAnosPlat('youtube',this)">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:3px"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          YouTube
+        </button>
+      </div>
+      <div class="anos-filter-sep"></div>
+      <span class="anos-filter-label">Período</span>
+      <div class="anos-filter-group">
+        <button class="anos-filter-chip active" id="anos-dec-all" onclick="setAnosDec('all',this)">Todos</button>
+        <button class="anos-filter-chip" id="anos-dec-80" onclick="setAnosDec('80',this)">1980s</button>
+        <button class="anos-filter-chip" id="anos-dec-90" onclick="setAnosDec('90',this)">1990s</button>
+        <button class="anos-filter-chip" id="anos-dec-00" onclick="setAnosDec('00',this)">2000s</button>
+        <button class="anos-filter-chip" id="anos-dec-10" onclick="setAnosDec('10',this)">2010s</button>
+        <button class="anos-filter-chip" id="anos-dec-20" onclick="setAnosDec('20',this)">2020s</button>
+      </div>
+      <div class="anos-filter-sep"></div>
+      <div class="anos-search-wrap">
+        <svg class="anos-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input class="anos-search-input" type="text" id="anos-search-input" placeholder="Buscar por enredo..." oninput="filterAnosGrid()">
+      </div>
+    </div>
+
+    <!-- Bar Chart Comparativo -->
+    <div class="anos-bar-panel">
+      <div class="panel-header">
+        <span class="panel-title">Comparativo por Ano — Streams + Views</span>
+        <span class="panel-tag" id="anos-bar-tag">todos os anos · cross-platform</span>
+      </div>
+      <div class="anos-bar-chart">
+        <canvas id="chart-anos-bar"></canvas>
+      </div>
+    </div>
+
     <div id="anos-grid-container">
       <div class="empty-state" style="padding:56px 20px;background:var(--panel-bg);border:1px solid var(--cinza-borda);border-radius:10px;">
         <div class="empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
@@ -1446,9 +1693,9 @@ const pageTitles = {
 };
 
 const rankTitles = {
-  geral: 'Ranking Geral — Cross-Platform',
+  geral: 'Ranking Geral — Todas as Obras (Spotify + YouTube)',
   spotify: 'Ranking Spotify',
-  youtube: 'Ranking YouTube',
+  youtube: 'Ranking YouTube — somente obras com dados YT',
   deezer: 'Ranking Deezer',
   trending: 'Maiores Altas da Semana',
   quedas: 'Maiores Quedas da Semana'
@@ -1471,6 +1718,8 @@ function applyData(source) {
   populateUI();
   initCharts();
   renderRankTable(currentRanking);
+  renderKpiComp();
+  if (DATA && DATA.agregacoes_por_ano) updateAnosBarChart(DATA.agregacoes_por_ano);
   const ov = document.getElementById('loading-overlay');
   ov.classList.add('hidden');
   setTimeout(() => ov.style.display = 'none', 450);
@@ -1550,6 +1799,8 @@ async function refreshInBackground() {
       populateUI();
       initCharts();
       renderRankTable(currentRanking);
+      renderKpiComp();
+      if (DATA && DATA.agregacoes_por_ano) updateAnosBarChart(DATA.agregacoes_por_ano);
     }
   } catch(e) { /* silencioso */ }
 }
@@ -1612,9 +1863,16 @@ function populateUI() {
 
   // Anos
   const anos = DATA.agregacoes_por_ano || [];
+  const anoLider = anos.length > 0
+    ? anos.slice().sort((a,b) => {
+        const av = (a.total_streams||0)>0?(a.total_streams||0):(a.total_views||0);
+        const bv = (b.total_streams||0)>0?(b.total_streams||0):(b.total_views||0);
+        return bv-av;
+      })[0].ano
+    : '—';
   el('anos-count').textContent      = anos.length;
   el('anos-total-obras').textContent = m.total_obras ?? 0;
-  el('anos-ano-lider').textContent  = anos.length > 0 ? anos[0].ano : '—';
+  el('anos-ano-lider').textContent  = anoLider;
   renderAnosGrid(anos);
 
   // Desfiles
@@ -1688,9 +1946,9 @@ function renderPlatRow() {
   }).join('');
 }
 
-// ─── TOP 10 ───────────────────────────────────────────────────────────────────
+// ─── TOP RANKING GERAL (TODAS AS OBRAS) ──────────────────────────────────────
 function renderTop10() {
-  const data = (DATA.rankings && DATA.rankings.geral) ? DATA.rankings.geral.slice(0, 10) : [];
+  const data = buildRankingData('geral'); // sem slice — lista TODAS
   const container = el('top10-content');
 
   if (data.length === 0) {
@@ -1698,25 +1956,31 @@ function renderTop10() {
     return;
   }
 
-  const maxS = Math.max(...data.map(o => o.total_streams || 0));
-  let html = `<table class="rank-table"><thead><tr><th style="width:36px">#</th><th style="width:40px">Var.</th><th>Obra</th><th class="right" style="width:90px">Streams</th></tr></thead><tbody>`;
+  const maxS = Math.max(...data.map(o => o.total_streams || 0), 1);
+  let html = `<table class="rank-table"><thead><tr><th style="width:36px">#</th><th style="width:40px">Var.</th><th>Obra</th><th class="right" style="width:90px">Streams / Views</th></tr></thead><tbody>`;
   data.forEach((obra, i) => {
     const pos = i + 1;
-    const tituloEsc = (obra.titulo || '').replace(/'/g,"\\'");
-    html += `<tr onclick="abrirModalObra('${tituloEsc}')">
+    const enredo = obra.enredo || obra._enredo || '';
+    // Título principal: para itens YT usa o enredo se disponível, senão usa titulo
+    const displayTitulo = obra.titulo || enredo || '—';
+    // Subtítulo: ano + enredo se houver e for diferente do título
+    const subInfo = [obra.ano || '—', enredo && enredo !== displayTitulo ? enredo : ''].filter(Boolean).join(' · ');
+    html += `<tr onclick="abrirModalAno('${obra.ano||0}')">
       <td><span class="rank-pos${pos<=3?' top':''}">${pos}</span></td>
       <td>${renderDelta(obra.variacao)}</td>
       <td><div class="obra-cell">
-        <div class="obra-thumb-placeholder"><span>${(obra.titulo||'?')[0]}</span></div>
+        <div class="obra-thumb-placeholder"><span>${(displayTitulo||'?')[0]}</span></div>
         <div class="obra-info">
-          <div class="obra-titulo">${obra.titulo||'—'}</div>
-          <div class="obra-ano">${obra.ano||'—'}</div>
+          <div class="obra-titulo">${displayTitulo}</div>
+          <div class="obra-ano">${subInfo}</div>
           <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${maxS>0?((obra.total_streams/maxS)*100).toFixed(1):0}%"></div></div>
         </div>
       </div></td>
       <td class="streams-cell">
         <div class="streams-total">${fmtNum(obra.total_streams)}</div>
-        <div class="streams-ganho">${obra.ganho_semanal>=0?'+':''}${fmtNum(obra.ganho_semanal)}</div>
+        ${obra._sp_streams > 0 && obra._yt_views > 0
+          ? `<div class="streams-ganho" style="font-size:9px;"><span style="color:var(--sp-color)">SP</span> ${fmtNum(obra._sp_streams)} + <span style="color:var(--yt-color)">YT</span> ${fmtNum(obra._yt_views)}</div>`
+          : `<div class="streams-ganho">${(obra.ganho_semanal||0)>=0?'+':''}${fmtNum(obra.ganho_semanal||0)}</div>`}
       </td>
     </tr>`;
   });
@@ -1729,34 +1993,34 @@ function renderAnosGrid(anos) {
   const container = el('anos-grid-container');
   if (!anos || anos.length === 0) return;
 
-  // Ordenar: anos com streams primeiro (por streams desc), depois só YouTube (por views desc)
+  // Métrica unificada: streams SP + views YT (o que tiver). Ordenar do maior pro menor.
   const sorted = anos.slice().sort((a, b) => {
-    const aVal = (a.total_streams || 0) > 0 ? (a.total_streams || 0) * 1000 + (a.total_views || 0) : (a.total_views || 0);
-    const bVal = (b.total_streams || 0) > 0 ? (b.total_streams || 0) * 1000 + (b.total_views || 0) : (b.total_views || 0);
+    const aVal = (a.total_streams || 0) + (a.total_views || 0);
+    const bVal = (b.total_streams || 0) + (b.total_views || 0);
     return bVal - aVal;
   });
-  const maxS = Math.max(...sorted.map(a => (a.total_streams || 0) > 0 ? (a.total_streams || 0) : (a.total_views || 0)), 1);
+  const maxS = Math.max(...sorted.map(a => (a.total_streams || 0) + (a.total_views || 0)), 1);
 
   let html = `<div class="full-panel">
     <div class="full-panel-header">
-      <span class="panel-title">Ranking por Ano — Streams & Visualizações</span>
-      <span class="panel-tag">${sorted.length} anos cadastrados</span>
+      <span class="panel-title">Ranking por Ano — do mais para o menos escutado</span>
+      <span class="panel-tag">${sorted.length} anos · Spotify + YouTube</span>
     </div>
     <div class="full-panel-body">
       <table class="rank-table-full"><thead><tr>
         <th style="width:42px">#</th>
-        <th>Ano</th>
-        <th class="right" style="width:160px">Streams / Views</th>
+        <th>Ano · Enredo</th>
+        <th class="right" style="width:180px">Streams + Views</th>
         <th class="right" style="width:100px">Obras</th>
-        <th style="width:200px">Obra / Vídeo líder</th>
+        <th style="width:190px">Destaques</th>
       </tr></thead><tbody>`;
 
   sorted.forEach((a, i) => {
-    const hasStreams = (a.total_streams || 0) > 0;
-    const metricVal = hasStreams ? (a.total_streams || 0) : (a.total_views || 0);
-    const metricLabel = hasStreams ? 'Spotify' : 'YouTube';
-    const metricColor = hasStreams ? 'var(--sp-color)' : 'var(--yt-color)';
-    const pct = maxS > 0 ? (metricVal / maxS * 100).toFixed(1) : 0;
+    const metricVal = (a.total_streams || 0) + (a.total_views || 0);
+    const spVal     = a.total_streams || 0;
+    const ytVal     = a.total_views   || 0;
+    const pct       = maxS > 0 ? (metricVal / maxS * 100).toFixed(1) : 0;
+    const enredo    = a.enredo || '';
     html += `<tr onclick="abrirModalAno('${a.ano}')" style="cursor:pointer;">
       <td><span class="rank-pos${i < 3 ? ' top' : ''}">${i + 1}</span></td>
       <td>
@@ -1766,16 +2030,17 @@ function renderAnosGrid(anos) {
           </div>
           <div>
             <div style="font-family:var(--font-titulo);font-weight:700;font-size:15px;color:var(--verde-mais-escuro);">${a.ano}</div>
-            <div class="progress-bar-wrap" style="max-width:180px;margin-top:6px;"><div class="progress-bar-fill" style="width:${pct}%;background:${metricColor};"></div></div>
+            ${enredo ? `<div style="font-family:var(--font-corpo);font-size:11px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${enredo}</div>` : ''}
+            <div class="progress-bar-wrap" style="max-width:200px;margin-top:5px;"><div class="progress-bar-fill" style="width:${pct}%;background:var(--verde-medio);"></div></div>
           </div>
         </div>
       </td>
       <td class="streams-cell">
         <div class="streams-total">${fmtNum(metricVal)}</div>
-        <div style="font-family:var(--font-mono);font-size:9px;color:${metricColor};margin-top:2px;">${metricLabel}</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--cinza-neutro);margin-top:3px;">${spVal>0?'<span style="color:var(--sp-color)">SP</span> '+fmtNum(spVal):''}${spVal>0&&ytVal>0?' · ':''}${ytVal>0?'<span style="color:var(--yt-color)">YT</span> '+fmtNum(ytVal):''}</div>
       </td>
       <td class="streams-cell"><div class="streams-ganho">${a.quantidade_obras || 0}</div></td>
-      <td><div style="font-family:var(--font-corpo);font-size:11.5px;color:var(--cinza-neutro);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px;">${a.obra_lider || '—'}</div></td>
+      <td><div style="font-family:var(--font-corpo);font-size:11.5px;color:var(--cinza-neutro);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;">${a.obra_lider || a.enredo || '—'}</div></td>
     </tr>`;
   });
 
@@ -1789,69 +2054,115 @@ function abrirModalAno(ano) {
   const anoData = (DATA.agregacoes_por_ano || []).find(a => String(a.ano) === String(ano));
   if (!anoData) return;
 
-  // Filtrar obras desse ano
-  const obras = (DATA.obras || []).filter(o => String(o.ano) === String(ano));
-  // Pegar do ranking geral as obras desse ano
-  const obrasRanking = (DATA.rankings && DATA.rankings.geral)
+  // Obras Spotify desse ano
+  const obrasSpotify = (DATA.rankings && DATA.rankings.geral)
     ? DATA.rankings.geral.filter(o => String(o.ano) === String(ano))
-    : obras.map(o => ({ titulo: o.titulo, total_streams: o.total_streams || 0, ganho_semanal: o.ganho_semanal || 0 }));
+    : (DATA.obras || []).filter(o => String(o.ano) === String(ano))
+        .map(o => ({ titulo: o.titulo, total_streams: o.total_streams || 0, ganho_semanal: o.ganho_semanal || 0 }));
 
-  el('modal-ano-titulo').textContent = `Ano ${ano}`;
-  el('modal-ano-subtitulo').textContent = `${anoData.quantidade_obras || obras.length || 0} obras · clique em uma obra para ver detalhes`;
+  // Vídeos YouTube desse ano
+  const videosYt = (DATA.obras_youtube || [])
+    .filter(v => String(v.ano) === String(ano))
+    .sort((a, b) => (b.total_views || 0) - (a.total_views || 0));
 
-  // Stats bar
+  const hasSpotify = obrasSpotify.length > 0;
+  const hasYt      = videosYt.length > 0;
+
   const hasSpStreams = (anoData.total_streams || 0) > 0;
-  const metricVal2 = hasSpStreams ? (anoData.total_streams || 0) : (anoData.total_views || 0);
-  const metricLab2 = hasSpStreams ? 'streams Spotify' : 'views YouTube';
+  const hasYtViews  = (anoData.total_views  || 0) > 0;
+  const totalGeral  = (anoData.total_streams || 0) + (anoData.total_views || 0);
+  const metricVal   = totalGeral;
+  const metricLab   = hasSpStreams && hasYtViews
+    ? `${fmtNum(anoData.total_streams)} Spotify + ${fmtNum(anoData.total_views)} YouTube`
+    : hasSpStreams ? 'streams Spotify' : 'views YouTube';
+  const qtd = hasSpotify ? obrasSpotify.length : (anoData.quantidade_obras || videosYt.length || 0);
+  const qtdLabel = hasSpotify ? (qtd === 1 ? 'obra' : 'obras') : (qtd === 1 ? 'vídeo' : 'vídeos');
+  const enredoLabel = anoData.enredo || anoData.obra_lider || '—';
+
+  el('modal-ano-titulo').textContent = `${ano}`;
+  el('modal-ano-subtitulo').textContent = `${qtd} ${qtdLabel}`;
+
   el('modal-ano-stats').innerHTML = `
     <div style="flex:1;padding:14px 20px;border-right:1px solid var(--cinza-borda);">
-      <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${fmtNum(metricVal2)}</div>
-      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">${metricLab2}</div>
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${fmtNum(metricVal)}</div>
+      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">${hasSpStreams&&hasYtViews?'total (SP + YT)':metricLab}</div>
     </div>
     <div style="flex:1;padding:14px 20px;border-right:1px solid var(--cinza-borda);">
-      <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${anoData.quantidade_obras || obras.length || 0}</div>
-      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">obras cadastradas</div>
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${qtd}</div>
+      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">${qtdLabel}</div>
     </div>
-    <div style="flex:1;padding:14px 20px;">
-      <div style="font-family:var(--font-titulo);font-weight:600;font-size:13px;color:var(--verde-escuro);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${anoData.obra_lider || '—'}</div>
-      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">obra líder</div>
+    <div style="flex:1;padding:14px 20px;border-right:1px solid var(--cinza-borda);">
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--verde-escuro);font-weight:500;">${qtd > 0 ? fmtNum(Math.round(metricVal / qtd)) : '—'}</div>
+      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">média por obra</div>
+    </div>
+    <div style="flex:1;padding:14px 20px;border-right:1px solid var(--cinza-borda);">
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--rosa-vibrante);font-weight:500;">${(() => { const tot = DATA && DATA.meta ? (DATA.meta.total_streams_geral || 0) + (DATA.meta.total_views_geral || 0) : 0; return tot > 0 ? ((metricVal / tot) * 100).toFixed(1) + '%' : '—'; })()}</div>
+      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">% do total geral</div>
+    </div>
+    <div style="flex:2;padding:14px 20px;">
+      <div style="font-family:var(--font-titulo);font-weight:600;font-size:12px;color:var(--verde-escuro);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${enredoLabel}</div>
+      <div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">enredo</div>
     </div>`;
 
-  // Tabela de obras
   let bodyHtml = '';
-  if (obrasRanking.length === 0) {
+
+  // ── Obras Spotify (se existir) ──
+  if (hasSpotify) {
+    const obrasSorted = obrasSpotify.slice().sort((a,b) => (b.total_streams||0) - (a.total_streams||0));
+    const maxSP = Math.max(...obrasSorted.map(o => o.total_streams || 0), 1);
+    bodyHtml += `<div style="padding:16px 20px 8px;${hasYt?'border-bottom:1px solid var(--cinza-borda);':''}">
+      <div style="font-family:var(--font-mono);font-size:9.5px;color:var(--sp-color);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">● Spotify</div>`;
+    obrasSorted.forEach((obra, i) => {
+      const pct = ((obra.total_streams || 0) / maxSP * 100).toFixed(1);
+      const ganho = obra.ganho_semanal || 0;
+      bodyHtml += `<div onclick="abrirModalObra(${JSON.stringify(obra.titulo||'')})" style="display:flex;align-items:center;gap:12px;padding:10px 8px;border-radius:8px;cursor:pointer;transition:background 0.14s;" onmouseover="this.style.background='rgba(15,163,107,0.06)'" onmouseout="this.style.background='transparent'">
+        <span style="font-family:var(--font-mono);font-size:13px;color:var(--verde-escuro);min-width:22px;">${i+1}</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-family:var(--font-titulo);font-weight:600;font-size:12.5px;color:var(--cinza-texto);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${obra.titulo||'—'}</div>
+          <div style="height:3px;background:var(--cinza-suave);border-radius:2px;margin-top:6px;overflow:hidden;">
+            <div style="height:100%;background:var(--sp-color);border-radius:2px;width:${pct}%;"></div>
+          </div>
+        </div>
+        <div style="text-align:right;min-width:80px;">
+          <div style="font-family:var(--font-mono);font-size:12px;color:var(--verde-escuro);">${fmtNum(obra.total_streams||0)}</div>
+          <div style="font-family:var(--font-mono);font-size:9.5px;color:${ganho>0?'var(--verde-medio)':'var(--cinza-neutro)'};">${ganho>=0?'+':''}${fmtNum(ganho)}</div>
+        </div>
+      </div>`;
+    });
+    bodyHtml += `</div>`;
+  }
+
+  // ── Vídeos YouTube (se existir) ──
+  if (hasYt) {
+    const maxYT = Math.max(...videosYt.map(v => v.total_views || 0), 1);
+    bodyHtml += `<div style="padding:16px 20px 12px;">
+      <div style="font-family:var(--font-mono);font-size:9.5px;color:var(--yt-color);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">● YouTube</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">`;
+    videosYt.forEach((v, i) => {
+      const pct = ((v.total_views || 0) / maxYT * 100).toFixed(1);
+      const vEnredo = v.enredo || '';
+      bodyHtml += `<div style="display:flex;align-items:center;gap:12px;padding:10px 8px;border-radius:8px;background:var(--fundo-alt);border:1px solid var(--cinza-borda);">
+        <span style="font-family:var(--font-mono);font-size:12px;color:var(--cinza-neutro);min-width:22px;">${i+1}</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-family:var(--font-titulo);font-weight:600;font-size:12px;color:var(--cinza-texto);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${v.titulo||vEnredo||'—'}</div>
+          ${vEnredo && vEnredo !== (v.titulo||'') ? `<div style="font-family:var(--font-corpo);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${vEnredo}</div>` : ''}
+          <div style="height:3px;background:var(--cinza-suave);border-radius:2px;margin-top:5px;overflow:hidden;">
+            <div style="height:100%;background:var(--yt-color);border-radius:2px;width:${pct}%;"></div>
+          </div>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:12px;color:var(--cinza-texto);min-width:60px;text-align:right;">${fmtNum(v.total_views||0)}</div>
+      </div>`;
+    });
+    bodyHtml += `</div></div>`;
+  }
+
+  if (!hasSpotify && !hasYt) {
     bodyHtml = `<div class="empty-state" style="padding:40px 20px">
       <div class="empty-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
       <div class="empty-title">Nenhuma obra registrada em ${ano}</div>
-      <div class="empty-desc">As obras aparecerão aqui após o cadastro.</div>
     </div>`;
-  } else {
-    const maxS2 = Math.max(...obrasRanking.map(o => o.total_streams || 0));
-    bodyHtml = `<table class="rank-table-full"><thead><tr>
-      <th style="width:42px">#</th>
-      <th>Obra</th>
-      <th class="right" style="width:130px">Streams</th>
-      <th class="right" style="width:110px">Ganho sem.</th>
-    </tr></thead><tbody>`;
-    obrasRanking.forEach((obra, i) => {
-      bodyHtml += `<tr onclick="abrirModalObra(${JSON.stringify(obra.titulo || '').replace(/"/g, '&quot;')})" style="cursor:pointer;">
-        <td><span class="rank-pos${i < 3 ? ' top' : ''}">${i + 1}</span></td>
-        <td><div class="obra-cell">
-          <div class="obra-thumb-placeholder"><span>${(obra.titulo || '?')[0]}</span></div>
-          <div class="obra-info">
-            <div class="obra-titulo">${obra.titulo || '—'}</div>
-            <div class="obra-ano">${ano}</div>
-            <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${maxS2 > 0 ? ((obra.total_streams / maxS2) * 100).toFixed(1) : 0}%"></div></div>
-          </div>
-        </div></td>
-        <td class="streams-cell"><div class="streams-total">${fmtNum(obra.total_streams || 0)}</div></td>
-        <td class="streams-cell"><div class="streams-ganho" style="color:${(obra.ganho_semanal || 0) > 0 ? 'var(--verde-medio)' : 'var(--cinza-neutro)'}">
-          ${(obra.ganho_semanal || 0) >= 0 ? '+' : ''}${fmtNum(obra.ganho_semanal || 0)}
-        </div></td>
-      </tr>`;
-    });
-    bodyHtml += '</tbody></table>';
   }
+
   el('modal-ano-body').innerHTML = bodyHtml;
   el('modal-ano-overlay').style.display = 'block';
   document.body.style.overflow = 'hidden';
@@ -2025,46 +2336,138 @@ function setRanking(type, el_btn) {
   renderRankTable(type);
 }
 
+// Converte uma agregação YT em item de ranking uniforme
+function ytAggToItem(a) {
+  return {
+    titulo: a.enredo || `Mangueira ${a.ano}`,
+    enredo: a.enredo || '',
+    ano: a.ano,
+    tipo: 'YouTube',
+    total_streams: a.total_views || 0,
+    ganho_semanal: a.ganho_semanal || 0,
+    variacao: a.variacao || 0,
+    _is_yt: true,
+    _video_lider: a.video_lider || ''
+  };
+}
+
+function buildRankingData(type) {
+  if (!DATA) return [];
+
+  // YouTube exclusivo: apenas anos/obras com dados YT, por views desc
+  if (type === 'youtube') {
+    return (DATA.agregacoes_youtube || []).slice()
+      .sort((a, b) => (b.total_views || 0) - (a.total_views || 0))
+      .map(ytAggToItem);
+  }
+
+  // Geral: usa agregacoes_por_ano como fonte da verdade — ela já tem SP+YT somados
+  // Assim anos com ambas as plataformas mostram o total real, não só o SP.
+  if (type === 'geral') {
+    const ytMap = {};
+    (DATA.agregacoes_youtube || []).forEach(a => { ytMap[String(a.ano)] = a; });
+    // Mapa de ano → item SP (pega titulo/ganho/variacao do ranking)
+    const spMap = {};
+    const spRanking = (DATA.rankings && DATA.rankings.geral) ? DATA.rankings.geral : [];
+    spRanking.forEach(o => {
+      const k = String(o.ano);
+      if (!spMap[k]) spMap[k] = o;
+    });
+
+    const items = (DATA.agregacoes_por_ano || []).map(a => {
+      const k = String(a.ano);
+      const sp = spMap[k];
+      const yt = ytMap[k];
+      const spVal  = a.total_streams || 0;
+      const ytVal  = a.total_views   || 0;
+      const total  = spVal + ytVal;
+      const titulo = a.enredo || a.obra_lider || (sp && sp.titulo) || (yt && yt.enredo) || `Mangueira ${a.ano}`;
+      return {
+        titulo,
+        enredo: a.enredo || '',
+        ano: a.ano,
+        tipo: spVal > 0 && ytVal > 0 ? 'Spotify + YouTube' : spVal > 0 ? 'Spotify' : 'YouTube',
+        total_streams: total,
+        _sp_streams: spVal,
+        _yt_views: ytVal,
+        ganho_semanal: (sp ? (sp.ganho_semanal || 0) : 0),
+        variacao: (sp ? (sp.variacao || 0) : 0),
+        _is_yt: spVal === 0,
+      };
+    });
+    return items.sort((a, b) => (b.total_streams || 0) - (a.total_streams || 0));
+  }
+
+  // trending / quedas / spotify / deezer
+  const raw = (DATA.rankings && DATA.rankings[type]) ? DATA.rankings[type] : [];
+  if (type === 'trending') return raw.slice().sort((a, b) => (b.ganho_semanal || 0) - (a.ganho_semanal || 0));
+  if (type === 'quedas')   return raw.slice().sort((a, b) => (a.ganho_semanal || 0) - (b.ganho_semanal || 0));
+  return raw.slice().sort((a, b) => (b.total_streams || 0) - (a.total_streams || 0));
+}
+
 function renderRankTable(type) {
   if (!DATA) return;
-  const data = (DATA.rankings && DATA.rankings[type]) ? DATA.rankings[type] : [];
+  const data = buildRankingData(type);
   const container = el('rank-table-container');
+
+  // Semana no painel
+  const semTag = el('rank-panel-semana');
+  if (semTag && DATA.meta && DATA.meta.semana_fim) semTag.textContent = 'sem. ' + fmtDate(DATA.meta.semana_fim);
 
   if (data.length === 0) {
     container.innerHTML = `<div class="empty-state" style="padding:56px 20px"><div class="empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div><div class="empty-title">Sem dados</div><div class="empty-desc">Os dados aparecerão após a primeira coleta.</div></div>`;
     return;
   }
 
-  const maxS = Math.max(...data.map(o => o.total_streams || 0));
+  const maxS = Math.max(...data.map(o => o.total_streams || 0), 1);
+  const metricHeader = type === 'youtube' ? 'Total views' : 'Streams / Views';
+
   let html = `<table class="rank-table-full"><thead><tr>
     <th style="width:42px">#</th>
     <th style="width:46px">Var.</th>
     <th>Obra</th>
-    <th class="right" style="width:130px">Total streams</th>
+    <th class="right" style="width:140px">${metricHeader}</th>
     <th class="right" style="width:110px">Ganho sem.</th>
   </tr></thead><tbody>`;
 
   data.forEach((obra, i) => {
-    const pos = i + 1;
-    const tituloEsc = (obra.titulo || '').replace(/"/g, '&quot;');
-    html += `<tr onclick="abrirModalObra('${tituloEsc.replace(/'/g,"\\'")}')">
+    const pos       = i + 1;
+    const anoEsc    = obra.ano || 0;
+    const enredo    = obra.enredo || obra._enredo || '';
+    // Título de exibição: usa o título (que para YT já é o enredo via ytAggToItem)
+    const displayTitulo = obra.titulo || enredo || '—';
+    // Segunda linha: ano + enredo se diferente do título principal
+    const subLinha  = [String(anoEsc||'—'), enredo && enredo !== displayTitulo ? enredo : ''].filter(Boolean).join(' · ');
+    const ganho     = obra.ganho_semanal || 0;
+    const pct       = maxS > 0 ? ((obra.total_streams / maxS) * 100).toFixed(1) : 0;
+    html += `<tr onclick="abrirModalAno('${anoEsc}')">
       <td><span class="rank-pos${pos<=3?' top':''}">${pos}</span></td>
       <td>${renderDelta(obra.variacao)}</td>
       <td><div class="obra-cell">
-        <div class="obra-thumb-placeholder"><span>${(obra.titulo||'?')[0]}</span></div>
+        <div class="obra-thumb-placeholder"><span>${displayTitulo[0]||'?'}</span></div>
         <div class="obra-info">
-          <div class="obra-titulo">${obra.titulo||'—'}</div>
-          <div class="obra-ano">${obra.ano||'—'}</div>
-          <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${maxS>0?((obra.total_streams/maxS)*100).toFixed(1):0}%"></div></div>
+          <div class="obra-titulo">${displayTitulo}</div>
+          <div class="obra-ano">${subLinha}</div>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
         </div>
       </div></td>
-      <td class="streams-cell"><div class="streams-total">${fmtNum(obra.total_streams)}</div></td>
-      <td class="streams-cell"><div class="streams-ganho">${obra.ganho_semanal>=0?'+':''}${fmtNum(obra.ganho_semanal)}</div></td>
+      <td class="streams-cell">
+        <div class="streams-total">${fmtNum(obra.total_streams)}</div>
+        ${obra._sp_streams > 0 && obra._yt_views > 0
+          ? `<div class="streams-ganho" style="color:var(--cinza-neutro);font-size:9px;"><span style="color:var(--sp-color)">SP</span> ${fmtNum(obra._sp_streams)} + <span style="color:var(--yt-color)">YT</span> ${fmtNum(obra._yt_views)}</div>`
+          : ''}
+      </td>
+      <td class="streams-cell"><div class="streams-ganho" style="color:${ganho>0?'var(--verde-medio)':'var(--cinza-neutro)'}">${ganho>=0?'+':''}${fmtNum(ganho)}</div></td>
     </tr>`;
   });
 
   html += '</tbody></table>';
   container.innerHTML = html;
+}
+
+// Abre o modal do ano para qualquer entrada (SP ou YT)
+function abrirModalEntrada(titulo, ano) {
+  abrirModalAno(String(ano));
 }
 
 function renderDelta(v) {
@@ -2115,6 +2518,179 @@ function renderTop5Desfiles() {
 
 // ─── CHARTS ───────────────────────────────────────────────────────────────────
 let chartPlat = null;
+let chartAnosBar = null;
+
+// ─── ANOS FILTER STATE ────────────────────────────────────────────────────────
+let anosFilterPlat = 'all';
+let anosFilterDec  = 'all';
+
+function setAnosPlat(val, btnEl) {
+  anosFilterPlat = val;
+  document.querySelectorAll('[id^="anos-plat-"]').forEach(b => b.classList.remove('active'));
+  btnEl.classList.add('active');
+  filterAnosGrid();
+}
+
+function setAnosDec(val, btnEl) {
+  anosFilterDec = val;
+  document.querySelectorAll('[id^="anos-dec-"]').forEach(b => b.classList.remove('active'));
+  btnEl.classList.add('active');
+  filterAnosGrid();
+}
+
+function filterAnosGrid() {
+  if (!DATA) return;
+  const query  = (document.getElementById('anos-search-input')?.value || '').trim().toLowerCase();
+  const anos   = DATA.agregacoes_por_ano || [];
+
+  const filtered = anos.filter(a => {
+    const decade = Math.floor(a.ano / 10) * 10;
+    const decStr = String(decade).slice(-2);
+
+    // plataforma
+    if (anosFilterPlat === 'spotify' && !(a.total_streams > 0)) return false;
+    if (anosFilterPlat === 'youtube' && !(a.total_views > 0))   return false;
+
+    // década
+    if (anosFilterDec !== 'all' && decStr !== anosFilterDec) return false;
+
+    // busca por enredo
+    if (query) {
+      const haystack = ((a.enredo || '') + ' ' + (a.obra_lider || '') + ' ' + String(a.ano)).toLowerCase();
+      if (!haystack.includes(query)) return false;
+    }
+    return true;
+  });
+
+  renderAnosGrid(filtered);
+  updateAnosBarChart(filtered);
+
+  const tag = document.getElementById('anos-bar-tag');
+  if (tag) {
+    const platStr = anosFilterPlat === 'all' ? 'cross-platform' : anosFilterPlat;
+    const decStr  = anosFilterDec  === 'all' ? 'todos os anos'  : 'década de ' + (anosFilterDec === '00' ? '2000' : anosFilterDec === '80' ? '1980' : anosFilterDec === '90' ? '1990' : anosFilterDec === '10' ? '2010' : '2020');
+    tag.textContent = decStr + ' · ' + platStr;
+  }
+}
+
+// ─── ANOS BAR CHART ──────────────────────────────────────────────────────────
+function updateAnosBarChart(anos) {
+  if (!anos || anos.length === 0) {
+    if (chartAnosBar) { chartAnosBar.destroy(); chartAnosBar = null; }
+    return;
+  }
+  const sorted = anos.slice().sort((a, b) => a.ano - b.ano);
+
+  const labels   = sorted.map(a => String(a.ano));
+  const spData   = sorted.map(a => a.total_streams || 0);
+  const ytData   = sorted.map(a => a.total_views   || 0);
+
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const ctx = document.getElementById('chart-anos-bar');
+  if (!ctx) return;
+
+  if (chartAnosBar) chartAnosBar.destroy();
+  chartAnosBar = new Chart(ctx.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Spotify',
+          data: spData,
+          backgroundColor: 'rgba(29,185,84,0.82)',
+          borderRadius: 4,
+          borderSkipped: false,
+        },
+        {
+          label: 'YouTube',
+          data: ytData,
+          backgroundColor: 'rgba(255,0,0,0.72)',
+          borderRadius: 4,
+          borderSkipped: false,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: true,
+          labels: { font: { family: "'IBM Plex Mono', monospace", size: 10 }, color: chartTextColor(), boxWidth: 10, padding: 14 }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => ' ' + ctx.dataset.label + ': ' + fmtNum(ctx.parsed.y)
+          }
+        }
+      },
+      scales: {
+        x: {
+          stacked: false,
+          grid: { display: false },
+          ticks: { font: { size: 10, family: "'IBM Plex Mono', monospace" }, color: chartTextColor(), maxRotation: 45 }
+        },
+        y: {
+          stacked: false,
+          grid: { color: chartGridColor() },
+          ticks: { font: { size: 9 }, callback: v => fmtNum(v), color: chartTextColor() }
+        }
+      }
+    }
+  });
+}
+
+// ─── RANKING SEARCH ───────────────────────────────────────────────────────────
+function filterRankTable() {
+  const query = (document.getElementById('rank-search-input')?.value || '').toLowerCase().trim();
+  const rows  = document.querySelectorAll('#rank-table-container table tbody tr');
+  let visible = 0;
+  rows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    const show = !query || text.includes(query);
+    row.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  // update count in panel tag
+  const tag = document.getElementById('rank-panel-semana');
+  if (tag && query) {
+    const base = DATA?.meta?.semana_fim ? 'sem. ' + fmtDate(DATA.meta.semana_fim) : '';
+    tag.textContent = (base ? base + ' · ' : '') + visible + ' resultado(s)';
+  } else if (tag && DATA?.meta?.semana_fim) {
+    tag.textContent = 'sem. ' + fmtDate(DATA.meta.semana_fim);
+  }
+}
+
+// ─── KPI COMPOSIÇÃO POR ANO ──────────────────────────────────────────────────
+function renderKpiComp() {
+  const container = document.getElementById('kpi-comp-row');
+  if (!container || !DATA) return;
+
+  const anos   = DATA.agregacoes_por_ano || [];
+  const total  = anos.reduce((s, a) => s + (a.total_streams || 0) + (a.total_views || 0), 0);
+  if (total === 0) { container.innerHTML = '<div style="font-family:var(--font-corpo);font-size:11px;color:var(--cinza-neutro);font-style:italic;padding-top:8px;">Sem dados disponíveis.</div>'; return; }
+
+  const sorted = anos.slice().sort((a, b) => {
+    const av = (a.total_streams || 0) + (a.total_views || 0);
+    const bv = (b.total_streams || 0) + (b.total_views || 0);
+    return bv - av;
+  }).slice(0, 6);
+
+  const maxVal = (sorted[0].total_streams || 0) + (sorted[0].total_views || 0);
+
+  container.innerHTML = sorted.map(a => {
+    const val = (a.total_streams || 0) + (a.total_views || 0);
+    const pct = total > 0 ? ((val / total) * 100).toFixed(1) : 0;
+    const barW = maxVal > 0 ? ((val / maxVal) * 100).toFixed(1) : 0;
+    return `<div class="kpi-comp-item">
+      <div class="kpi-comp-year">${a.ano}</div>
+      <div class="kpi-comp-pct">${pct}%</div>
+      <div class="kpi-comp-sub">${fmtNum(val)} · do total geral</div>
+      <div class="kpi-comp-bar"><div class="kpi-comp-bar-fill" style="width:${barW}%"></div></div>
+    </div>`;
+  }).join('');
+}
 
 function chartTextColor() {
   return document.documentElement.getAttribute('data-theme') === 'dark' ? 'rgba(255,255,255,0.5)' : '#8C8C8C';
@@ -2258,7 +2834,10 @@ function toggleDark() {
   el('dark-icon-sun').style.display  = isDark ? 'none' : 'block';
   el('dark-icon-moon').style.display = isDark ? 'block' : 'none';
   // Re-render charts for correct colors
-  if (DATA) initCharts();
+  if (DATA) {
+    initCharts();
+    if (DATA.agregacoes_por_ano) updateAnosBarChart(DATA.agregacoes_por_ano);
+  }
 }
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
