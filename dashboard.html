@@ -1265,48 +1265,138 @@ nav a svg { flex-shrink: 0; }
   .anos-grid { grid-template-columns: 1fr; }
 }
 /* ─── YOUTUBE LIVE ─── */
-.ytlive-gain-up   { color: var(--verde-medio); font-weight: 600; }
+.ytlive-gain-up   { color: #0FA36B; font-weight: 700; }
 .ytlive-gain-zero { color: var(--cinza-neutro); }
-.ytlive-gain-down { color: var(--rosa-escuro); font-weight: 600; }
+.ytlive-gain-down { color: #E0006D; font-weight: 700; }
+
+/* KPI cards grandes */
+.yt-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.yt-kpi-card {
+  background: var(--card-bg);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 12px;
+  padding: 20px 22px 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.yt-kpi-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.yt-kpi-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: #FF0000;
+}
+.yt-kpi-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px; text-transform: uppercase; letter-spacing: 1.2px;
+  color: var(--cinza-neutro); margin-bottom: 10px;
+}
+.yt-kpi-main {
+  display: flex; align-items: flex-end; gap: 10px; margin-bottom: 8px;
+}
+.yt-kpi-value {
+  font-family: var(--font-mono);
+  font-size: 32px; font-weight: 600; line-height: 1;
+  color: var(--cinza-texto);
+  transition: color 0.4s;
+}
+.yt-kpi-value.animating { animation: ytKpiPop 0.45s cubic-bezier(.22,1,.36,1); }
+@keyframes ytKpiPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+.yt-kpi-arrow {
+  display: flex; align-items: center; gap: 3px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+  padding: 3px 8px; border-radius: 6px;
+  margin-bottom: 4px;
+  transition: all 0.4s;
+}
+.yt-kpi-arrow.up   { background: rgba(15,163,107,0.12); color: #0FA36B; }
+.yt-kpi-arrow.down { background: rgba(224,0,109,0.10);  color: #E0006D; }
+.yt-kpi-arrow.zero { background: var(--cinza-suave);    color: var(--cinza-neutro); }
+.yt-kpi-arrow svg { transition: transform 0.3s; }
+.yt-kpi-arrow.up   svg { transform: translateY(-1px); }
+.yt-kpi-arrow.down svg { transform: translateY(1px); }
+.yt-kpi-sub {
+  font-family: var(--font-corpo);
+  font-size: 10.5px; color: var(--cinza-neutro); font-style: italic;
+  margin-top: 4px;
+}
+.yt-kpi-spark {
+  margin-top: 12px; height: 44px;
+}
+
+/* Chart de linha do histórico */
+.yt-chart-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+.yt-chart-wrap { position: relative; height: 160px; margin-top: 12px; }
+
+/* Tabela */
 .ytlive-thumb {
-  width: 90px; height: 52px;
-  border-radius: 5px;
+  width: 88px; height: 50px;
+  border-radius: 6px;
   object-fit: cover;
   background: var(--cinza-suave);
   display: block;
 }
 .ytlive-thumb-ph {
-  width: 90px; height: 52px;
-  border-radius: 5px;
-  background: rgba(255,0,0,0.1);
+  width: 88px; height: 50px;
+  border-radius: 6px;
+  background: rgba(255,0,0,0.08);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.ytlive-video-cell { display: flex; align-items: center; gap: 10px; max-width: 320px; }
+.ytlive-video-cell { display: flex; align-items: center; gap: 12px; max-width: 340px; }
 .ytlive-video-title {
   font-family: var(--font-titulo);
   font-weight: 600; font-size: 11.5px;
   color: var(--cinza-texto);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  max-width: 220px;
+  max-width: 230px;
 }
 .ytlive-video-sub {
   font-family: var(--font-mono);
-  font-size: 9.5px; color: var(--cinza-neutro);
-  margin-top: 3px;
+  font-size: 9px; color: var(--cinza-neutro);
+  margin-top: 3px; display: flex; gap: 7px; align-items: center;
 }
-.ytlive-badge-new {
-  display: inline-block;
-  font-family: var(--font-mono); font-size: 8px;
-  background: rgba(255,0,0,0.12); color: #FF0000;
-  padding: 1px 5px; border-radius: 3px; margin-top: 3px;
+/* mini sparkline inline na tabela */
+.yt-row-spark { display: inline-block; vertical-align: middle; }
+
+/* Seta inline da tabela */
+.yt-tbl-arrow {
+  display: inline-flex; align-items: center; gap: 2px;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
 }
+.yt-tbl-arrow.up   { color: #0FA36B; }
+.yt-tbl-arrow.down { color: #E0006D; }
+.yt-tbl-arrow.zero { color: var(--cinza-neutro); }
+
 #ytlive-refresh-btn:hover { opacity: 0.85; }
 #ytlive-refresh-btn:active { opacity: 0.7; }
 #ytlive-refresh-btn.loading { opacity: 0.6; pointer-events: none; }
 @keyframes ytSpinRefresh { to { transform: rotate(360deg); } }
 #ytlive-refresh-btn.loading svg { animation: ytSpinRefresh 0.8s linear infinite; }
-.ytlive-sparkline { display: inline-block; width: 60px; height: 20px; vertical-align: middle; }
+
+/* Row highlight on data update */
+@keyframes ytRowFlash {
+  0%   { background: rgba(255,0,0,0.06); }
+  100% { background: transparent; }
+}
+.ytlive-row-updated { animation: ytRowFlash 1.2s ease forwards; }
 
 </style>
 </head>
@@ -1727,11 +1817,11 @@ nav a svg { flex-shrink: 0; }
   <!-- ─── YOUTUBE LIVE ─── -->
   <div class="page" id="page-youtube">
 
-    <!-- Stat Bar Topo -->
-    <div class="stat-bar" id="yt-live-statbar">
+    <!-- Toolbar -->
+    <div class="stat-bar" style="margin-bottom:18px;">
       <div class="stat-item">
         <span class="stat-item-val" id="ytlive-total-views">—</span>
-        <span class="stat-item-label">views totais (ao vivo)</span>
+        <span class="stat-item-label">views totais</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
@@ -1744,87 +1834,122 @@ nav a svg { flex-shrink: 0; }
         <span class="stat-item-label">vídeos monitorados</span>
       </div>
       <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-item-val" id="ytlive-top-video" style="font-size:12px;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</span>
+      <div class="stat-item" style="max-width:200px;">
+        <span class="stat-item-val" id="ytlive-top-video" style="font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;">—</span>
         <span class="stat-item-label">vídeo líder</span>
       </div>
-      <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
+      <div style="margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span id="ytlive-status-badge" style="font-family:var(--font-mono);font-size:10px;background:rgba(255,0,0,0.1);color:#FF0000;padding:3px 9px;border-radius:4px;display:flex;align-items:center;gap:5px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#FF0000;display:inline-block;"></span>Aguardando
+        </span>
         <span id="ytlive-last-update" style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);">—</span>
-        <button onclick="ytLiveRefresh()" id="ytlive-refresh-btn" style="display:flex;align-items:center;gap:6px;background:var(--verde-escuro);color:#fff;border:none;border-radius:6px;padding:7px 13px;font-family:var(--font-titulo);font-size:11px;font-weight:600;cursor:pointer;transition:opacity 0.2s;">
+        <button onclick="ytLiveRefresh()" id="ytlive-refresh-btn" style="display:flex;align-items:center;gap:6px;background:#FF0000;color:#fff;border:none;border-radius:6px;padding:7px 14px;font-family:var(--font-titulo);font-size:11px;font-weight:700;cursor:pointer;transition:opacity 0.2s;letter-spacing:0.3px;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
           Atualizar
         </button>
-        <label style="display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);cursor:pointer;white-space:nowrap;">
-          <input type="checkbox" id="ytlive-auto-refresh" onchange="toggleYtAutoRefresh()" style="accent-color:var(--yt-color);">
-          Auto (5min)
+        <label style="display:flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);cursor:pointer;">
+          <input type="checkbox" id="ytlive-auto-refresh" onchange="toggleYtAutoRefresh()" style="accent-color:#FF0000;">Auto (5min)
         </label>
-        <button onclick="ytLiveClearSession()" title="Limpar histórico da sessão" style="background:none;border:1px solid var(--cinza-borda);border-radius:6px;padding:5px 10px;font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);cursor:pointer;white-space:nowrap;" onmouseover="this.style.borderColor='var(--rosa-escuro)';this.style.color='var(--rosa-escuro)'" onmouseout="this.style.borderColor='var(--cinza-borda)';this.style.color='var(--cinza-neutro)'">
-          ✕ Limpar sessão
-        </button>
+        <button onclick="ytLiveClearHistory()" style="background:none;border:1px solid var(--cinza-borda);color:var(--cinza-neutro);border-radius:5px;padding:5px 9px;font-family:var(--font-mono);font-size:9px;cursor:pointer;">✕ Limpar</button>
       </div>
     </div>
 
-    <!-- Cards KPI por variação -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;" id="ytlive-kpi-row">
-      <div class="card">
-        <div class="card-accent yt"></div>
-        <div class="card-label">Maior crescimento de views</div>
-        <div class="card-value" id="ytlive-kpi-top-growth-val" style="font-size:22px;">—</div>
-        <div class="card-delta neutro" id="ytlive-kpi-top-growth-delta">—</div>
-        <div class="card-sub" id="ytlive-kpi-top-growth-name" style="margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
+    <!-- KPI Cards visuais -->
+    <div class="yt-kpi-grid">
+
+      <!-- KPI 1: Maior crescimento -->
+      <div class="yt-kpi-card">
+        <div class="yt-kpi-label">🏆 maior crescimento 24h</div>
+        <div class="yt-kpi-main">
+          <div class="yt-kpi-value" id="yt-kpi1-val">—</div>
+          <div class="yt-kpi-arrow zero" id="yt-kpi1-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            <span id="yt-kpi1-pct">—</span>
+          </div>
+        </div>
+        <div class="yt-kpi-sub" id="yt-kpi1-name" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
+        <div class="yt-kpi-sub" id="yt-kpi1-period" style="margin-top:2px;">—</div>
+        <div class="yt-kpi-spark">
+          <svg id="yt-spark1" width="100%" height="44" viewBox="0 0 220 44" preserveAspectRatio="none"></svg>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-accent yt"></div>
-        <div class="card-label">Média de views/hora estimada</div>
-        <div class="card-value" id="ytlive-kpi-avg-hour" style="font-size:22px;">—</div>
-        <div class="card-delta neutro">sobre todos os vídeos</div>
-        <div class="card-sub">base: variação desde a 1ª leitura</div>
+
+      <!-- KPI 2: views/hora -->
+      <div class="yt-kpi-card">
+        <div class="yt-kpi-label">⚡ velocidade atual (views/h)</div>
+        <div class="yt-kpi-main">
+          <div class="yt-kpi-value" id="yt-kpi2-val">—</div>
+          <div class="yt-kpi-arrow zero" id="yt-kpi2-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            <span id="yt-kpi2-trend">—</span>
+          </div>
+        </div>
+        <div class="yt-kpi-sub">estimativa sobre todos os vídeos</div>
+        <div class="yt-kpi-sub" id="yt-kpi2-period" style="margin-top:2px;">—</div>
+        <div class="yt-kpi-spark">
+          <svg id="yt-spark2" width="100%" height="44" viewBox="0 0 220 44" preserveAspectRatio="none"></svg>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-accent yt"></div>
-        <div class="card-label">Ganho acumulado na sessão</div>
-        <div class="card-value" id="ytlive-kpi-session-gain" style="font-size:22px;">—</div>
-        <div class="card-delta neutro" id="ytlive-kpi-session-since">desde o início da sessão</div>
-        <div class="card-sub">soma de todos os vídeos</div>
+
+      <!-- KPI 3: ganho total 24h -->
+      <div class="yt-kpi-card">
+        <div class="yt-kpi-label">📈 ganho total no período</div>
+        <div class="yt-kpi-main">
+          <div class="yt-kpi-value" id="yt-kpi3-val">—</div>
+          <div class="yt-kpi-arrow zero" id="yt-kpi3-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            <span id="yt-kpi3-pct">—</span>
+          </div>
+        </div>
+        <div class="yt-kpi-sub" id="yt-kpi3-period">soma · todos os vídeos</div>
+        <div class="yt-kpi-spark">
+          <svg id="yt-spark3" width="100%" height="44" viewBox="0 0 220 44" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart de linha: evolução total de views -->
+    <div class="yt-chart-panel">
+      <div class="panel-header">
+        <span class="panel-title">Evolução de Views — Histórico de Leituras</span>
+        <span class="panel-tag" id="ytlive-history-count">0 leituras salvas</span>
+      </div>
+      <div class="yt-chart-wrap">
+        <canvas id="yt-history-chart"></canvas>
+      </div>
+      <div id="ytlive-history-list" style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);margin-top:12px;max-height:140px;overflow-y:auto;">
+        Nenhuma leitura ainda.
       </div>
     </div>
 
     <!-- Tabela de vídeos -->
     <div class="full-panel">
       <div class="full-panel-header" style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-        <span class="panel-title">Vídeos Monitorados — Dados em Tempo Real</span>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <span id="ytlive-status-badge" style="font-family:var(--font-mono);font-size:10px;background:rgba(255,0,0,0.1);color:#FF0000;padding:3px 9px;border-radius:4px;display:flex;align-items:center;gap:5px;">
-            <span id="ytlive-status-dot" style="width:6px;height:6px;border-radius:50%;background:#FF0000;display:inline-block;"></span>
-            Aguardando
-          </span>
-          <select id="ytlive-sort" onchange="ytLiveSortTable()" style="font-family:var(--font-mono);font-size:10px;padding:4px 8px;border:1px solid var(--cinza-borda);border-radius:5px;background:var(--card-bg);color:var(--cinza-texto);cursor:pointer;">
-            <option value="views_desc">Views ↓</option>
-            <option value="views_asc">Views ↑</option>
-            <option value="gain_desc">Ganho sessão ↓</option>
-            <option value="growth_desc">% crescimento ↓</option>
-            <option value="likes_desc">Likes ↓</option>
-          </select>
-        </div>
+        <span class="panel-title">Todos os Vídeos — Variação em Tempo Real</span>
+        <select id="ytlive-sort" onchange="ytLiveSortTable()" style="font-family:var(--font-mono);font-size:10px;padding:4px 8px;border:1px solid var(--cinza-borda);border-radius:5px;background:var(--card-bg);color:var(--cinza-texto);cursor:pointer;">
+          <option value="views_desc">Views ↓</option>
+          <option value="views_asc">Views ↑</option>
+          <option value="gain_desc">Ganho ↓</option>
+          <option value="growth_desc">% ↓</option>
+          <option value="likes_desc">Likes ↓</option>
+        </select>
       </div>
       <div class="full-panel-body" style="overflow-x:auto;">
-        <div id="ytlive-loading" style="padding:48px;text-align:center;font-family:var(--font-mono);font-size:11px;color:var(--cinza-neutro);">
-          <div style="margin-bottom:10px;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF0000" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#FF0000" stroke="none"/></svg>
-          </div>
-          Clique em "Atualizar" ou aguarde o carregamento automático...
+        <div id="ytlive-loading" style="padding:40px;text-align:center;font-family:var(--font-mono);font-size:11px;color:var(--cinza-neutro);">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FF0000" stroke-width="1.5" style="display:block;margin:0 auto 10px;"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#FF0000" stroke="none"/></svg>
+          Clique em "Atualizar" para carregar os dados ao vivo...
         </div>
         <table class="rank-table" id="ytlive-table" style="display:none;">
           <thead>
             <tr>
-              <th style="width:32px;">#</th>
+              <th style="width:28px;">#</th>
               <th>Vídeo</th>
-              <th class="right">Views totais</th>
-              <th class="right">Δ sessão</th>
-              <th class="right">Δ/hora est.</th>
+              <th class="right">Views</th>
+              <th class="right">Variação</th>
+              <th class="right">%</th>
+              <th class="right">/hora</th>
               <th class="right">Likes</th>
-              <th class="right">Comentários</th>
-              <th class="right">Variação %</th>
+              <th class="right">Spark</th>
             </tr>
           </thead>
           <tbody id="ytlive-tbody"></tbody>
@@ -1832,108 +1957,10 @@ nav a svg { flex-shrink: 0; }
       </div>
     </div>
 
-    <!-- Histórico de sessão sparklines -->
-    <div class="panel" style="margin-top:18px;">
-      <div class="panel-header">
-        <span class="panel-title">Histórico de Leituras da Sessão</span>
-        <span class="panel-tag" id="ytlive-history-count">0 leituras</span>
-      </div>
-      <div id="ytlive-history-list" style="font-family:var(--font-mono);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;padding:8px 0;">
-        Nenhuma leitura registrada ainda.
-      </div>
-    </div>
-
-    <!-- Seção de Análises Detalhadas -->
-    <div id="ytlive-analytics-section" style="margin-top:22px;display:none;">
-      <div class="section-title" style="margin-bottom:18px;">Análises Detalhadas da Sessão</div>
-
-      <!-- Gráfico: Evolução Total de Views na Sessão -->
-      <div class="panel" style="margin-bottom:18px;">
-        <div class="panel-header">
-          <span class="panel-title">Evolução Total de Views (Sessão)</span>
-          <span class="panel-tag" style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);">por leitura</span>
-        </div>
-        <div style="position:relative;height:180px;">
-          <canvas id="ytlive-chart-total"></canvas>
-        </div>
-      </div>
-
-      <!-- Gráfico: Top vídeos por views totais -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;">
-        <div class="panel">
-          <div class="panel-header">
-            <span class="panel-title">Top Vídeos — Views Totais</span>
-          </div>
-          <div style="position:relative;height:220px;">
-            <canvas id="ytlive-chart-topviews"></canvas>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-header">
-            <span class="panel-title">Top Vídeos — Ganho na Sessão</span>
-          </div>
-          <div style="position:relative;height:220px;">
-            <canvas id="ytlive-chart-topgain"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <!-- Gráfico: Likes vs Views -->
-      <div class="panel" style="margin-bottom:18px;">
-        <div class="panel-header">
-          <span class="panel-title">Distribuição: Likes vs Views por Vídeo</span>
-        </div>
-        <div style="position:relative;height:180px;">
-          <canvas id="ytlive-chart-likesviews"></canvas>
-        </div>
-      </div>
-
-      <!-- Tabela resumo detalhada -->
-      <div class="full-panel" style="margin-bottom:18px;">
-        <div class="full-panel-header">
-          <span class="panel-title">Resumo Completo dos Vídeos</span>
-        </div>
-        <div style="overflow-x:auto;">
-          <table class="rank-table-full" id="ytlive-detail-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Vídeo</th>
-                <th class="right">Views Totais</th>
-                <th class="right">Ganho Sessão</th>
-                <th class="right">% Crescimento</th>
-                <th class="right">Likes</th>
-                <th class="right">Comentários</th>
-                <th class="right">Ratio L/V</th>
-                <th class="right">Link</th>
-              </tr>
-            </thead>
-            <tbody id="ytlive-detail-tbody"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
     <div class="main-footer"><p>uma criação · <strong>acervo verde e rosa</strong></p></div>
   </div>
 
 </main>
-
-<!-- Painel lateral de vídeo -->
-<div id="ytlive-video-panel-overlay" onclick="ytLiveCloseVideoPanel(event)" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:200;"></div>
-<div id="ytlive-video-panel" style="display:none;position:fixed;top:0;right:0;width:420px;max-width:100vw;height:100vh;background:var(--panel-bg);border-left:1px solid var(--cinza-borda);z-index:201;overflow-y:auto;box-shadow:-4px 0 24px rgba(0,0,0,0.14);transition:transform 0.28s cubic-bezier(.4,0,.2,1);">
-  <div style="background:var(--yt-color);padding:20px 20px 16px;">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
-      <div style="flex:1;min-width:0;">
-        <div id="ytlive-panel-title" style="font-family:var(--font-titulo);font-weight:700;font-size:15px;color:#fff;line-height:1.3;margin-bottom:4px;"></div>
-        <div id="ytlive-panel-id" style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.6);"></div>
-      </div>
-      <button onclick="ytLiveCloseVideoPanel()" style="background:rgba(255,255,255,0.18);border:none;border-radius:8px;width:32px;height:32px;color:#fff;cursor:pointer;font-size:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
-    </div>
-    <img id="ytlive-panel-thumb" style="width:100%;border-radius:8px;margin-top:12px;display:none;" loading="lazy">
-  </div>
-  <div id="ytlive-panel-body" style="padding:18px 20px;"></div>
-</div>
 
 <script>
 // ─── ESTADO ───────────────────────────────────────────────────────────────────
@@ -3038,33 +3065,8 @@ function navigate(page, elLink) {
   el('topbar-title').textContent = pageTitles[page];
   closeSidebar();
   if (page === 'youtube') {
-    // Restaura estado salvo antes de decidir se busca
-    if (Object.keys(ytLiveData).length === 0) ytLiveLoadState();
-
-    if (Object.keys(ytLiveData).length > 0) {
-      // Já tem dados — restaura UI sem nova chamada à API
-      const now = Date.now();
-      const lastTotal = ytLiveHistory.length > 0
-        ? ytLiveHistory[ytLiveHistory.length - 1].totalViews
-        : Object.values(ytLiveData).reduce((s, d) => s + d.views, 0);
-      ytLiveRenderStatBar(lastTotal);
-      ytLiveRenderKpi(now);
-      ytLiveSortAndRender(now);
-      ytLiveRenderHistory();
-      ytLiveRenderAnalytics();
-      const tableEl = document.getElementById('ytlive-table');
-      const loadEl  = document.getElementById('ytlive-loading');
-      if (tableEl) tableEl.style.display = '';
-      if (loadEl)  loadEl.style.display  = 'none';
-      const upEl = document.getElementById('ytlive-last-update');
-      if (upEl && ytLiveHistory.length > 0) {
-        upEl.textContent = 'Última leitura: ' + new Date(ytLiveHistory[ytLiveHistory.length - 1].ts).toLocaleTimeString('pt-BR');
-      }
-      const badgeEl = document.getElementById('ytlive-status-badge');
-      if (badgeEl) badgeEl.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#0FA36B;display:inline-block;box-shadow:0 0 0 0 rgba(15,163,107,0.4);animation:pulse 2s infinite;"></span>&nbsp;Restaurado';
-    } else {
-      ytLiveRefresh();
-    }
+    if (Object.keys(ytSnapshots).length === 0) ytLiveInit();
+    if (Object.keys(ytLiveData).length === 0 || ytLiveHistory.length === 0) ytLiveRefresh();
   }
 }
 
@@ -3159,75 +3161,70 @@ const YT_VIDEO_IDS = [
   'KUWLUGtEkMo','dl4QN638zrA','7AjrdXmagJY','Mm2pWSHLyHw','vW74fQp-iHY',
   '8p0qxZre1cE','JMSBisBYhOE','9LiMnElA0xw','LDA7xD5CdqA','MIukjaA3b38','G9xkuO8eKyE'
 ];
-const YT_API_KEY = 'AIzaSyBNSPVCtQmo-g81dV6NVpmi-74lMv15zu4';
+const YT_API_KEY    = 'AIzaSyBNSPVCtQmo-g81dV6NVpmi-74lMv15zu4';
+const YT_STORE_KEY  = 'ytlive_history_v2';   // chave localStorage
+const YT_STORE_DATA = 'ytlive_snapshots_v2'; // snapshots por vídeo
+const YT_MAX_HISTORY = 500;                  // máx registros salvos (~7 dias de 5/5min)
+const YT_COMPARE_WINDOW = 24 * 60 * 60 * 1000; // janela de comparação: 24h em ms
 
-// ─── PERSISTÊNCIA YT LIVE ─────────────────────────────────────────────────────
-const YT_STORE_KEY = 'ytlive_session_v2';
-
-function ytLiveSaveState() {
-  try {
-    const state = {
-      data:         ytLiveData,
-      baseline:     ytLiveBaseline,
-      history:      ytLiveHistory,
-      videoHistory: ytVideoHistory,
-      sessionStart: ytLiveSessionStart,
-      savedAt:      Date.now()
-    };
-    localStorage.setItem(YT_STORE_KEY, JSON.stringify(state));
-  } catch(e) { /* quota */ }
-}
-
-function ytLiveLoadState() {
-  try {
-    const raw = localStorage.getItem(YT_STORE_KEY);
-    if (!raw) return;
-    const state = JSON.parse(raw);
-    // Só restaura se a sessão salva tem menos de 24h
-    if (Date.now() - (state.savedAt || 0) > 24 * 60 * 60 * 1000) return;
-    ytLiveData         = state.data         || {};
-    ytLiveBaseline     = state.baseline     || {};
-    ytLiveHistory      = state.history      || [];
-    if (state.videoHistory) {
-      Object.assign(ytVideoHistory, state.videoHistory);
-    }
-    ytLiveSessionStart = state.sessionStart || null;
-  } catch(e) { /* ignora */ }
-}
-
-function ytLiveClearSession() {
-  if (!confirm('Limpar todo o histórico da sessão YT Live?')) return;
-  ytLiveData         = {};
-  ytLiveBaseline     = {};
-  ytLiveHistory      = [];
-  ytLiveSessionStart = null;
-  Object.keys(ytVideoHistory).forEach(k => delete ytVideoHistory[k]);
-  try { localStorage.removeItem(YT_STORE_KEY); } catch(e) {}
-  // Reset UI
-  const tableEl = document.getElementById('ytlive-table');
-  const loadEl  = document.getElementById('ytlive-loading');
-  if (tableEl) tableEl.style.display = 'none';
-  if (loadEl)  loadEl.style.display  = '';
-  document.getElementById('ytlive-history-list').innerHTML = '<span style="font-style:italic;">Nenhuma leitura registrada ainda.</span>';
-  document.getElementById('ytlive-history-count').textContent = '0 leituras';
-  const section = document.getElementById('ytlive-analytics-section');
-  if (section) section.style.display = 'none';
-  ['ytlive-total-views','ytlive-total-likes','ytlive-videos-count','ytlive-top-video',
-   'ytlive-kpi-top-growth-val','ytlive-kpi-avg-hour','ytlive-kpi-session-gain'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = '—';
-  });
-  ytLiveRefresh();
-}
-
-
-let ytLiveBaseline  = {}; // videoId → views na 1ª leitura desta sessão
-let ytLiveHistory   = []; // array de { ts, totalViews }
-let ytLiveSessionStart = null;
+let ytLiveData     = {}; // videoId → { title, views, likes, comms, thumb }
+let ytLiveHistory  = []; // [{ ts, totalViews }] — carregado do localStorage
+let ytSnapshots    = {}; // videoId → [{ ts, views }] — histórico por vídeo
 let ytAutoRefreshTimer = null;
-let ytLiveSortMode  = 'views_desc';
-let ytLiveLoading   = false;
+let ytLiveLoading  = false;
 
+// ── Persistência ──────────────────────────────────────────────────────────────
+function ytSaveToStorage() {
+  try {
+    localStorage.setItem(YT_STORE_KEY,  JSON.stringify(ytLiveHistory));
+    localStorage.setItem(YT_STORE_DATA, JSON.stringify(ytSnapshots));
+  } catch(e) { /* quota exceeded */ }
+}
+
+function ytLoadFromStorage() {
+  try {
+    const h = localStorage.getItem(YT_STORE_KEY);
+    const s = localStorage.getItem(YT_STORE_DATA);
+    if (h) ytLiveHistory = JSON.parse(h);
+    if (s) ytSnapshots   = JSON.parse(s);
+    // Limpa entradas com mais de 8 dias
+    const cutoff = Date.now() - 8 * 24 * 3600 * 1000;
+    ytLiveHistory = ytLiveHistory.filter(r => r.ts > cutoff);
+    Object.keys(ytSnapshots).forEach(id => {
+      ytSnapshots[id] = ytSnapshots[id].filter(r => r.ts > cutoff);
+    });
+  } catch(e) { ytLiveHistory = []; ytSnapshots = {}; }
+}
+
+// Retorna a view count de um vídeo ~24h atrás (ou a mais antiga disponível)
+function ytBaselineFor(id) {
+  const snaps = ytSnapshots[id] || [];
+  if (snaps.length === 0) return ytLiveData[id]?.views ?? 0;
+  const now    = Date.now();
+  const target = now - YT_COMPARE_WINDOW;
+  // Pega o snapshot mais próximo de 24h atrás (antes do alvo)
+  const before = snaps.filter(s => s.ts <= target);
+  if (before.length > 0) return before[before.length - 1].views;
+  // Se não tem 24h ainda, usa o mais antigo disponível
+  return snaps[0].views;
+}
+
+// Descrição do período de comparação para um vídeo
+function ytBaselineLabel(id) {
+  const snaps = ytSnapshots[id] || [];
+  if (snaps.length === 0) return 'desde esta leitura';
+  const now    = Date.now();
+  const target = now - YT_COMPARE_WINDOW;
+  const before = snaps.filter(s => s.ts <= target);
+  const ref    = before.length > 0 ? before[before.length - 1] : snaps[0];
+  const diffMs = now - ref.ts;
+  const diffH  = diffMs / 3600000;
+  if (diffH < 1)  return 'últimos ' + Math.round(diffH * 60) + 'min';
+  if (diffH < 24) return 'últimas ' + diffH.toFixed(1) + 'h';
+  return 'últimas ' + (diffH / 24).toFixed(1) + 'd';
+}
+
+// ── Refresh principal ─────────────────────────────────────────────────────────
 async function ytLiveRefresh() {
   if (ytLiveLoading) return;
   ytLiveLoading = true;
@@ -3235,12 +3232,10 @@ async function ytLiveRefresh() {
   const btn = document.getElementById('ytlive-refresh-btn');
   if (btn) btn.classList.add('loading');
 
-  const badge = document.getElementById('ytlive-status-badge');
-  const dot   = document.getElementById('ytlive-status-dot');
-  if (badge) badge.innerHTML = '<span id="ytlive-status-dot" style="width:6px;height:6px;border-radius:50%;background:#F6A800;display:inline-block;animation:pulse 1s infinite;"></span>&nbsp;Buscando...';
+  const badgeEl = document.getElementById('ytlive-status-badge');
+  if (badgeEl) badgeEl.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#F6A800;display:inline-block;animation:pulse 1s infinite;"></span>&nbsp;Buscando...';
 
   try {
-    // Busca em lotes de 50 IDs (limite da API)
     const ids = YT_VIDEO_IDS.join(',');
     const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${ids}&key=${YT_API_KEY}`;
     const res = await fetch(url);
@@ -3248,52 +3243,49 @@ async function ytLiveRefresh() {
     const json = await res.json();
 
     const now = Date.now();
-    if (!ytLiveSessionStart) ytLiveSessionStart = now;
-
     let totalViews = 0;
+
     (json.items || []).forEach(item => {
       const id    = item.id;
       const stats = item.statistics || {};
       const snip  = item.snippet   || {};
-      const views = parseInt(stats.viewCount  || 0, 10);
-      const likes = parseInt(stats.likeCount  || 0, 10);
-      const comms = parseInt(stats.commentCount || 0, 10);
-
-      // Guarda baseline se 1ª vez
-      if (ytLiveBaseline[id] === undefined) ytLiveBaseline[id] = views;
+      const views = parseInt(stats.viewCount   || 0, 10);
+      const likes = parseInt(stats.likeCount   || 0, 10);
+      const comms = parseInt(stats.commentCount|| 0, 10);
 
       ytLiveData[id] = {
-        title:       snip.title         || id,
-        thumb:       snip.thumbnails?.medium?.url || snip.thumbnails?.default?.url || '',
-        publishedAt: snip.publishedAt   || '',
+        title: snip.title || id,
+        thumb: snip.thumbnails?.medium?.url || snip.thumbnails?.default?.url || '',
         views, likes, comms
       };
+
+      // Acrescenta snapshot ao histórico deste vídeo
+      if (!ytSnapshots[id]) ytSnapshots[id] = [];
+      ytSnapshots[id].push({ ts: now, views });
+
       totalViews += views;
     });
 
-    // Registra leitura no histórico apenas se houve variação (ou for a 1ª leitura)
-    const lastH = ytLiveHistory.length > 0 ? ytLiveHistory[ytLiveHistory.length - 1] : null;
-    const delta = lastH !== null ? totalViews - lastH.totalViews : 0;
-    if (ytLiveHistory.length === 0 || delta !== 0) {
-      ytLiveHistory.push({ ts: now, totalViews });
-    }
+    // Acrescenta ao histórico global
+    ytLiveHistory.push({ ts: now, totalViews });
+    // Limita tamanho
+    if (ytLiveHistory.length > YT_MAX_HISTORY)
+      ytLiveHistory = ytLiveHistory.slice(-YT_MAX_HISTORY);
 
-    // Atualiza UI
+    // Persiste
+    ytSaveToStorage();
+
+    // Renderiza
     ytLiveRenderStatBar(totalViews);
     ytLiveRenderKpi(now);
     ytLiveSortAndRender(now);
     ytLiveRenderHistory();
-    ytLiveRecordVideoHistory(now);
-    ytLiveRenderAnalytics();
-    ytLiveSaveState();
 
-    // Status OK
     const nowStr = new Date(now).toLocaleTimeString('pt-BR');
-    const upEl = document.getElementById('ytlive-last-update');
+    const upEl   = document.getElementById('ytlive-last-update');
     if (upEl) upEl.textContent = 'Última leitura: ' + nowStr;
 
-    const badgeEl = document.getElementById('ytlive-status-badge');
-    if (badgeEl) badgeEl.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#0FA36B;display:inline-block;box-shadow:0 0 0 0 rgba(15,163,107,0.4);animation:pulse 2s infinite;"></span>&nbsp;Ao vivo';
+    if (badgeEl) badgeEl.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#0FA36B;display:inline-block;animation:pulse 2s infinite;"></span>&nbsp;Ao vivo';
 
     const tableEl = document.getElementById('ytlive-table');
     const loadEl  = document.getElementById('ytlive-loading');
@@ -3302,7 +3294,6 @@ async function ytLiveRefresh() {
 
   } catch(e) {
     console.error('YT Live error:', e);
-    const badgeEl = document.getElementById('ytlive-status-badge');
     if (badgeEl) badgeEl.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#E0006D;display:inline-block;"></span>&nbsp;Erro na API';
   }
 
@@ -3310,155 +3301,331 @@ async function ytLiveRefresh() {
   ytLiveLoading = false;
 }
 
+// ── Helpers SVG sparkline ─────────────────────────────────────────────────────
+function ytMakeSparkPath(values, w, h, color, filled) {
+  if (!values || values.length < 2) return '';
+  const min = Math.min(...values), max = Math.max(...values);
+  const range = max - min || 1;
+  const pts = values.map((v, i) => {
+    const x = (i / (values.length - 1)) * w;
+    const y = h - ((v - min) / range) * (h - 4) - 2;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  const pathD = 'M ' + pts.join(' L ');
+  const lastX = parseFloat(pts[pts.length-1].split(',')[0]);
+  const fillPath = filled
+    ? `<path d="${pathD} L ${lastX},${h} L 0,${h} Z" fill="${color}" fill-opacity="0.13"/>` : '';
+  return fillPath + `<polyline points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
+}
+
+function ytSetSpark(svgId, values, color) {
+  const el = document.getElementById(svgId);
+  if (!el) return;
+  const w = 220, h = 44;
+  el.innerHTML = ytMakeSparkPath(values, w, h, color, true);
+  // Dot no último ponto
+  if (values.length >= 2) {
+    const min = Math.min(...values), max = Math.max(...values), range = max - min || 1;
+    const lx = w;
+    const ly = h - ((values[values.length-1] - min) / range) * (h - 4) - 2;
+    el.innerHTML += `<circle cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="3" fill="${color}"/>`;
+  }
+}
+
+function ytSetArrow(arrowId, value, pctStr) {
+  const el = document.getElementById(arrowId);
+  if (!el) return;
+  const cls = value > 0 ? 'up' : value < 0 ? 'down' : 'zero';
+  const arrowSvg = value > 0
+    ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>`
+    : value < 0
+    ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>`
+    : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
+  el.className = 'yt-kpi-arrow ' + cls;
+  el.innerHTML = arrowSvg + `<span>${pctStr}</span>`;
+}
+
+function ytAnimateValue(elId, newVal) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  el.classList.remove('animating');
+  void el.offsetWidth;
+  el.textContent = newVal;
+  el.classList.add('animating');
+}
+
+// ── Renderiza stat bar ────────────────────────────────────────────────────────
 function ytLiveRenderStatBar(totalViews) {
   const ids = Object.keys(ytLiveData);
-  let totalLikes = 0;
-  let topId = null, topViews = 0;
+  let totalLikes = 0, topId = null, topViews = 0;
   ids.forEach(id => {
     totalLikes += ytLiveData[id].likes;
     if (ytLiveData[id].views > topViews) { topViews = ytLiveData[id].views; topId = id; }
   });
-  const tvEl   = document.getElementById('ytlive-total-views');
-  const tlEl   = document.getElementById('ytlive-total-likes');
-  const cntEl  = document.getElementById('ytlive-videos-count');
-  const topEl  = document.getElementById('ytlive-top-video');
+  const tvEl  = document.getElementById('ytlive-total-views');
+  const tlEl  = document.getElementById('ytlive-total-likes');
+  const cntEl = document.getElementById('ytlive-videos-count');
+  const topEl = document.getElementById('ytlive-top-video');
   if (tvEl)  tvEl.textContent  = fmtNum(totalViews);
   if (tlEl)  tlEl.textContent  = fmtNum(totalLikes);
   if (cntEl) cntEl.textContent = ids.length;
   if (topEl && topId) topEl.textContent = ytLiveData[topId].title;
 }
 
+// ── Renderiza KPIs com sparklines e setas ─────────────────────────────────────
 function ytLiveRenderKpi(now) {
   const ids = Object.keys(ytLiveData);
-  const sessionSecs = ytLiveSessionStart ? (now - ytLiveSessionStart) / 1000 : 1;
-  const sessionHours = sessionSecs / 3600;
 
-  let topGrowthId  = null, topGrowthDelta = 0;
-  let totalGainSession = 0;
-  let totalHourlyEst   = 0;
+  let topGrowthId = null, topGrowthDelta = -Infinity;
+  let totalGain = 0;
 
   ids.forEach(id => {
-    const base  = ytLiveBaseline[id] ?? ytLiveData[id].views;
+    const base  = ytBaselineFor(id);
     const delta = ytLiveData[id].views - base;
     if (delta > topGrowthDelta) { topGrowthDelta = delta; topGrowthId = id; }
-    totalGainSession += delta;
-    if (sessionHours > 0) totalHourlyEst += delta / sessionHours;
+    totalGain += delta;
   });
+  if (topGrowthDelta < 0) topGrowthDelta = 0;
 
-  // Top crescimento
-  const tgVal  = document.getElementById('ytlive-kpi-top-growth-val');
-  const tgDel  = document.getElementById('ytlive-kpi-top-growth-delta');
-  const tgName = document.getElementById('ytlive-kpi-top-growth-name');
-  if (tgVal)  tgVal.textContent  = topGrowthId ? fmtNum(topGrowthDelta) : '—';
-  if (tgDel && topGrowthId) {
-    const base = ytLiveBaseline[topGrowthId] || 1;
-    const pct  = ((topGrowthDelta / base) * 100).toFixed(3);
-    tgDel.textContent = '+' + pct + '% desde o início da sessão';
-    tgDel.className   = 'card-delta ' + (topGrowthDelta > 0 ? 'up' : 'neutro');
-  }
-  if (tgName && topGrowthId) tgName.textContent = ytLiveData[topGrowthId].title;
+  const oldestSnap = ytLiveHistory.length > 0 ? ytLiveHistory[0] : null;
+  const refTs  = oldestSnap ? oldestSnap.ts : now;
+  const diffH  = (now - refTs) / 3600000;
+  const periodLabel = diffH < 1
+    ? 'últimos ' + Math.round(diffH * 60) + 'min'
+    : diffH < 24 ? 'últimas ' + diffH.toFixed(1) + 'h'
+    : 'últimas ' + (diffH / 24).toFixed(1) + 'd';
+  const hourlyEst = diffH > 0.02 ? totalGain / diffH : 0;
 
-  // Média/hora
-  const ahEl = document.getElementById('ytlive-kpi-avg-hour');
-  if (ahEl) ahEl.textContent = sessionHours > 0.01 ? fmtNum(Math.round(totalHourlyEst)) + '/h' : '—';
+  // ── KPI 1: maior crescimento ──
+  if (topGrowthId) {
+    ytAnimateValue('yt-kpi1-val', '+' + fmtNum(topGrowthDelta));
+    const base = ytBaselineFor(topGrowthId) || 1;
+    const pct  = ((topGrowthDelta / base) * 100).toFixed(3) + '%';
+    ytSetArrow('yt-kpi1-arrow', topGrowthDelta, '+' + pct);
+    const n1 = document.getElementById('yt-kpi1-name');
+    const p1 = document.getElementById('yt-kpi1-period');
+    if (n1) n1.textContent = ytLiveData[topGrowthId].title;
+    if (p1) p1.textContent = ytBaselineLabel(topGrowthId);
+    // Sparkline: histórico de views do vídeo líder
+    const snaps = (ytSnapshots[topGrowthId] || []).slice(-24);
+    ytSetSpark('yt-spark1', snaps.map(s => s.views), '#FF0000');
+  }
 
-  // Ganho sessão
-  const sgEl = document.getElementById('ytlive-kpi-session-gain');
-  if (sgEl) {
-    sgEl.textContent = (totalGainSession >= 0 ? '+' : '') + fmtNum(totalGainSession);
-    sgEl.style.color = totalGainSession > 0 ? 'var(--verde-medio)' : 'var(--cinza-texto)';
+  // ── KPI 2: views/hora ──
+  ytAnimateValue('yt-kpi2-val', hourlyEst > 0.5 ? fmtNum(Math.round(hourlyEst)) + '/h' : '—');
+  // Tendência: comparar última hora com penúltima hora
+  let trend = 0;
+  if (ytLiveHistory.length >= 4) {
+    const recent = ytLiveHistory.slice(-2);
+    const older  = ytLiveHistory.slice(-4, -2);
+    const rateRecent = recent.length === 2 ? (recent[1].totalViews - recent[0].totalViews) / ((recent[1].ts - recent[0].ts) / 3600000) : 0;
+    const rateOlder  = older.length  === 2 ? (older[1].totalViews  - older[0].totalViews)  / ((older[1].ts  - older[0].ts)  / 3600000) : 0;
+    trend = rateRecent - rateOlder;
   }
-  const snEl = document.getElementById('ytlive-kpi-session-since');
-  if (snEl && ytLiveSessionStart) {
-    const mins = Math.round((now - ytLiveSessionStart) / 60000);
-    snEl.textContent = 'há ' + (mins < 1 ? 'menos de 1min' : mins + 'min');
+  ytSetArrow('yt-kpi2-arrow', trend, trend > 0 ? '↑ acelerando' : trend < 0 ? '↓ desacelerando' : '→ estável');
+  const p2 = document.getElementById('yt-kpi2-period');
+  if (p2) p2.textContent = periodLabel;
+  // Sparkline: velocidade entre leituras consecutivas
+  const velocities = [];
+  for (let i = 1; i < ytLiveHistory.length; i++) {
+    const dv = ytLiveHistory[i].totalViews - ytLiveHistory[i-1].totalViews;
+    const dt = (ytLiveHistory[i].ts - ytLiveHistory[i-1].ts) / 3600000;
+    if (dt > 0) velocities.push(Math.max(0, dv / dt));
   }
+  if (velocities.length >= 2) ytSetSpark('yt-spark2', velocities.slice(-20), '#F6A800');
+
+  // ── KPI 3: ganho total ──
+  ytAnimateValue('yt-kpi3-val', (totalGain >= 0 ? '+' : '') + fmtNum(totalGain));
+  const totalBase = ids.reduce((s, id) => s + (ytBaselineFor(id) || 0), 0);
+  const totalPct  = totalBase > 0 ? ((totalGain / totalBase) * 100).toFixed(3) + '%' : '—%';
+  ytSetArrow('yt-kpi3-arrow', totalGain, (totalGain >= 0 ? '+' : '') + totalPct);
+  const p3 = document.getElementById('yt-kpi3-period');
+  if (p3) p3.textContent = periodLabel + ' · todos os vídeos';
+  // Sparkline: evolução total de views (últimas 20 leituras)
+  const histSlice = ytLiveHistory.slice(-20);
+  if (histSlice.length >= 2) ytSetSpark('yt-spark3', histSlice.map(h => h.totalViews), '#0FA36B');
 }
 
+// ── Chart de linha do histórico ───────────────────────────────────────────────
+let ytHistChart = null;
+function ytLiveRenderHistory() {
+  const countEl = document.getElementById('ytlive-history-count');
+  if (countEl) countEl.textContent = ytLiveHistory.length + ' leitura(s) salvas';
+
+  // Chart.js line chart
+  const ctx = document.getElementById('yt-history-chart');
+  if (ctx && ytLiveHistory.length >= 2) {
+    const shown = ytLiveHistory.slice(-60);
+    const labels = shown.map(h => new Date(h.ts).toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' }));
+    const data   = shown.map(h => h.totalViews);
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const gridC  = isDark ? 'rgba(255,255,255,0.06)' : '#F0F1F5';
+    const textC  = isDark ? 'rgba(255,255,255,0.45)' : '#8C8C8C';
+
+    if (ytHistChart) ytHistChart.destroy();
+    ytHistChart = new Chart(ctx.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          data,
+          borderColor: '#FF0000',
+          backgroundColor: 'rgba(255,0,0,0.08)',
+          borderWidth: 2,
+          pointRadius: shown.length > 20 ? 0 : 3,
+          pointBackgroundColor: '#FF0000',
+          fill: true,
+          tension: 0.35,
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 600, easing: 'easeInOutQuart' },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => ' ' + fmtNum(ctx.parsed.y) + ' views',
+              title: items => {
+                const idx = items[0].dataIndex;
+                const h = shown[idx];
+                return new Date(h.ts).toLocaleString('pt-BR', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
+              }
+            },
+            backgroundColor: isDark ? '#1E2538' : '#fff',
+            borderColor: '#FF0000',
+            borderWidth: 1,
+            titleColor: textC,
+            bodyColor: '#FF0000',
+            padding: 10,
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 9, family: "'IBM Plex Mono'" }, color: textC, maxRotation: 0, maxTicksLimit: 8 } },
+          y: { grid: { color: gridC }, ticks: { font: { size: 9 }, callback: v => fmtNum(v), color: textC } }
+        }
+      }
+    });
+  }
+
+  // Lista compacta de leituras
+  const container = document.getElementById('ytlive-history-list');
+  if (!container) return;
+  if (ytLiveHistory.length === 0) {
+    container.innerHTML = '<span style="font-style:italic;">Nenhuma leitura registrada ainda.</span>';
+    return;
+  }
+  const shown2 = ytLiveHistory.slice().reverse().slice(0, 15);
+  container.innerHTML = shown2.map((h, i) => {
+    const dt  = new Date(h.ts).toLocaleString('pt-BR', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
+    const idx = ytLiveHistory.length - 1 - i;
+    const prev = idx > 0 ? ytLiveHistory[idx - 1] : null;
+    let dHtml = '';
+    if (prev) {
+      const d = h.totalViews - prev.totalViews;
+      const diffM = Math.round((h.ts - prev.ts) / 60000);
+      const ivl = diffM < 60 ? diffM + 'min' : (diffM/60).toFixed(1) + 'h';
+      if      (d > 0) dHtml = `<span style="color:#0FA36B;font-weight:700;">+${fmtNum(d)}</span> <span style="color:var(--cinza-neutro);font-size:9px;">em ${ivl}</span>`;
+      else if (d < 0) dHtml = `<span style="color:#E0006D;font-weight:700;">${fmtNum(d)}</span>`;
+      else             dHtml = `<span style="color:var(--cinza-neutro);">—</span>`;
+    }
+    return `<div style="display:flex;gap:14px;align-items:center;padding:4px 0;border-bottom:1px solid var(--cinza-suave);">
+      <span style="color:var(--cinza-neutro);min-width:100px;">${dt}</span>
+      <span>${fmtNum(h.totalViews)}</span>
+      ${dHtml}
+    </div>`;
+  }).join('');
+}
+
+// ── Renderiza tabela com sparklines por vídeo ─────────────────────────────────
 function ytLiveSortAndRender(now) {
   const ids = Object.keys(ytLiveData);
-  const sessionHours = ytLiveSessionStart ? (now - ytLiveSessionStart) / 3600000 : 0;
-
   const rows = ids.map(id => {
-    const d     = ytLiveData[id];
-    const base  = ytLiveBaseline[id] ?? d.views;
-    const gain  = d.views - base;
-    const pct   = base > 0 ? (gain / base) * 100 : 0;
-    const hourly = sessionHours > 0.001 ? gain / sessionHours : 0;
-    return { id, ...d, gain, pct, hourly };
+    const d      = ytLiveData[id];
+    const base   = ytBaselineFor(id);
+    const gain   = d.views - base;
+    const pct    = base > 0 ? (gain / base) * 100 : 0;
+    const label  = ytBaselineLabel(id);
+    const snaps  = ytSnapshots[id] || [];
+    const oldest = snaps.length > 0 ? snaps[0] : null;
+    const diffH  = oldest ? (now - oldest.ts) / 3600000 : 0;
+    const hourly = diffH > 0.02 ? gain / diffH : 0;
+    return { id, ...d, gain, pct, label, hourly, snaps };
   });
 
-  // Ordenação
-  const sortMode = document.getElementById('ytlive-sort')?.value || ytLiveSortMode;
+  const sortMode = document.getElementById('ytlive-sort')?.value || 'views_desc';
   rows.sort((a, b) => {
-    if (sortMode === 'views_asc')    return a.views - b.views;
-    if (sortMode === 'gain_desc')    return b.gain  - a.gain;
-    if (sortMode === 'growth_desc')  return b.pct   - a.pct;
-    if (sortMode === 'likes_desc')   return b.likes - a.likes;
-    return b.views - a.views; // views_desc (default)
+    if (sortMode === 'views_asc')   return a.views - b.views;
+    if (sortMode === 'gain_desc')   return b.gain  - a.gain;
+    if (sortMode === 'growth_desc') return b.pct   - a.pct;
+    if (sortMode === 'likes_desc')  return b.likes - a.likes;
+    return b.views - a.views;
   });
 
   const tbody = document.getElementById('ytlive-tbody');
   if (!tbody) return;
 
   tbody.innerHTML = rows.map((row, i) => {
-    const gainClass = row.gain > 0 ? 'ytlive-gain-up' : row.gain < 0 ? 'ytlive-gain-down' : 'ytlive-gain-zero';
-    const gainStr   = row.gain > 0 ? '+' + fmtNum(row.gain) : row.gain < 0 ? fmtNum(row.gain) : '+0';
+    const arrowUp   = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>`;
+    const arrowDown = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>`;
+    const arrowFlat = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
+    const arrowHtml = row.gain > 0 ? arrowUp : row.gain < 0 ? arrowDown : arrowFlat;
+    const gainCls   = row.gain > 0 ? 'up' : row.gain < 0 ? 'down' : 'zero';
+    const gainStr   = row.gain > 0 ? '+' + fmtNum(row.gain) : row.gain < 0 ? fmtNum(row.gain) : '—';
+    const pctStr    = row.gain !== 0 ? (row.pct >= 0 ? '+' : '') + row.pct.toFixed(3) + '%' : '—';
     const hourlyStr = row.hourly > 0.5 ? '+' + fmtNum(Math.round(row.hourly)) + '/h' : '—';
-    const pctStr    = row.gain !== 0 ? (row.pct >= 0 ? '+' : '') + row.pct.toFixed(4) + '%' : '+0.0000%';
+
+    // Sparkline inline (SVG string com os snaps do vídeo)
+    const sparkSnaps = row.snaps.slice(-12);
+    let sparkSvg = '<svg width="60" height="24" viewBox="0 0 60 24" class="yt-row-spark">';
+    if (sparkSnaps.length >= 2) {
+      const vals = sparkSnaps.map(s => s.views);
+      const mn = Math.min(...vals), mx = Math.max(...vals), rng = mx - mn || 1;
+      const pts = vals.map((v, j) => {
+        const x = 2 + (j / (vals.length-1)) * 56;
+        const y = 22 - ((v - mn) / rng) * 18;
+        return x.toFixed(1) + ',' + y.toFixed(1);
+      });
+      const color = row.gain > 0 ? '#0FA36B' : row.gain < 0 ? '#E0006D' : '#8C8C8C';
+      sparkSvg += `<polyline points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
+      const lp = pts[pts.length-1].split(',');
+      sparkSvg += `<circle cx="${lp[0]}" cy="${lp[1]}" r="2.5" fill="${color}"/>`;
+    }
+    sparkSvg += '</svg>';
+
     const thumbHtml = row.thumb
       ? `<img src="${row.thumb}" class="ytlive-thumb" loading="lazy" onerror="this.style.display='none'">`
-      : `<div class="ytlive-thumb-ph"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" stroke="none"/></svg></div>`;
-    return `<tr onclick="ytLiveOpenVideoPanel('${row.id}')" title="Ver análise do vídeo">
+      : `<div class="ytlive-thumb-ph"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" stroke="none"/></svg></div>`;
+
+    return `<tr class="ytlive-row-updated" onclick="window.open('https://youtube.com/watch?v=${row.id}','_blank')" title="Abrir no YouTube">
       <td><span class="rank-pos">${i+1}</span></td>
       <td>
         <div class="ytlive-video-cell">
           ${thumbHtml}
           <div>
             <div class="ytlive-video-title">${escapeHtml(row.title)}</div>
-            <div class="ytlive-video-sub">${row.id}</div>
+            <div class="ytlive-video-sub">
+              <span>${row.id}</span>
+              <span style="color:var(--laranja);">${row.label}</span>
+            </div>
           </div>
         </div>
       </td>
-      <td style="text-align:right;font-family:var(--font-mono);font-size:12px;">${fmtNum(row.views)}</td>
-      <td style="text-align:right;font-family:var(--font-mono);font-size:12px;" class="${gainClass}">${gainStr}</td>
-      <td style="text-align:right;font-family:var(--font-mono);font-size:11px;color:var(--cinza-neutro);">${hourlyStr}</td>
-      <td style="text-align:right;font-family:var(--font-mono);font-size:12px;">${fmtNum(row.likes)}</td>
-      <td style="text-align:right;font-family:var(--font-mono);font-size:12px;">${fmtNum(row.comms)}</td>
-      <td style="text-align:right;font-family:var(--font-mono);font-size:11px;" class="${gainClass}">${pctStr}</td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:12px;font-weight:600;">${fmtNum(row.views)}</td>
+      <td style="text-align:right;">
+        <span class="yt-tbl-arrow ${gainCls}">${arrowHtml} ${gainStr}</span>
+      </td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:11px;" class="${gainCls === 'up' ? 'ytlive-gain-up' : gainCls === 'down' ? 'ytlive-gain-down' : 'ytlive-gain-zero'}">${pctStr}</td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:10.5px;color:var(--cinza-neutro);">${hourlyStr}</td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:11.5px;">${fmtNum(row.likes)}</td>
+      <td style="text-align:right;">${sparkSvg}</td>
     </tr>`;
   }).join('');
 }
 
-function ytLiveRenderHistory() {
-  const container = document.getElementById('ytlive-history-list');
-  const countEl   = document.getElementById('ytlive-history-count');
-  if (!container) return;
-  if (countEl) countEl.textContent = ytLiveHistory.length + ' leitura(s)';
-  if (ytLiveHistory.length === 0) {
-    container.innerHTML = '<span style="font-style:italic;">Nenhuma leitura registrada ainda.</span>';
-    return;
-  }
-  container.innerHTML = ytLiveHistory.slice().reverse().slice(0, 20).map((h, i) => {
-    const dt   = new Date(h.ts).toLocaleTimeString('pt-BR');
-    const prev = ytLiveHistory[ytLiveHistory.length - 1 - i - 1];
-    let deltaHtml = '';
-    if (prev) {
-      const d = h.totalViews - prev.totalViews;
-      if (d > 0) deltaHtml = ` <span style="color:var(--verde-medio);">+${fmtNum(d)}</span>`;
-      else if (d < 0) deltaHtml = ` <span style="color:var(--rosa-escuro);">${fmtNum(d)}</span>`;
-    }
-    return `<div style="padding:5px 0;border-bottom:1px solid var(--cinza-suave);display:flex;gap:16px;align-items:center;">
-      <span style="color:var(--cinza-neutro);min-width:68px;">${dt}</span>
-      <span style="color:var(--cinza-texto);">${fmtNum(h.totalViews)} views totais</span>
-      ${deltaHtml}
-    </div>`;
-  }).join('');
-}
-
+// ── Controles ─────────────────────────────────────────────────────────────────
 function ytLiveSortTable() {
-  const now = Date.now();
-  ytLiveSortAndRender(now);
+  ytLiveSortAndRender(Date.now());
 }
 
 function toggleYtAutoRefresh() {
@@ -3467,311 +3634,43 @@ function toggleYtAutoRefresh() {
   if (checked) ytAutoRefreshTimer = setInterval(ytLiveRefresh, 5 * 60 * 1000);
 }
 
+function ytLiveClearHistory() {
+  if (!confirm('Apagar todo o histórico salvo do YouTube?')) return;
+  ytLiveHistory = []; ytSnapshots = {};
+  ytSaveToStorage();
+  ytLiveRenderHistory();
+  alert('Histórico apagado.');
+}
+
 function escapeHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ─── YT LIVE VIDEO PANEL ─────────────────────────────────────────────────────
-let ytLiveChartTotal    = null;
-let ytLiveChartTopViews = null;
-let ytLiveChartTopGain  = null;
-let ytLiveChartLikesViews = null;
-let ytLiveVideoPanelChart = null;
-
-function ytLiveOpenVideoPanel(videoId) {
-  const d = ytLiveData[videoId];
-  if (!d) return;
-
-  const base  = ytLiveBaseline[videoId] ?? d.views;
-  const gain  = d.views - base;
-  const pct   = base > 0 ? ((gain / base) * 100).toFixed(4) : '0.0000';
-  const likeRatio = d.views > 0 ? ((d.likes / d.views) * 100).toFixed(3) : '0';
-
-  // Coletar histórico de views para este vídeo na sessão
-  // (usamos o ytLiveHistory como proxy do total; para série individual
-  //  precisamos de ytVideoHistory)
-  const seriesLabels = ytVideoHistory[videoId]
-    ? ytVideoHistory[videoId].map(h => new Date(h.ts).toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'}))
-    : [new Date().toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'})];
-  const seriesData = ytVideoHistory[videoId]
-    ? ytVideoHistory[videoId].map(h => h.views)
-    : [d.views];
-
-  // Estima views nas últimas 24h a partir da baseline
-  const now = Date.now();
-  const sessionSecs = ytLiveSessionStart ? (now - ytLiveSessionStart) / 1000 : 1;
-  const sessionHours = sessionSecs / 3600;
-  const hourlyRate = sessionHours > 0.01 ? gain / sessionHours : 0;
-  const views24h = Math.round(hourlyRate * 24);
-
-  document.getElementById('ytlive-panel-title').textContent = d.title;
-  document.getElementById('ytlive-panel-id').textContent = videoId;
-
-  const thumb = document.getElementById('ytlive-panel-thumb');
-  if (d.thumb) {
-    thumb.src = d.thumb;
-    thumb.style.display = 'block';
-    thumb.onerror = () => thumb.style.display = 'none';
-  } else {
-    thumb.style.display = 'none';
-  }
-
-  const gainColor = gain > 0 ? 'var(--verde-medio)' : gain < 0 ? 'var(--rosa-escuro)' : 'var(--cinza-neutro)';
-  const gainStr   = gain >= 0 ? '+' + fmtNum(gain) : fmtNum(gain);
-
-  document.getElementById('ytlive-panel-body').innerHTML = `
-    <!-- Métricas principais -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;">
-      <div style="background:var(--fundo-alt);border:1px solid var(--cinza-borda);border-radius:8px;padding:14px 16px;">
-        <div style="font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--cinza-neutro);margin-bottom:5px;">Views Totais</div>
-        <div style="font-family:var(--font-mono);font-size:20px;color:var(--verde-escuro);font-weight:500;">${fmtNum(d.views)}</div>
-      </div>
-      <div style="background:var(--fundo-alt);border:1px solid var(--cinza-borda);border-radius:8px;padding:14px 16px;">
-        <div style="font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--cinza-neutro);margin-bottom:5px;">Ganho na Sessão</div>
-        <div style="font-family:var(--font-mono);font-size:20px;font-weight:500;color:${gainColor};">${gainStr}</div>
-      </div>
-      <div style="background:var(--fundo-alt);border:1px solid var(--cinza-borda);border-radius:8px;padding:14px 16px;">
-        <div style="font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--cinza-neutro);margin-bottom:5px;">Est. Views 24h</div>
-        <div style="font-family:var(--font-mono);font-size:20px;color:var(--verde-escuro);font-weight:500;">${hourlyRate > 0 ? '+' + fmtNum(views24h) : '—'}</div>
-        <div style="font-family:var(--font-corpo);font-size:9.5px;color:var(--cinza-neutro);font-style:italic;margin-top:2px;">baseado em ${fmtNum(Math.round(hourlyRate))}/h</div>
-      </div>
-      <div style="background:var(--fundo-alt);border:1px solid var(--cinza-borda);border-radius:8px;padding:14px 16px;">
-        <div style="font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--cinza-neutro);margin-bottom:5px;">% Crescimento</div>
-        <div style="font-family:var(--font-mono);font-size:20px;font-weight:500;color:${gainColor};">${gain >= 0 ? '+' : ''}${pct}%</div>
-      </div>
-    </div>
-    <!-- Likes / Comentários -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:18px;">
-      <div style="background:var(--fundo-alt);border:1px solid var(--cinza-borda);border-radius:8px;padding:12px 14px;text-align:center;">
-        <div style="font-family:var(--font-mono);font-size:9px;color:var(--cinza-neutro);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Likes</div>
-        <div style="font-family:var(--font-mono);font-size:15px;color:var(--cinza-texto);">${fmtNum(d.likes)}</div>
-      </div>
-      <div style="background:var(--fundo-alt);border:1px solid var(--cinza-borda);border-radius:8px;padding:12px 14px;text-align:center;">
-        <div style="font-family:var(--font-mono);font-size:9px;color:var(--cinza-neutro);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Comentários</div>
-        <div style="font-family:var(--font-mono);font-size:15px;color:var(--cinza-texto);">${fmtNum(d.comms)}</div>
-      </div>
-      <div style="background:var(--fundo-alt);border:1px solid var(--cinza-borda);border-radius:8px;padding:12px 14px;text-align:center;">
-        <div style="font-family:var(--font-mono);font-size:9px;color:var(--cinza-neutro);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Ratio L/V</div>
-        <div style="font-family:var(--font-mono);font-size:15px;color:var(--cinza-texto);">${likeRatio}%</div>
-      </div>
-    </div>
-    <!-- Gráfico de evolução na sessão -->
-    <div style="margin-bottom:18px;">
-      <div style="font-family:var(--font-titulo);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:1.5px;color:var(--verde-escuro);border-bottom:2px solid var(--verde-escuro);display:inline-block;padding-bottom:5px;margin-bottom:12px;">Evolução na Sessão</div>
-      <div style="position:relative;height:140px;">
-        <canvas id="ytlive-panel-chart"></canvas>
-      </div>
-    </div>
-    <!-- Link YT -->
-    <a href="https://youtube.com/watch?v=${videoId}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#FF0000;color:#fff;border:none;border-radius:8px;padding:11px 16px;font-family:var(--font-titulo);font-weight:600;font-size:13px;text-decoration:none;cursor:pointer;transition:opacity 0.18s;margin-bottom:4px;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" stroke="none"/></svg>
-      Abrir no YouTube
-    </a>
-  `;
-
-  // Mostrar painel
-  document.getElementById('ytlive-video-panel-overlay').style.display = 'block';
-  document.getElementById('ytlive-video-panel').style.display = 'block';
-
-  // Renderizar gráfico de sessão do vídeo
-  setTimeout(() => {
-    const ctx = document.getElementById('ytlive-panel-chart');
-    if (!ctx) return;
-    if (ytLiveVideoPanelChart) ytLiveVideoPanelChart.destroy();
-    ytLiveVideoPanelChart = new Chart(ctx.getContext('2d'), {
-      type: 'line',
-      data: {
-        labels: seriesLabels,
-        datasets: [{
-          label: 'Views',
-          data: seriesData,
-          borderColor: '#FF0000',
-          backgroundColor: 'rgba(255,0,0,0.08)',
-          borderWidth: 2,
-          pointRadius: 4,
-          pointBackgroundColor: '#FF0000',
-          fill: true,
-          tension: 0.3
-        }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ' ' + fmtNum(c.parsed.y) } } },
-        scales: {
-          x: { ticks: { font: { size: 9 }, color: chartTextColor() }, grid: { color: chartGridColor() } },
-          y: { ticks: { font: { size: 9 }, callback: v => fmtNum(v), color: chartTextColor() }, grid: { color: chartGridColor() } }
-        }
+// ── Init YouTube: carrega histórico salvo ao abrir ────────────────────────────
+function ytLiveInit() {
+  ytLoadFromStorage();
+  // Se há dados históricos, reconstrói ytLiveData a partir do snapshot mais recente
+  const latestTs = ytLiveHistory.length > 0 ? ytLiveHistory[ytLiveHistory.length - 1].ts : 0;
+  if (latestTs > 0) {
+    YT_VIDEO_IDS.forEach(id => {
+      const snaps = ytSnapshots[id] || [];
+      if (snaps.length > 0) {
+        const last = snaps[snaps.length - 1];
+        if (!ytLiveData[id]) ytLiveData[id] = { title: id, thumb: '', views: last.views, likes: 0, comms: 0 };
       }
     });
-  }, 80);
-}
-
-function ytLiveCloseVideoPanel(e) {
-  if (e && e.target !== document.getElementById('ytlive-video-panel-overlay') && !e.target.closest('button')) return;
-  document.getElementById('ytlive-video-panel-overlay').style.display = 'none';
-  document.getElementById('ytlive-video-panel').style.display = 'none';
-  if (ytLiveVideoPanelChart) { ytLiveVideoPanelChart.destroy(); ytLiveVideoPanelChart = null; }
-}
-
-// Histórico individual por vídeo
-const ytVideoHistory = {}; // videoId → [{ts, views}]
-
-// Injetar no ytLiveRefresh após atualizar ytLiveData
-function ytLiveRecordVideoHistory(now) {
-  Object.keys(ytLiveData).forEach(id => {
-    if (!ytVideoHistory[id]) ytVideoHistory[id] = [];
-    const last = ytVideoHistory[id].length > 0 ? ytVideoHistory[id][ytVideoHistory[id].length - 1] : null;
-    if (!last || last.views !== ytLiveData[id].views) {
-      ytVideoHistory[id].push({ ts: now, views: ytLiveData[id].views });
-    }
-  });
-}
-
-// ─── YT LIVE ANALYTICS CHARTS ────────────────────────────────────────────────
-function ytLiveRenderAnalytics() {
-  const ids = Object.keys(ytLiveData);
-  if (ids.length === 0) return;
-
-  const section = document.getElementById('ytlive-analytics-section');
-  if (section) section.style.display = 'block';
-
-  const now = Date.now();
-  const sessionHours = ytLiveSessionStart ? (now - ytLiveSessionStart) / 3600000 : 0;
-
-  // --- Gráfico 1: Evolução total da sessão ---
-  const totalLabels = ytLiveHistory.map(h => new Date(h.ts).toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'}));
-  const totalData   = ytLiveHistory.map(h => h.totalViews);
-
-  const ctx1 = document.getElementById('ytlive-chart-total');
-  if (ctx1) {
-    if (ytLiveChartTotal) ytLiveChartTotal.destroy();
-    ytLiveChartTotal = new Chart(ctx1.getContext('2d'), {
-      type: 'line',
-      data: {
-        labels: totalLabels,
-        datasets: [{
-          label: 'Views totais',
-          data: totalData,
-          borderColor: '#FF0000',
-          backgroundColor: 'rgba(255,0,0,0.08)',
-          borderWidth: 2.5,
-          pointRadius: 5,
-          pointBackgroundColor: '#FF0000',
-          fill: true,
-          tension: 0.35
-        }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ' ' + fmtNum(c.parsed.y) } } },
-        scales: {
-          x: { ticks: { font: { size: 10 }, color: chartTextColor() }, grid: { color: chartGridColor() } },
-          y: { ticks: { font: { size: 10 }, callback: v => fmtNum(v), color: chartTextColor() }, grid: { color: chartGridColor() } }
-        }
-      }
-    });
-  }
-
-  // Dados dos vídeos ordenados
-  const rows = ids.map(id => {
-    const d = ytLiveData[id];
-    const base = ytLiveBaseline[id] ?? d.views;
-    const gain = d.views - base;
-    return { id, ...d, gain };
-  });
-  const top5Views = rows.slice().sort((a,b) => b.views - a.views).slice(0,6);
-  const top5Gain  = rows.slice().sort((a,b) => b.gain  - a.gain ).slice(0,6);
-
-  // labels curtos
-  const shortTitle = s => s.length > 28 ? s.slice(0,26) + '…' : s;
-
-  // --- Gráfico 2: Top Views ---
-  const ctx2 = document.getElementById('ytlive-chart-topviews');
-  if (ctx2) {
-    if (ytLiveChartTopViews) ytLiveChartTopViews.destroy();
-    ytLiveChartTopViews = new Chart(ctx2.getContext('2d'), {
-      type: 'bar',
-      data: {
-        labels: top5Views.map(r => shortTitle(r.title)),
-        datasets: [{ data: top5Views.map(r => r.views), backgroundColor: '#FF0000', borderRadius: 4, borderSkipped: false }]
-      },
-      options: {
-        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ' ' + fmtNum(c.parsed.x) } } },
-        scales: {
-          x: { ticks: { font: { size: 9 }, callback: v => fmtNum(v), color: chartTextColor() }, grid: { color: chartGridColor() } },
-          y: { ticks: { font: { size: 9 }, color: chartTextColor() }, grid: { display: false } }
-        }
-      }
-    });
-  }
-
-  // --- Gráfico 3: Top Ganho ---
-  const ctx3 = document.getElementById('ytlive-chart-topgain');
-  if (ctx3) {
-    if (ytLiveChartTopGain) ytLiveChartTopGain.destroy();
-    ytLiveChartTopGain = new Chart(ctx3.getContext('2d'), {
-      type: 'bar',
-      data: {
-        labels: top5Gain.map(r => shortTitle(r.title)),
-        datasets: [{ data: top5Gain.map(r => Math.max(r.gain, 0)), backgroundColor: '#0FA36B', borderRadius: 4, borderSkipped: false }]
-      },
-      options: {
-        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => '+' + fmtNum(c.parsed.x) } } },
-        scales: {
-          x: { ticks: { font: { size: 9 }, callback: v => fmtNum(v), color: chartTextColor() }, grid: { color: chartGridColor() } },
-          y: { ticks: { font: { size: 9 }, color: chartTextColor() }, grid: { display: false } }
-        }
-      }
-    });
-  }
-
-  // --- Gráfico 4: Likes vs Views ---
-  const ctx4 = document.getElementById('ytlive-chart-likesviews');
-  if (ctx4) {
-    if (ytLiveChartLikesViews) ytLiveChartLikesViews.destroy();
-    ytLiveChartLikesViews = new Chart(ctx4.getContext('2d'), {
-      type: 'bar',
-      data: {
-        labels: rows.slice().sort((a,b) => b.views - a.views).slice(0,8).map(r => shortTitle(r.title)),
-        datasets: [
-          { label: 'Views', data: rows.slice().sort((a,b)=>b.views-a.views).slice(0,8).map(r=>r.views), backgroundColor: 'rgba(255,0,0,0.7)', borderRadius: 3 },
-          { label: 'Likes', data: rows.slice().sort((a,b)=>b.views-a.views).slice(0,8).map(r=>r.likes), backgroundColor: 'rgba(246,168,0,0.8)', borderRadius: 3 }
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: true, position: 'top', labels: { font: { size: 10 }, color: chartTextColor() } }, tooltip: { callbacks: { label: c => c.dataset.label + ': ' + fmtNum(c.parsed.y) } } },
-        scales: {
-          x: { ticks: { font: { size: 9 }, color: chartTextColor() }, grid: { display: false } },
-          y: { ticks: { font: { size: 9 }, callback: v => fmtNum(v), color: chartTextColor() }, grid: { color: chartGridColor() } }
-        }
-      }
-    });
-  }
-
-  // --- Tabela detalhada ---
-  const tbody = document.getElementById('ytlive-detail-tbody');
-  if (tbody) {
-    tbody.innerHTML = rows.slice().sort((a,b) => b.views - a.views).map((row, i) => {
-      const likeRatio = row.views > 0 ? ((row.likes / row.views) * 100).toFixed(3) + '%' : '—';
-      const gainColor = row.gain > 0 ? 'var(--verde-medio)' : row.gain < 0 ? 'var(--rosa-escuro)' : 'var(--cinza-neutro)';
-      const gainStr = row.gain >= 0 ? '+' + fmtNum(row.gain) : fmtNum(row.gain);
-      const base = ytLiveBaseline[row.id] ?? row.views;
-      const pct = base > 0 ? ((row.gain / base) * 100).toFixed(4) + '%' : '+0.0000%';
-      return `<tr onclick="ytLiveOpenVideoPanel('${row.id}')" title="Ver análise">
-        <td><span class="rank-pos">${i+1}</span></td>
-        <td style="font-family:var(--font-titulo);font-size:12px;font-weight:600;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escapeHtml(row.title)}</td>
-        <td style="text-align:right;font-family:var(--font-mono);font-size:12px;">${fmtNum(row.views)}</td>
-        <td style="text-align:right;font-family:var(--font-mono);font-size:12px;color:${gainColor};">${gainStr}</td>
-        <td style="text-align:right;font-family:var(--font-mono);font-size:11px;color:${gainColor};">${row.gain >= 0 ? '+' : ''}${pct}</td>
-        <td style="text-align:right;font-family:var(--font-mono);font-size:12px;">${fmtNum(row.likes)}</td>
-        <td style="text-align:right;font-family:var(--font-mono);font-size:12px;">${fmtNum(row.comms)}</td>
-        <td style="text-align:right;font-family:var(--font-mono);font-size:11px;color:var(--cinza-neutro);">${likeRatio}</td>
-        <td style="text-align:right;"><a href="https://youtube.com/watch?v=${row.id}" target="_blank" onclick="event.stopPropagation()" style="font-family:var(--font-mono);font-size:9px;color:#FF0000;text-decoration:none;border:1px solid #FF0000;padding:3px 7px;border-radius:4px;">↗ YT</a></td>
-      </tr>`;
-    }).join('');
+    // Atualiza UI com dados históricos enquanto não faz novo fetch
+    const lastEntry = ytLiveHistory[ytLiveHistory.length - 1];
+    ytLiveRenderStatBar(lastEntry.totalViews);
+    ytLiveRenderKpi(Date.now());
+    ytLiveSortAndRender(Date.now());
+    ytLiveRenderHistory();
+    const tableEl = document.getElementById('ytlive-table');
+    const loadEl  = document.getElementById('ytlive-loading');
+    if (tableEl) tableEl.style.display = '';
+    if (loadEl)  loadEl.style.display  = 'none';
+    const upEl = document.getElementById('ytlive-last-update');
+    if (upEl) upEl.textContent = 'Cache: ' + new Date(latestTs).toLocaleString('pt-BR', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
   }
 }
 
@@ -3780,6 +3679,7 @@ document.addEventListener('DOMContentLoaded', () => {
   el('semana-display').textContent = semanaLabel(0);
   updateSemanaNav();
   loadData();
+  ytLiveInit(); // carrega histórico salvo imediatamente
 });
 
 </script>
