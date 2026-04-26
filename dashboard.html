@@ -1264,6 +1264,50 @@ nav a svg { flex-shrink: 0; }
   .cards-grid { grid-template-columns: 1fr; }
   .anos-grid { grid-template-columns: 1fr; }
 }
+/* ─── YOUTUBE LIVE ─── */
+.ytlive-gain-up   { color: var(--verde-medio); font-weight: 600; }
+.ytlive-gain-zero { color: var(--cinza-neutro); }
+.ytlive-gain-down { color: var(--rosa-escuro); font-weight: 600; }
+.ytlive-thumb {
+  width: 90px; height: 52px;
+  border-radius: 5px;
+  object-fit: cover;
+  background: var(--cinza-suave);
+  display: block;
+}
+.ytlive-thumb-ph {
+  width: 90px; height: 52px;
+  border-radius: 5px;
+  background: rgba(255,0,0,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.ytlive-video-cell { display: flex; align-items: center; gap: 10px; max-width: 320px; }
+.ytlive-video-title {
+  font-family: var(--font-titulo);
+  font-weight: 600; font-size: 11.5px;
+  color: var(--cinza-texto);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  max-width: 220px;
+}
+.ytlive-video-sub {
+  font-family: var(--font-mono);
+  font-size: 9.5px; color: var(--cinza-neutro);
+  margin-top: 3px;
+}
+.ytlive-badge-new {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 8px;
+  background: rgba(255,0,0,0.12); color: #FF0000;
+  padding: 1px 5px; border-radius: 3px; margin-top: 3px;
+}
+#ytlive-refresh-btn:hover { opacity: 0.85; }
+#ytlive-refresh-btn:active { opacity: 0.7; }
+#ytlive-refresh-btn.loading { opacity: 0.6; pointer-events: none; }
+@keyframes ytSpinRefresh { to { transform: rotate(360deg); } }
+#ytlive-refresh-btn.loading svg { animation: ytSpinRefresh 0.8s linear infinite; }
+.ytlive-sparkline { display: inline-block; width: 60px; height: 20px; vertical-align: middle; }
+
 </style>
 </head>
 <body>
@@ -1306,6 +1350,10 @@ nav a svg { flex-shrink: 0; }
     <a href="#" onclick="navigate('anos',this)">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Anos
+    </a>
+    <a href="#" onclick="navigate('youtube',this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+      YouTube Live
     </a>
     <a href="#" onclick="navigate('desfiles',this)">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
@@ -1674,6 +1722,127 @@ nav a svg { flex-shrink: 0; }
     <div class="main-footer"><p>uma criação · <strong>acervo verde e rosa</strong></p></div>
   </div>
 
+
+
+  <!-- ─── YOUTUBE LIVE ─── -->
+  <div class="page" id="page-youtube">
+
+    <!-- Stat Bar Topo -->
+    <div class="stat-bar" id="yt-live-statbar">
+      <div class="stat-item">
+        <span class="stat-item-val" id="ytlive-total-views">—</span>
+        <span class="stat-item-label">views totais (ao vivo)</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-item-val" id="ytlive-total-likes">—</span>
+        <span class="stat-item-label">likes totais</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-item-val" id="ytlive-videos-count">—</span>
+        <span class="stat-item-label">vídeos monitorados</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-item-val" id="ytlive-top-video" style="font-size:12px;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</span>
+        <span class="stat-item-label">vídeo líder</span>
+      </div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
+        <span id="ytlive-last-update" style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);">—</span>
+        <button onclick="ytLiveRefresh()" id="ytlive-refresh-btn" style="display:flex;align-items:center;gap:6px;background:var(--verde-escuro);color:#fff;border:none;border-radius:6px;padding:7px 13px;font-family:var(--font-titulo);font-size:11px;font-weight:600;cursor:pointer;transition:opacity 0.2s;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          Atualizar
+        </button>
+        <label style="display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);cursor:pointer;white-space:nowrap;">
+          <input type="checkbox" id="ytlive-auto-refresh" onchange="toggleYtAutoRefresh()" style="accent-color:var(--yt-color);">
+          Auto (5min)
+        </label>
+      </div>
+    </div>
+
+    <!-- Cards KPI por variação -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;" id="ytlive-kpi-row">
+      <div class="card">
+        <div class="card-accent yt"></div>
+        <div class="card-label">Maior crescimento de views</div>
+        <div class="card-value" id="ytlive-kpi-top-growth-val" style="font-size:22px;">—</div>
+        <div class="card-delta neutro" id="ytlive-kpi-top-growth-delta">—</div>
+        <div class="card-sub" id="ytlive-kpi-top-growth-name" style="margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
+      </div>
+      <div class="card">
+        <div class="card-accent yt"></div>
+        <div class="card-label">Média de views/hora estimada</div>
+        <div class="card-value" id="ytlive-kpi-avg-hour" style="font-size:22px;">—</div>
+        <div class="card-delta neutro">sobre todos os vídeos</div>
+        <div class="card-sub">base: variação desde a 1ª leitura</div>
+      </div>
+      <div class="card">
+        <div class="card-accent yt"></div>
+        <div class="card-label">Ganho acumulado na sessão</div>
+        <div class="card-value" id="ytlive-kpi-session-gain" style="font-size:22px;">—</div>
+        <div class="card-delta neutro" id="ytlive-kpi-session-since">desde o início da sessão</div>
+        <div class="card-sub">soma de todos os vídeos</div>
+      </div>
+    </div>
+
+    <!-- Tabela de vídeos -->
+    <div class="full-panel">
+      <div class="full-panel-header" style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+        <span class="panel-title">Vídeos Monitorados — Dados em Tempo Real</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span id="ytlive-status-badge" style="font-family:var(--font-mono);font-size:10px;background:rgba(255,0,0,0.1);color:#FF0000;padding:3px 9px;border-radius:4px;display:flex;align-items:center;gap:5px;">
+            <span id="ytlive-status-dot" style="width:6px;height:6px;border-radius:50%;background:#FF0000;display:inline-block;"></span>
+            Aguardando
+          </span>
+          <select id="ytlive-sort" onchange="ytLiveSortTable()" style="font-family:var(--font-mono);font-size:10px;padding:4px 8px;border:1px solid var(--cinza-borda);border-radius:5px;background:var(--card-bg);color:var(--cinza-texto);cursor:pointer;">
+            <option value="views_desc">Views ↓</option>
+            <option value="views_asc">Views ↑</option>
+            <option value="gain_desc">Ganho sessão ↓</option>
+            <option value="growth_desc">% crescimento ↓</option>
+            <option value="likes_desc">Likes ↓</option>
+          </select>
+        </div>
+      </div>
+      <div class="full-panel-body" style="overflow-x:auto;">
+        <div id="ytlive-loading" style="padding:48px;text-align:center;font-family:var(--font-mono);font-size:11px;color:var(--cinza-neutro);">
+          <div style="margin-bottom:10px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF0000" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#FF0000" stroke="none"/></svg>
+          </div>
+          Clique em "Atualizar" ou aguarde o carregamento automático...
+        </div>
+        <table class="rank-table" id="ytlive-table" style="display:none;">
+          <thead>
+            <tr>
+              <th style="width:32px;">#</th>
+              <th>Vídeo</th>
+              <th class="right">Views totais</th>
+              <th class="right">Δ sessão</th>
+              <th class="right">Δ/hora est.</th>
+              <th class="right">Likes</th>
+              <th class="right">Comentários</th>
+              <th class="right">Variação %</th>
+            </tr>
+          </thead>
+          <tbody id="ytlive-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Histórico de sessão sparklines -->
+    <div class="panel" style="margin-top:18px;">
+      <div class="panel-header">
+        <span class="panel-title">Histórico de Leituras da Sessão</span>
+        <span class="panel-tag" id="ytlive-history-count">0 leituras</span>
+      </div>
+      <div id="ytlive-history-list" style="font-family:var(--font-mono);font-size:10.5px;color:var(--cinza-neutro);font-style:italic;padding:8px 0;">
+        Nenhuma leitura registrada ainda.
+      </div>
+    </div>
+
+    <div class="main-footer"><p>uma criação · <strong>acervo verde e rosa</strong></p></div>
+  </div>
+
 </main>
 
 <script>
@@ -1688,6 +1857,7 @@ const pageTitles = {
   dashboard: 'Dashboard',
   rankings: 'Rankings',
   anos: 'Anos',
+  youtube: 'YouTube — Tempo Real',
   desfiles: 'Desfiles',
   sobre: 'Sobre'
 };
@@ -2777,6 +2947,9 @@ function navigate(page, elLink) {
   elLink.classList.add('active');
   el('topbar-title').textContent = pageTitles[page];
   closeSidebar();
+  if (page === 'youtube' && Object.keys(ytLiveData).length === 0) {
+    ytLiveRefresh();
+  }
 }
 
 // ─── SIDEBAR MOBILE ───────────────────────────────────────────────────────────
@@ -2865,12 +3038,264 @@ function toggleDark() {
   }
 }
 
+// ─── YOUTUBE LIVE ─────────────────────────────────────────────────────────────
+const YT_VIDEO_IDS = [
+  'KUWLUGtEkMo','dl4QN638zrA','7AjrdXmagJY','Mm2pWSHLyHw','vW74fQp-iHY',
+  '8p0qxZre1cE','JMSBisBYhOE','9LiMnElA0xw','LDA7xD5CdqA','MIukjaA3b38','G9xkuO8eKyE'
+];
+const YT_API_KEY = 'AIzaSyBNSPVCtQmo-g81dV6NVpmi-74lMv15zu4';
+
+let ytLiveData      = {}; // videoId → { title, views, likes, comments, thumb, publishedAt }
+let ytLiveBaseline  = {}; // videoId → views na 1ª leitura desta sessão
+let ytLiveHistory   = []; // array de { ts, totalViews }
+let ytLiveSessionStart = null;
+let ytAutoRefreshTimer = null;
+let ytLiveSortMode  = 'views_desc';
+let ytLiveLoading   = false;
+
+async function ytLiveRefresh() {
+  if (ytLiveLoading) return;
+  ytLiveLoading = true;
+
+  const btn = document.getElementById('ytlive-refresh-btn');
+  if (btn) btn.classList.add('loading');
+
+  const badge = document.getElementById('ytlive-status-badge');
+  const dot   = document.getElementById('ytlive-status-dot');
+  if (badge) badge.innerHTML = '<span id="ytlive-status-dot" style="width:6px;height:6px;border-radius:50%;background:#F6A800;display:inline-block;animation:pulse 1s infinite;"></span>&nbsp;Buscando...';
+
+  try {
+    // Busca em lotes de 50 IDs (limite da API)
+    const ids = YT_VIDEO_IDS.join(',');
+    const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${ids}&key=${YT_API_KEY}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+
+    const now = Date.now();
+    if (!ytLiveSessionStart) ytLiveSessionStart = now;
+
+    let totalViews = 0;
+    (json.items || []).forEach(item => {
+      const id    = item.id;
+      const stats = item.statistics || {};
+      const snip  = item.snippet   || {};
+      const views = parseInt(stats.viewCount  || 0, 10);
+      const likes = parseInt(stats.likeCount  || 0, 10);
+      const comms = parseInt(stats.commentCount || 0, 10);
+
+      // Guarda baseline se 1ª vez
+      if (ytLiveBaseline[id] === undefined) ytLiveBaseline[id] = views;
+
+      ytLiveData[id] = {
+        title:       snip.title         || id,
+        thumb:       snip.thumbnails?.medium?.url || snip.thumbnails?.default?.url || '',
+        publishedAt: snip.publishedAt   || '',
+        views, likes, comms
+      };
+      totalViews += views;
+    });
+
+    // Registra leitura no histórico
+    ytLiveHistory.push({ ts: now, totalViews });
+
+    // Atualiza UI
+    ytLiveRenderStatBar(totalViews);
+    ytLiveRenderKpi(now);
+    ytLiveSortAndRender(now);
+    ytLiveRenderHistory();
+
+    // Status OK
+    const nowStr = new Date(now).toLocaleTimeString('pt-BR');
+    const upEl = document.getElementById('ytlive-last-update');
+    if (upEl) upEl.textContent = 'Última leitura: ' + nowStr;
+
+    const badgeEl = document.getElementById('ytlive-status-badge');
+    if (badgeEl) badgeEl.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#0FA36B;display:inline-block;box-shadow:0 0 0 0 rgba(15,163,107,0.4);animation:pulse 2s infinite;"></span>&nbsp;Ao vivo';
+
+    const tableEl = document.getElementById('ytlive-table');
+    const loadEl  = document.getElementById('ytlive-loading');
+    if (tableEl) tableEl.style.display = '';
+    if (loadEl)  loadEl.style.display  = 'none';
+
+  } catch(e) {
+    console.error('YT Live error:', e);
+    const badgeEl = document.getElementById('ytlive-status-badge');
+    if (badgeEl) badgeEl.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#E0006D;display:inline-block;"></span>&nbsp;Erro na API';
+  }
+
+  if (btn) btn.classList.remove('loading');
+  ytLiveLoading = false;
+}
+
+function ytLiveRenderStatBar(totalViews) {
+  const ids = Object.keys(ytLiveData);
+  let totalLikes = 0;
+  let topId = null, topViews = 0;
+  ids.forEach(id => {
+    totalLikes += ytLiveData[id].likes;
+    if (ytLiveData[id].views > topViews) { topViews = ytLiveData[id].views; topId = id; }
+  });
+  const tvEl   = document.getElementById('ytlive-total-views');
+  const tlEl   = document.getElementById('ytlive-total-likes');
+  const cntEl  = document.getElementById('ytlive-videos-count');
+  const topEl  = document.getElementById('ytlive-top-video');
+  if (tvEl)  tvEl.textContent  = fmtNum(totalViews);
+  if (tlEl)  tlEl.textContent  = fmtNum(totalLikes);
+  if (cntEl) cntEl.textContent = ids.length;
+  if (topEl && topId) topEl.textContent = ytLiveData[topId].title;
+}
+
+function ytLiveRenderKpi(now) {
+  const ids = Object.keys(ytLiveData);
+  const sessionSecs = ytLiveSessionStart ? (now - ytLiveSessionStart) / 1000 : 1;
+  const sessionHours = sessionSecs / 3600;
+
+  let topGrowthId  = null, topGrowthDelta = 0;
+  let totalGainSession = 0;
+  let totalHourlyEst   = 0;
+
+  ids.forEach(id => {
+    const base  = ytLiveBaseline[id] ?? ytLiveData[id].views;
+    const delta = ytLiveData[id].views - base;
+    if (delta > topGrowthDelta) { topGrowthDelta = delta; topGrowthId = id; }
+    totalGainSession += delta;
+    if (sessionHours > 0) totalHourlyEst += delta / sessionHours;
+  });
+
+  // Top crescimento
+  const tgVal  = document.getElementById('ytlive-kpi-top-growth-val');
+  const tgDel  = document.getElementById('ytlive-kpi-top-growth-delta');
+  const tgName = document.getElementById('ytlive-kpi-top-growth-name');
+  if (tgVal)  tgVal.textContent  = topGrowthId ? fmtNum(topGrowthDelta) : '—';
+  if (tgDel && topGrowthId) {
+    const base = ytLiveBaseline[topGrowthId] || 1;
+    const pct  = ((topGrowthDelta / base) * 100).toFixed(3);
+    tgDel.textContent = '+' + pct + '% desde o início da sessão';
+    tgDel.className   = 'card-delta ' + (topGrowthDelta > 0 ? 'up' : 'neutro');
+  }
+  if (tgName && topGrowthId) tgName.textContent = ytLiveData[topGrowthId].title;
+
+  // Média/hora
+  const ahEl = document.getElementById('ytlive-kpi-avg-hour');
+  if (ahEl) ahEl.textContent = sessionHours > 0.01 ? fmtNum(Math.round(totalHourlyEst)) + '/h' : '—';
+
+  // Ganho sessão
+  const sgEl = document.getElementById('ytlive-kpi-session-gain');
+  if (sgEl) {
+    sgEl.textContent = (totalGainSession >= 0 ? '+' : '') + fmtNum(totalGainSession);
+    sgEl.style.color = totalGainSession > 0 ? 'var(--verde-medio)' : 'var(--cinza-texto)';
+  }
+  const snEl = document.getElementById('ytlive-kpi-session-since');
+  if (snEl && ytLiveSessionStart) {
+    const mins = Math.round((now - ytLiveSessionStart) / 60000);
+    snEl.textContent = 'há ' + (mins < 1 ? 'menos de 1min' : mins + 'min');
+  }
+}
+
+function ytLiveSortAndRender(now) {
+  const ids = Object.keys(ytLiveData);
+  const sessionHours = ytLiveSessionStart ? (now - ytLiveSessionStart) / 3600000 : 0;
+
+  const rows = ids.map(id => {
+    const d     = ytLiveData[id];
+    const base  = ytLiveBaseline[id] ?? d.views;
+    const gain  = d.views - base;
+    const pct   = base > 0 ? (gain / base) * 100 : 0;
+    const hourly = sessionHours > 0.001 ? gain / sessionHours : 0;
+    return { id, ...d, gain, pct, hourly };
+  });
+
+  // Ordenação
+  const sortMode = document.getElementById('ytlive-sort')?.value || ytLiveSortMode;
+  rows.sort((a, b) => {
+    if (sortMode === 'views_asc')    return a.views - b.views;
+    if (sortMode === 'gain_desc')    return b.gain  - a.gain;
+    if (sortMode === 'growth_desc')  return b.pct   - a.pct;
+    if (sortMode === 'likes_desc')   return b.likes - a.likes;
+    return b.views - a.views; // views_desc (default)
+  });
+
+  const tbody = document.getElementById('ytlive-tbody');
+  if (!tbody) return;
+
+  tbody.innerHTML = rows.map((row, i) => {
+    const gainClass = row.gain > 0 ? 'ytlive-gain-up' : row.gain < 0 ? 'ytlive-gain-down' : 'ytlive-gain-zero';
+    const gainStr   = row.gain > 0 ? '+' + fmtNum(row.gain) : row.gain < 0 ? fmtNum(row.gain) : '—';
+    const hourlyStr = row.hourly > 0.5 ? '+' + fmtNum(Math.round(row.hourly)) + '/h' : '—';
+    const pctStr    = row.gain !== 0 ? (row.pct >= 0 ? '+' : '') + row.pct.toFixed(4) + '%' : '—';
+    const thumbHtml = row.thumb
+      ? `<img src="${row.thumb}" class="ytlive-thumb" loading="lazy" onerror="this.style.display='none'">`
+      : `<div class="ytlive-thumb-ph"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" stroke="none"/></svg></div>`;
+    return `<tr onclick="window.open('https://youtube.com/watch?v=${row.id}','_blank')" title="Abrir no YouTube">
+      <td><span class="rank-pos">${i+1}</span></td>
+      <td>
+        <div class="ytlive-video-cell">
+          ${thumbHtml}
+          <div>
+            <div class="ytlive-video-title">${escapeHtml(row.title)}</div>
+            <div class="ytlive-video-sub">${row.id}</div>
+          </div>
+        </div>
+      </td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:12px;">${fmtNum(row.views)}</td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:12px;" class="${gainClass}">${gainStr}</td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:11px;color:var(--cinza-neutro);">${hourlyStr}</td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:12px;">${fmtNum(row.likes)}</td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:12px;">${fmtNum(row.comms)}</td>
+      <td style="text-align:right;font-family:var(--font-mono);font-size:11px;" class="${gainClass}">${pctStr}</td>
+    </tr>`;
+  }).join('');
+}
+
+function ytLiveRenderHistory() {
+  const container = document.getElementById('ytlive-history-list');
+  const countEl   = document.getElementById('ytlive-history-count');
+  if (!container) return;
+  if (countEl) countEl.textContent = ytLiveHistory.length + ' leitura(s)';
+  if (ytLiveHistory.length === 0) {
+    container.innerHTML = '<span style="font-style:italic;">Nenhuma leitura registrada ainda.</span>';
+    return;
+  }
+  container.innerHTML = ytLiveHistory.slice().reverse().slice(0, 20).map((h, i) => {
+    const dt   = new Date(h.ts).toLocaleTimeString('pt-BR');
+    const prev = ytLiveHistory[ytLiveHistory.length - 1 - i - 1];
+    let deltaHtml = '';
+    if (prev) {
+      const d = h.totalViews - prev.totalViews;
+      if (d > 0) deltaHtml = ` <span style="color:var(--verde-medio);">+${fmtNum(d)}</span>`;
+      else if (d < 0) deltaHtml = ` <span style="color:var(--rosa-escuro);">${fmtNum(d)}</span>`;
+    }
+    return `<div style="padding:5px 0;border-bottom:1px solid var(--cinza-suave);display:flex;gap:16px;align-items:center;">
+      <span style="color:var(--cinza-neutro);min-width:68px;">${dt}</span>
+      <span style="color:var(--cinza-texto);">${fmtNum(h.totalViews)} views totais</span>
+      ${deltaHtml}
+    </div>`;
+  }).join('');
+}
+
+function ytLiveSortTable() {
+  const now = Date.now();
+  ytLiveSortAndRender(now);
+}
+
+function toggleYtAutoRefresh() {
+  const checked = document.getElementById('ytlive-auto-refresh')?.checked;
+  if (ytAutoRefreshTimer) { clearInterval(ytAutoRefreshTimer); ytAutoRefreshTimer = null; }
+  if (checked) ytAutoRefreshTimer = setInterval(ytLiveRefresh, 5 * 60 * 1000);
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   el('semana-display').textContent = semanaLabel(0);
   updateSemanaNav();
   loadData();
 });
+
 </script>
 </body>
 </html>
