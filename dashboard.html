@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mangacharts — Análise Digital da Mangueira</title>
+<title>Mangacharts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -1398,6 +1398,209 @@ nav a svg { flex-shrink: 0; }
 }
 .ytlive-row-updated { animation: ytRowFlash 1.2s ease forwards; }
 
+/* ─── VIDEO MODAL ─── */
+#yt-video-modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.65); z-index: 500;
+  overflow-y: auto; padding: 24px 16px;
+}
+#yt-video-modal-overlay.open { display: block; }
+#yt-video-modal-box {
+  max-width: 720px; margin: 0 auto;
+  background: var(--panel-bg);
+  border-radius: 14px;
+  border: 1px solid var(--cinza-borda);
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.4);
+  animation: modalSlideUp 0.28s cubic-bezier(.22,1,.36,1);
+}
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.yt-modal-header {
+  background: linear-gradient(135deg, #CC0000, #FF0000);
+  padding: 18px 20px;
+  display: flex; align-items: flex-start; gap: 14px;
+  position: relative;
+}
+.yt-modal-thumb {
+  width: 100px; height: 56px; border-radius: 7px;
+  object-fit: cover; flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+.yt-modal-thumb-ph {
+  width: 100px; height: 56px; border-radius: 7px;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.yt-modal-title-wrap { flex: 1; min-width: 0; }
+.yt-modal-title {
+  font-family: var(--font-titulo);
+  font-weight: 700; font-size: 14px;
+  color: #fff; line-height: 1.3;
+  margin-bottom: 5px;
+}
+.yt-modal-id {
+  font-family: var(--font-mono); font-size: 9px;
+  color: rgba(255,255,255,0.55); letter-spacing: 0.5px;
+}
+.yt-modal-close {
+  position: absolute; top: 12px; right: 14px;
+  background: rgba(255,255,255,0.15); border: none;
+  border-radius: 7px; width: 30px; height: 30px;
+  color: #fff; font-size: 17px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+.yt-modal-close:hover { background: rgba(255,255,255,0.28); }
+
+.yt-modal-body { padding: 20px 22px; }
+
+.yt-modal-stats-row {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 10px; margin-bottom: 18px;
+}
+.yt-modal-stat {
+  background: var(--fundo-alt);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 8px; padding: 12px 14px;
+  text-align: center;
+}
+.yt-modal-stat-val {
+  font-family: var(--font-mono); font-size: 20px; font-weight: 600;
+  color: var(--cinza-texto); line-height: 1; margin-bottom: 4px;
+}
+.yt-modal-stat-label {
+  font-family: var(--font-mono); font-size: 9px;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--cinza-neutro);
+}
+
+.yt-modal-section-title {
+  font-family: var(--font-titulo); font-weight: 700; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 1.6px;
+  color: var(--verde-escuro); margin-bottom: 10px;
+  padding-bottom: 6px; border-bottom: 1.5px solid var(--verde-escuro);
+  display: inline-block;
+}
+
+.yt-modal-gain-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin-bottom: 18px;
+}
+.yt-modal-gain-card {
+  background: var(--fundo-alt);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 8px; padding: 13px 15px;
+}
+.yt-modal-gain-label {
+  font-family: var(--font-mono); font-size: 9px;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--cinza-neutro); margin-bottom: 5px;
+}
+.yt-modal-gain-val {
+  font-family: var(--font-mono); font-size: 22px; font-weight: 700; line-height: 1;
+}
+.yt-modal-gain-val.up { color: #0FA36B; }
+.yt-modal-gain-val.down { color: #E0006D; }
+.yt-modal-gain-val.zero { color: var(--cinza-neutro); }
+.yt-modal-gain-sub {
+  font-family: var(--font-corpo); font-size: 10px;
+  color: var(--cinza-neutro); font-style: italic; margin-top: 3px;
+}
+
+.yt-modal-rank-list { list-style: none; margin-bottom: 16px; }
+.yt-modal-rank-list li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid var(--cinza-suave);
+  font-family: var(--font-mono); font-size: 11px; color: var(--cinza-texto);
+}
+.yt-modal-rank-list li:last-child { border-bottom: none; }
+.yt-modal-rank-pos {
+  font-size: 16px; font-weight: 700; color: var(--verde-escuro);
+  min-width: 24px;
+}
+
+.yt-modal-sparkline { height: 60px; width: 100%; margin-bottom: 16px; }
+
+.yt-modal-link-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #FF0000; color: #fff;
+  font-family: var(--font-titulo); font-size: 12px; font-weight: 700;
+  padding: 10px 18px; border-radius: 7px;
+  text-decoration: none; transition: opacity 0.15s; margin-top: 4px;
+}
+.yt-modal-link-btn:hover { opacity: 0.85; }
+
+/* ─── LOSSES BADGE ─── */
+.yt-loss-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(224,0,109,0.12); color: #E0006D;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+  padding: 2px 6px; border-radius: 4px; margin-left: 5px;
+}
+
+/* ─── SCROLL TO BOTTOM BTN ─── */
+#yt-scroll-end-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: none; border: 1px solid var(--cinza-borda);
+  color: var(--cinza-neutro); font-family: var(--font-mono);
+  font-size: 9.5px; padding: 4px 10px; border-radius: 5px;
+  cursor: pointer; transition: all 0.14s; white-space: nowrap;
+}
+#yt-scroll-end-btn:hover { border-color: #FF0000; color: #FF0000; }
+
+/* ─── ANALISES SECTION ─── */
+.yt-analises-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-top: 20px; margin-bottom: 20px;
+}
+.yt-analise-card {
+  background: var(--card-bg);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 12px; padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+}
+.yt-analise-card-title {
+  font-family: var(--font-titulo); font-weight: 700; font-size: 11.5px;
+  color: var(--verde-mais-escuro); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 7px;
+}
+[data-theme="dark"] .yt-analise-card-title { color: rgba(255,255,255,0.88); }
+.yt-analise-full { grid-column: 1 / -1; }
+.yt-bar-row {
+  display: flex; align-items: center; gap: 9px;
+  margin-bottom: 8px; font-family: var(--font-mono); font-size: 10px;
+}
+.yt-bar-label {
+  min-width: 120px; white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis; color: var(--cinza-texto); font-size: 9.5px;
+}
+.yt-bar-track {
+  flex: 1; height: 8px; background: var(--cinza-suave);
+  border-radius: 4px; overflow: hidden;
+}
+.yt-bar-fill {
+  height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, #FF0000, rgba(255,0,0,0.4));
+  transition: width 0.7s ease;
+}
+.yt-bar-fill.gain { background: linear-gradient(90deg, #0FA36B, rgba(15,163,107,0.4)); }
+.yt-bar-fill.loss { background: linear-gradient(90deg, #E0006D, rgba(224,0,109,0.4)); }
+.yt-bar-val { min-width: 60px; text-align: right; color: var(--cinza-neutro); font-size: 9.5px; }
+
+.yt-loss-log-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 0; border-bottom: 1px solid var(--cinza-suave);
+  font-family: var(--font-mono); font-size: 10px;
+}
+.yt-loss-log-item:last-child { border-bottom: none; }
+.yt-loss-log-ts { color: var(--cinza-neutro); min-width: 100px; font-size: 9px; }
+.yt-loss-log-name { flex: 1; color: var(--cinza-texto); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.yt-loss-log-val { color: #E0006D; font-weight: 700; }
+
 </style>
 </head>
 <body>
@@ -1908,20 +2111,6 @@ nav a svg { flex-shrink: 0; }
       </div>
     </div>
 
-    <!-- Chart de linha: evolução total de views -->
-    <div class="yt-chart-panel">
-      <div class="panel-header">
-        <span class="panel-title">Evolução de Views — Histórico de Leituras</span>
-        <span class="panel-tag" id="ytlive-history-count">0 leituras salvas</span>
-      </div>
-      <div class="yt-chart-wrap">
-        <canvas id="yt-history-chart"></canvas>
-      </div>
-      <div id="ytlive-history-list" style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);margin-top:12px;max-height:140px;overflow-y:auto;">
-        Nenhuma leitura ainda.
-      </div>
-    </div>
-
     <!-- Tabela de vídeos -->
     <div class="full-panel">
       <div class="full-panel-header" style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
@@ -1957,10 +2146,132 @@ nav a svg { flex-shrink: 0; }
       </div>
     </div>
 
-    <div class="main-footer"><p>uma criação · <strong>acervo verde e rosa</strong></p></div>
-  </div>
+    <!-- ÂNCORA + ANÁLISES AVANÇADAS -->
+    <div id="yt-analises-anchor" style="scroll-margin-top:80px;"></div>
 
-</main>
+    <div style="margin-top:24px;">
+      <div class="section-title" style="margin-bottom:16px;">📊 Análises Avançadas — Sessão Atual</div>
+
+      <div class="yt-analises-grid">
+
+        <!-- Distribuição de Views -->
+        <div class="yt-analise-card">
+          <div class="yt-analise-card-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF0000" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Distribuição de Views por Vídeo
+          </div>
+          <div id="yt-dist-bars">
+            <span style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);">Aguardando dados...</span>
+          </div>
+        </div>
+
+        <!-- Ranking de Ganhos -->
+        <div class="yt-analise-card">
+          <div class="yt-analise-card-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0FA36B" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            Ranking de Ganho na Sessão
+          </div>
+          <div id="yt-gain-bars">
+            <span style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);">Aguardando dados...</span>
+          </div>
+        </div>
+
+        <!-- Log de Quedas -->
+        <div class="yt-analise-card">
+          <div class="yt-analise-card-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E0006D" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+            Log de Quedas de Views Salvo
+            <span id="yt-loss-count-badge" class="yt-loss-badge" style="display:none;">0</span>
+          </div>
+          <div id="yt-loss-log">
+            <span style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);font-style:italic;">Nenhuma queda registrada ainda.</span>
+          </div>
+          <div style="margin-top:10px;">
+            <button onclick="ytClearLossLog()" style="background:none;border:1px solid var(--cinza-borda);color:var(--cinza-neutro);border-radius:5px;padding:4px 9px;font-family:var(--font-mono);font-size:9px;cursor:pointer;">✕ Limpar log</button>
+          </div>
+        </div>
+
+        <!-- Eficiência: likes/view ratio -->
+        <div class="yt-analise-card">
+          <div class="yt-analise-card-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F6A800" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            Taxa de Engajamento (Likes/Views)
+          </div>
+          <div id="yt-engage-bars">
+            <span style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);">Aguardando dados...</span>
+          </div>
+        </div>
+
+        <!-- Resumo geral full-width -->
+        <div class="yt-analise-card yt-analise-full">
+          <div class="yt-analise-card-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0B7A3B" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Resumo da Sessão de Monitoramento
+          </div>
+          <div id="yt-session-summary" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
+            <span style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);">Aguardando dados...</span>
+          </div>
+        </div>
+
+        <!-- Evolução de Views — no fim da página -->
+        <div class="yt-analise-card yt-analise-full" style="padding:0;overflow:hidden;">
+          <div class="panel-header" style="padding:16px 20px;border-bottom:1px solid var(--cinza-borda);">
+            <span class="panel-title">📈 Evolução de Views — Últimas 10 Leituras</span>
+            <span class="panel-tag" id="ytlive-history-count">0 leituras salvas</span>
+          </div>
+          <div style="padding:16px 20px;">
+            <div class="yt-chart-wrap">
+              <canvas id="yt-history-chart"></canvas>
+            </div>
+            <div id="ytlive-history-list" style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);margin-top:12px;">
+              Nenhuma leitura ainda.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="main-footer"><p>uma criação · <strong>acervo verde e rosa</strong></p></div>
+    <div id="yt-page-bottom"></div>
+  </div>
+<div id="yt-video-modal-overlay" onclick="ytCloseVideoModal(event)">
+  <div id="yt-video-modal-box" onclick="event.stopPropagation()">
+    <div class="yt-modal-header">
+      <div id="yt-modal-thumb-wrap"></div>
+      <div class="yt-modal-title-wrap">
+        <div class="yt-modal-title" id="yt-modal-title">—</div>
+        <div class="yt-modal-id" id="yt-modal-id">—</div>
+      </div>
+      <button class="yt-modal-close" onclick="ytCloseVideoModal()">✕</button>
+    </div>
+    <div class="yt-modal-body">
+
+      <!-- Stats gerais -->
+      <div class="yt-modal-section-title">Dados Gerais</div>
+      <div class="yt-modal-stats-row" id="yt-modal-stats"></div>
+
+      <!-- Ganho por sessão -->
+      <div class="yt-modal-section-title">Ganho na Sessão</div>
+      <div class="yt-modal-gain-grid" id="yt-modal-gains"></div>
+
+      <!-- Sparkline histórico deste vídeo -->
+      <div class="yt-modal-section-title">Evolução de Views (histórico)</div>
+      <svg id="yt-modal-spark" class="yt-modal-sparkline" viewBox="0 0 640 60" preserveAspectRatio="none"></svg>
+
+      <!-- Ranking entre os vídeos -->
+      <div class="yt-modal-section-title">Posição no Ranking</div>
+      <ul class="yt-modal-rank-list" id="yt-modal-rank"></ul>
+
+      <!-- Link YT -->
+      <a id="yt-modal-link" href="#" target="_blank" rel="noopener" class="yt-modal-link-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" stroke="none"/></svg>
+        Ver no YouTube
+      </a>
+
+    </div>
+  </div>
+</div>
 
 <script>
 // ─── ESTADO ───────────────────────────────────────────────────────────────────
@@ -1999,17 +2310,24 @@ function setLoadingText(txt) {
 }
 
 function applyData(source) {
-  const loadTime = ((performance.now() - loadStart) / 1000).toFixed(2) + 's (' + source + ')';
-  const el = document.getElementById('sobre-load-time');
-  if (el) el.textContent = loadTime;
-  populateUI();
-  initCharts();
-  renderRankTable(currentRanking);
-  renderKpiComp();
-  if (DATA && DATA.agregacoes_por_ano) updateAnosBarChart(DATA.agregacoes_por_ano);
   const ov = document.getElementById('loading-overlay');
-  ov.classList.add('hidden');
-  setTimeout(() => ov.style.display = 'none', 450);
+  try {
+    const loadTime = ((performance.now() - loadStart) / 1000).toFixed(2) + 's (' + source + ')';
+    const elLoad = document.getElementById('sobre-load-time');
+    if (elLoad) elLoad.textContent = loadTime;
+    populateUI();
+    initCharts();
+    renderRankTable(currentRanking);
+    renderKpiComp();
+    if (DATA && DATA.agregacoes_por_ano) updateAnosBarChart(DATA.agregacoes_por_ano);
+  } catch(err) {
+    console.error('applyData error:', err);
+  } finally {
+    if (ov) {
+      ov.classList.add('hidden');
+      setTimeout(() => { ov.style.display = 'none'; }, 450);
+    }
+  }
 }
 
 async function fetchWithTimeout(url, ms) {
@@ -2247,9 +2565,10 @@ function renderTop10() {
   let html = `<table class="rank-table"><thead><tr><th style="width:36px">#</th><th style="width:40px">Var.</th><th>Obra</th><th class="right" style="width:90px">Streams / Views</th></tr></thead><tbody>`;
   data.forEach((obra, i) => {
     const pos = i + 1;
-    const enredo = obra.enredo || obra._enredo || '';
-    // Título principal: para itens YT usa o enredo se disponível, senão usa titulo
-    const displayTitulo = obra.titulo || enredo || '—';
+    const enredo = obra.enredo || obra._enredo || obra.nome || obra.name || '';
+    // Título principal: tenta todos os campos possíveis
+    const rawTitulo = obra.titulo || obra.nome || obra.name || obra.obra || obra.obra_titulo || enredo || '';
+    const displayTitulo = (rawTitulo && rawTitulo !== 'undefined') ? rawTitulo : (obra.ano ? `Mangueira ${obra.ano}` : '—');
     // Subtítulo: ano + enredo se houver e for diferente do título
     const subInfo = [obra.ano || '—', enredo && enredo !== displayTitulo ? enredo : ''].filter(Boolean).join(' · ');
     html += `<tr onclick="abrirModalAno('${obra.ano||0}')">
@@ -2741,9 +3060,10 @@ function renderRankTable(type) {
   data.forEach((obra, i) => {
     const pos       = i + 1;
     const anoEsc    = obra.ano || 0;
-    const enredo    = obra.enredo || obra._enredo || '';
-    // Título de exibição: usa o título (que para YT já é o enredo via ytAggToItem)
-    const displayTitulo = obra.titulo || enredo || '—';
+    const enredo    = obra.enredo || obra._enredo || obra.nome || obra.name || '';
+    // Título de exibição — tenta todos os campos possíveis do JSON
+    const rawTitulo = obra.titulo || obra.nome || obra.name || obra.obra || obra.obra_titulo || enredo || '';
+    const displayTitulo = (rawTitulo && rawTitulo !== 'undefined') ? rawTitulo : (anoEsc ? `Mangueira ${anoEsc}` : '—');
     // Segunda linha: ano + enredo se diferente do título principal
     const subLinha  = [String(anoEsc||'—'), enredo && enredo !== displayTitulo ? enredo : ''].filter(Boolean).join(' · ');
     const ganho     = obra.ganho_semanal || 0;
@@ -3193,6 +3513,13 @@ function ytLoadFromStorage() {
     Object.keys(ytSnapshots).forEach(id => {
       ytSnapshots[id] = ytSnapshots[id].filter(r => r.ts > cutoff);
     });
+    // Limpa títulos corrompidos no ytLiveData
+    Object.keys(ytLiveData).forEach(id => {
+      const d = ytLiveData[id];
+      if (d && (!d.title || d.title === 'undefined' || d.title === 'null')) {
+        d.title = id;
+      }
+    });
   } catch(e) { ytLiveHistory = []; ytSnapshots = {}; }
 }
 
@@ -3275,11 +3602,15 @@ async function ytLiveRefresh() {
     // Persiste
     ytSaveToStorage();
 
+    // Grava quedas
+    ytRecordLosses(now);
+
     // Renderiza
     ytLiveRenderStatBar(totalViews);
     ytLiveRenderKpi(now);
     ytLiveSortAndRender(now);
     ytLiveRenderHistory();
+    ytRenderAnalytics();
 
     const nowStr = new Date(now).toLocaleTimeString('pt-BR');
     const upEl   = document.getElementById('ytlive-last-update');
@@ -3369,7 +3700,7 @@ function ytLiveRenderStatBar(totalViews) {
   if (tvEl)  tvEl.textContent  = fmtNum(totalViews);
   if (tlEl)  tlEl.textContent  = fmtNum(totalLikes);
   if (cntEl) cntEl.textContent = ids.length;
-  if (topEl && topId) topEl.textContent = ytLiveData[topId].title;
+  if (topEl && topId) topEl.textContent = ytTitle(topId);
 }
 
 // ── Renderiza KPIs com sparklines e setas ─────────────────────────────────────
@@ -3404,7 +3735,7 @@ function ytLiveRenderKpi(now) {
     ytSetArrow('yt-kpi1-arrow', topGrowthDelta, '+' + pct);
     const n1 = document.getElementById('yt-kpi1-name');
     const p1 = document.getElementById('yt-kpi1-period');
-    if (n1) n1.textContent = ytLiveData[topGrowthId].title;
+    if (n1) n1.textContent = ytTitle(topGrowthId);
     if (p1) p1.textContent = ytBaselineLabel(topGrowthId);
     // Sparkline: histórico de views do vídeo líder
     const snaps = (ytSnapshots[topGrowthId] || []).slice(-24);
@@ -3455,7 +3786,7 @@ function ytLiveRenderHistory() {
   // Chart.js line chart
   const ctx = document.getElementById('yt-history-chart');
   if (ctx && ytLiveHistory.length >= 2) {
-    const shown = ytLiveHistory.slice(-60);
+    const shown = ytLiveHistory;
     const labels = shown.map(h => new Date(h.ts).toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' }));
     const data   = shown.map(h => h.totalViews);
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -3472,7 +3803,7 @@ function ytLiveRenderHistory() {
           borderColor: '#FF0000',
           backgroundColor: 'rgba(255,0,0,0.08)',
           borderWidth: 2,
-          pointRadius: shown.length > 20 ? 0 : 3,
+          pointRadius: shown.length > 50 ? 0 : shown.length > 20 ? 1 : 3,
           pointBackgroundColor: '#FF0000',
           fill: true,
           tension: 0.35,
@@ -3515,7 +3846,7 @@ function ytLiveRenderHistory() {
     container.innerHTML = '<span style="font-style:italic;">Nenhuma leitura registrada ainda.</span>';
     return;
   }
-  const shown2 = ytLiveHistory.slice().reverse().slice(0, 15);
+  const shown2 = ytLiveHistory.slice().reverse().slice(0, 10);
   container.innerHTML = shown2.map((h, i) => {
     const dt  = new Date(h.ts).toLocaleString('pt-BR', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
     const idx = ytLiveHistory.length - 1 - i;
@@ -3550,7 +3881,7 @@ function ytLiveSortAndRender(now) {
     const oldest = snaps.length > 0 ? snaps[0] : null;
     const diffH  = oldest ? (now - oldest.ts) / 3600000 : 0;
     const hourly = diffH > 0.02 ? gain / diffH : 0;
-    return { id, ...d, gain, pct, label, hourly, snaps };
+    return { id, ...d, title: ytTitle(id), gain, pct, label, hourly, snaps };
   });
 
   const sortMode = document.getElementById('ytlive-sort')?.value || 'views_desc';
@@ -3597,7 +3928,7 @@ function ytLiveSortAndRender(now) {
       ? `<img src="${row.thumb}" class="ytlive-thumb" loading="lazy" onerror="this.style.display='none'">`
       : `<div class="ytlive-thumb-ph"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" stroke="none"/></svg></div>`;
 
-    return `<tr class="ytlive-row-updated" onclick="window.open('https://youtube.com/watch?v=${row.id}','_blank')" title="Abrir no YouTube">
+    return `<tr class="ytlive-row-updated" onclick="ytOpenVideoModal('${row.id}')" title="Ver detalhes do vídeo">
       <td><span class="rank-pos">${i+1}</span></td>
       <td>
         <div class="ytlive-video-cell">
@@ -3642,13 +3973,292 @@ function ytLiveClearHistory() {
   alert('Histórico apagado.');
 }
 
-function escapeHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+// ── Título seguro de um vídeo ──────────────────────────────────────────────
+function ytTitle(id) {
+  const d = ytLiveData[id];
+  if (!d) return id;
+  const t = d.title;
+  if (!t || t === 'undefined' || t === 'null' || t.trim() === '') return id;
+  return t;
 }
 
+// ── Loss log persistence ────────────────────────────────────────────────────
+const YT_LOSS_LOG_KEY = 'ytlive_loss_log_v1';
+let ytLossLog = []; // [{ts, id, title, delta}]
+
+function ytLoadLossLog() {
+  try {
+    const s = localStorage.getItem(YT_LOSS_LOG_KEY);
+    if (s) ytLossLog = JSON.parse(s);
+    const cutoff = Date.now() - 30 * 24 * 3600 * 1000;
+    ytLossLog = ytLossLog.filter(r => r.ts > cutoff);
+  } catch(e) { ytLossLog = []; }
+}
+
+function ytSaveLossLog() {
+  try { localStorage.setItem(YT_LOSS_LOG_KEY, JSON.stringify(ytLossLog)); } catch(e) {}
+}
+
+function ytRecordLosses(now) {
+  const ids = Object.keys(ytLiveData);
+  let changed = false;
+  ids.forEach(id => {
+    const snaps = ytSnapshots[id] || [];
+    if (snaps.length < 2) return;
+    const last = snaps[snaps.length - 1];
+    const prev = snaps[snaps.length - 2];
+    if (last.views < prev.views) {
+      ytLossLog.push({ ts: now, id, title: ytTitle(id), delta: last.views - prev.views });
+      changed = true;
+    }
+  });
+  if (changed) ytSaveLossLog();
+}
+
+function ytClearLossLog() {
+  ytLossLog = [];
+  ytSaveLossLog();
+  ytRenderLossLog();
+}
+
+function ytRenderLossLog() {
+  const container = document.getElementById('yt-loss-log');
+  const badge = document.getElementById('yt-loss-count-badge');
+  if (!container) return;
+  if (ytLossLog.length === 0) {
+    container.innerHTML = '<span style="font-family:var(--font-mono);font-size:10px;color:var(--cinza-neutro);font-style:italic;">Nenhuma queda registrada ainda.</span>';
+    if (badge) badge.style.display = 'none';
+    return;
+  }
+  if (badge) { badge.style.display = 'inline-flex'; badge.textContent = ytLossLog.length; }
+  const shown = ytLossLog.slice().reverse().slice(0, 15);
+  container.innerHTML = shown.map(r => {
+    const dt = new Date(r.ts).toLocaleString('pt-BR', {day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+    const title = (r.title || r.id).substring(0, 32) + (r.title?.length > 32 ? '…' : '');
+    return `<div class="yt-loss-log-item">
+      <span class="yt-loss-log-ts">${dt}</span>
+      <span class="yt-loss-log-name" title="${escapeHtml(r.title||r.id)}">${escapeHtml(title)}</span>
+      <span class="yt-loss-log-val">${fmtNum(r.delta)}</span>
+    </div>`;
+  }).join('');
+}
+
+// ── Analytics rendering ────────────────────────────────────────────────────
+function ytRenderAnalytics() {
+  const ids = Object.keys(ytLiveData);
+  if (ids.length === 0) return;
+
+  const now = Date.now();
+
+  // 1) Distribuição de views
+  const distContainer = document.getElementById('yt-dist-bars');
+  if (distContainer) {
+    const allViews = ids.map(id => ({ id, title: ytTitle(id), views: ytLiveData[id].views }));
+    allViews.sort((a,b) => b.views - a.views);
+    const maxV = allViews[0].views || 1;
+    distContainer.innerHTML = allViews.map(v => `
+      <div class="yt-bar-row">
+        <div class="yt-bar-label" title="${escapeHtml(v.title)}">${escapeHtml(v.title.substring(0,22))}${v.title.length>22?'…':''}</div>
+        <div class="yt-bar-track"><div class="yt-bar-fill" style="width:${(v.views/maxV*100).toFixed(1)}%"></div></div>
+        <div class="yt-bar-val">${fmtNum(v.views)}</div>
+      </div>`).join('');
+  }
+
+  // 2) Ranking de ganhos
+  const gainContainer = document.getElementById('yt-gain-bars');
+  if (gainContainer) {
+    const gains = ids.map(id => {
+      const base = ytBaselineFor(id);
+      return { id, title: ytTitle(id), gain: ytLiveData[id].views - base };
+    });
+    gains.sort((a,b) => b.gain - a.gain);
+    const maxG = Math.max(...gains.map(g => Math.abs(g.gain)), 1);
+    gainContainer.innerHTML = gains.map(g => `
+      <div class="yt-bar-row">
+        <div class="yt-bar-label" title="${escapeHtml(g.title)}">${escapeHtml(g.title.substring(0,22))}${g.title.length>22?'…':''}</div>
+        <div class="yt-bar-track"><div class="yt-bar-fill ${g.gain>0?'gain':g.gain<0?'loss':''}" style="width:${(Math.abs(g.gain)/maxG*100).toFixed(1)}%"></div></div>
+        <div class="yt-bar-val" style="color:${g.gain>0?'#0FA36B':g.gain<0?'#E0006D':'var(--cinza-neutro)'}">${g.gain>0?'+':''}${fmtNum(g.gain)}</div>
+      </div>`).join('');
+  }
+
+  // 3) Loss log
+  ytRenderLossLog();
+
+  // 4) Engajamento likes/views
+  const engageContainer = document.getElementById('yt-engage-bars');
+  if (engageContainer) {
+    const engage = ids.map(id => {
+      const v = ytLiveData[id].views || 1;
+      const l = ytLiveData[id].likes || 0;
+      return { id, title: ytTitle(id), ratio: (l / v * 100) };
+    });
+    engage.sort((a,b) => b.ratio - a.ratio);
+    const maxR = Math.max(...engage.map(e => e.ratio), 0.001);
+    engageContainer.innerHTML = engage.map(e => `
+      <div class="yt-bar-row">
+        <div class="yt-bar-label" title="${escapeHtml(e.title)}">${escapeHtml(e.title.substring(0,22))}${e.title.length>22?'…':''}</div>
+        <div class="yt-bar-track"><div class="yt-bar-fill" style="width:${(e.ratio/maxR*100).toFixed(1)}%;background:linear-gradient(90deg,#F6A800,rgba(246,168,0,0.4))"></div></div>
+        <div class="yt-bar-val">${e.ratio.toFixed(2)}%</div>
+      </div>`).join('');
+  }
+
+  // 5) Resumo da sessão
+  const sumContainer = document.getElementById('yt-session-summary');
+  if (sumContainer) {
+    const totalViews = ids.reduce((s,id) => s + ytLiveData[id].views, 0);
+    const totalLikes = ids.reduce((s,id) => s + ytLiveData[id].likes, 0);
+    const totalGain = ids.reduce((s,id) => s + (ytLiveData[id].views - ytBaselineFor(id)), 0);
+    const numReadings = ytLiveHistory.length;
+    const sessionStart = ytLiveHistory.length > 0 ? ytLiveHistory[0].ts : now;
+    const sessionDurH = (now - sessionStart) / 3600000;
+    const hourlyRate = sessionDurH > 0.01 ? totalGain / sessionDurH : 0;
+    const lossCount = ytLossLog.length;
+    const items = [
+      { label: 'Views Totais', val: fmtNum(totalViews), color: '#FF0000' },
+      { label: 'Likes Totais', val: fmtNum(totalLikes), color: '#F6A800' },
+      { label: 'Ganho Total (sessão)', val: (totalGain>=0?'+':'')+fmtNum(totalGain), color: totalGain>=0?'#0FA36B':'#E0006D' },
+      { label: 'Leituras Coletadas', val: numReadings, color: 'var(--verde-medio)' },
+      { label: 'Duração da Sessão', val: sessionDurH < 1 ? Math.round(sessionDurH*60)+'min' : sessionDurH.toFixed(1)+'h', color: 'var(--cinza-texto)' },
+      { label: 'Views/hora (média)', val: hourlyRate > 0.5 ? fmtNum(Math.round(hourlyRate))+'/h' : '—', color: '#0FA36B' },
+      { label: 'Quedas Registradas', val: lossCount, color: lossCount>0?'#E0006D':'var(--cinza-neutro)' },
+      { label: 'Vídeos Monitorados', val: ids.length, color: 'var(--cinza-texto)' },
+    ];
+    sumContainer.innerHTML = items.map(it => `
+      <div style="background:var(--fundo-alt);border:1px solid var(--cinza-borda);border-radius:8px;padding:12px 14px;">
+        <div style="font-family:var(--font-mono);font-size:18px;font-weight:600;color:${it.color};line-height:1;margin-bottom:4px;">${it.val}</div>
+        <div style="font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--cinza-neutro);">${it.label}</div>
+      </div>`).join('');
+  }
+}
+
+// ── Modal de vídeo ────────────────────────────────────────────────────────
+function ytOpenVideoModal(id) {
+  const data = ytLiveData[id];
+  if (!data) return;
+
+  const now = Date.now();
+  const base = ytBaselineFor(id);
+  const gain = data.views - base;
+  const gainPct = base > 0 ? (gain / base * 100) : 0;
+  const snaps = ytSnapshots[id] || [];
+  const oldest = snaps.length > 0 ? snaps[0] : null;
+  const diffH = oldest ? (now - oldest.ts) / 3600000 : 0;
+  const hourly = diffH > 0.02 ? gain / diffH : 0;
+
+  // Header thumb
+  const thumbWrap = document.getElementById('yt-modal-thumb-wrap');
+  if (thumbWrap) {
+    thumbWrap.innerHTML = data.thumb
+      ? `<img src="${data.thumb}" class="yt-modal-thumb" onerror="this.style.display='none'">`
+      : `<div class="yt-modal-thumb-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" stroke="none"/></svg></div>`;
+  }
+  const titleEl = document.getElementById('yt-modal-title');
+  const idEl    = document.getElementById('yt-modal-id');
+  if (titleEl) titleEl.textContent = ytTitle(id);
+  if (idEl)    idEl.textContent = id + ' · youtube.com/watch?v=' + id;
+
+  // Dados gerais
+  const statsEl = document.getElementById('yt-modal-stats');
+  if (statsEl) {
+    statsEl.innerHTML = [
+      { label: 'Views', val: fmtNum(data.views) },
+      { label: 'Likes', val: fmtNum(data.likes) },
+      { label: 'Comentários', val: fmtNum(data.comms) },
+      { label: 'Engajamento', val: data.views > 0 ? (data.likes/data.views*100).toFixed(2)+'%' : '—' },
+    ].map(s => `<div class="yt-modal-stat">
+      <div class="yt-modal-stat-val">${s.val}</div>
+      <div class="yt-modal-stat-label">${s.label}</div>
+    </div>`).join('');
+  }
+
+  // Ganho
+  const gainsEl = document.getElementById('yt-modal-gains');
+  const gainCls = gain > 0 ? 'up' : gain < 0 ? 'down' : 'zero';
+  if (gainsEl) {
+    gainsEl.innerHTML = `
+      <div class="yt-modal-gain-card">
+        <div class="yt-modal-gain-label">Variação Total</div>
+        <div class="yt-modal-gain-val ${gainCls}">${gain>0?'+':''}${fmtNum(gain)}</div>
+        <div class="yt-modal-gain-sub">${(gainPct>=0?'+':'')+gainPct.toFixed(3)}% · ${ytBaselineLabel(id)}</div>
+      </div>
+      <div class="yt-modal-gain-card">
+        <div class="yt-modal-gain-label">Velocidade (views/h)</div>
+        <div class="yt-modal-gain-val ${hourly>0?'up':hourly<0?'down':'zero'}">${hourly>0.5?'+'+fmtNum(Math.round(hourly)):hourly<-0.5?fmtNum(Math.round(hourly)):'—'}</div>
+        <div class="yt-modal-gain-sub">${snaps.length} snapshots · ${diffH < 1 ? Math.round(diffH*60)+'min' : diffH.toFixed(1)+'h'} de dados</div>
+      </div>`;
+  }
+
+  // Sparkline deste vídeo
+  const sparkEl = document.getElementById('yt-modal-spark');
+  if (sparkEl && snaps.length >= 2) {
+    const vals = snaps.map(s => s.views);
+    const mn = Math.min(...vals), mx = Math.max(...vals), rng = mx - mn || 1;
+    const W = 640, H = 60;
+    const pts = vals.map((v, j) => {
+      const x = (j / (vals.length-1)) * W;
+      const y = H - ((v-mn)/rng) * (H-8) - 4;
+      return x.toFixed(1) + ',' + y.toFixed(1);
+    });
+    const color = gain > 0 ? '#0FA36B' : gain < 0 ? '#E0006D' : '#8C8C8C';
+    const lp = pts[pts.length-1].split(',');
+    sparkEl.innerHTML = `
+      <path d="M ${pts.join(' L ')} L ${lp[0]},${H} L 0,${H} Z" fill="${color}" fill-opacity="0.1"/>
+      <polyline points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="${lp[0]}" cy="${lp[1]}" r="4" fill="${color}"/>`;
+  } else if (sparkEl) {
+    sparkEl.innerHTML = `<text x="320" y="35" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#8C8C8C">Dados insuficientes para o gráfico</text>`;
+  }
+
+  // Ranking entre vídeos
+  const rankEl = document.getElementById('yt-modal-rank');
+  if (rankEl) {
+    const allRows = Object.keys(ytLiveData).map(vid => ({
+      id: vid, title: ytTitle(vid), views: ytLiveData[vid].views,
+      gain: ytLiveData[vid].views - ytBaselineFor(vid)
+    })).sort((a,b) => b.views - a.views);
+    const myPos = allRows.findIndex(r => r.id === id);
+    const slice = allRows.slice(0, Math.min(5, allRows.length));
+    const showAll = !slice.find(r => r.id === id) && myPos >= 0;
+    const list = showAll ? [...slice, { divider: true }, allRows[myPos]] : slice;
+    rankEl.innerHTML = list.map((r, i) => {
+      if (r.divider) return `<li style="color:var(--cinza-neutro);font-style:italic;font-size:9px;padding:4px 0;">...</li>`;
+      const isMe = r.id === id;
+      const pos = allRows.findIndex(x => x.id === r.id) + 1;
+      return `<li style="${isMe?'background:rgba(255,0,0,0.06);border-radius:6px;padding:8px 8px;margin:-2px -8px;':''}">
+        <span class="yt-modal-rank-pos">${pos}</span>
+        <span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;${isMe?'font-weight:700;color:#FF0000;':''}">${escapeHtml(r.title)}</span>
+        <span style="color:var(--cinza-neutro);min-width:60px;text-align:right;">${fmtNum(r.views)}</span>
+        <span style="min-width:55px;text-align:right;color:${r.gain>0?'#0FA36B':r.gain<0?'#E0006D':'var(--cinza-neutro)'};">${r.gain>0?'+':''}${fmtNum(r.gain)}</span>
+      </li>`;
+    }).join('');
+  }
+
+  // Link
+  const linkEl = document.getElementById('yt-modal-link');
+  if (linkEl) linkEl.href = 'https://youtube.com/watch?v=' + id;
+
+  // Abre modal
+  const overlay = document.getElementById('yt-video-modal-overlay');
+  if (overlay) overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function ytCloseVideoModal(evt) {
+  if (evt && evt.target && evt.target !== document.getElementById('yt-video-modal-overlay')) return;
+  const overlay = document.getElementById('yt-video-modal-overlay');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+
+function escapeHtml(s) {
+  if (s === undefined || s === null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 // ── Init YouTube: carrega histórico salvo ao abrir ────────────────────────────
 function ytLiveInit() {
   ytLoadFromStorage();
+  ytLoadLossLog();
   // Se há dados históricos, reconstrói ytLiveData a partir do snapshot mais recente
   const latestTs = ytLiveHistory.length > 0 ? ytLiveHistory[ytLiveHistory.length - 1].ts : 0;
   if (latestTs > 0) {
@@ -3665,12 +4275,16 @@ function ytLiveInit() {
     ytLiveRenderKpi(Date.now());
     ytLiveSortAndRender(Date.now());
     ytLiveRenderHistory();
+    ytRenderAnalytics();
     const tableEl = document.getElementById('ytlive-table');
     const loadEl  = document.getElementById('ytlive-loading');
     if (tableEl) tableEl.style.display = '';
     if (loadEl)  loadEl.style.display  = 'none';
     const upEl = document.getElementById('ytlive-last-update');
     if (upEl) upEl.textContent = 'Cache: ' + new Date(latestTs).toLocaleString('pt-BR', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
+  } else {
+    // Mesmo sem dados, renderiza o loss log salvo
+    ytRenderLossLog();
   }
 }
 
@@ -3680,6 +4294,21 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSemanaNav();
   loadData();
   ytLiveInit(); // carrega histórico salvo imediatamente
+
+  // Fecha modal com ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') ytCloseVideoModal({ target: document.getElementById('yt-video-modal-overlay') });
+  });
+
+  // Safety: se loading ainda visível após 16s, força esconder
+  setTimeout(() => {
+    const ov = document.getElementById('loading-overlay');
+    if (ov && ov.style.display !== 'none') {
+      ov.classList.add('hidden');
+      setTimeout(() => { ov.style.display = 'none'; }, 450);
+      if (!DATA) { DATA = buildEmptyData(); populateUI(); }
+    }
+  }, 16000);
 });
 
 </script>
